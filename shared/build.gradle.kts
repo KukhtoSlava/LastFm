@@ -1,7 +1,9 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization") version Versions.pluginSerialization
     id("com.android.library")
 }
 
@@ -15,13 +17,28 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
-        val androidMain by getting {
+        val commonMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.3.0")
+                implementation(Dependencies.Coroutines.Common)
+                implementation(Dependencies.Ktor.Core)
+                implementation(Dependencies.Serialization)
+                implementation(Dependencies.Reaktive.Core)
+                implementation(Dependencies.Reaktive.Interop)
+                implementation(Dependencies.Kodein)
+                implementation(Dependencies.Settings)
             }
         }
-        val iosMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation(Dependencies.Coroutines.Android)
+                implementation(Dependencies.Ktor.Android)
+            }
+        }
+        val iosMain by getting {
+            dependencies {
+                implementation(Dependencies.Ktor.Ios)
+            }
+        }
     }
 }
 
@@ -34,12 +51,19 @@ android {
     }
 }
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
 val packForXcode by tasks.creating(Sync::class) {
     group = "build"
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
     val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
     val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
-    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
+    val framework =
+        kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)
     val targetDir = File(buildDir, "xcode-frameworks")

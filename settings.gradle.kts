@@ -1,14 +1,15 @@
 pluginManagement {
     repositories {
+        mavenCentral()
         google()
         jcenter()
         gradlePluginPortal()
-        mavenCentral()
     }
     
 }
 rootProject.name = "LastFM"
 
+enableFeaturePreview("GRADLE_METADATA")
 
 include(":androidApp")
 include(":shared")

@@ -1,9 +1,9 @@
 buildscript {
     repositories {
+        mavenCentral()
         gradlePluginPortal()
         jcenter()
         google()
-        mavenCentral()
     }
     dependencies {
         classpath(Dependencies.Gradle.KotlinGradlePlugin)
@@ -13,8 +13,14 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenCentral()
+        maven("https://dl.bintray.com/kodein-framework/kodein-dev")
+        maven("https://dl.bintray.com/kotlin/kotlinx")
+        maven("https://dl.bintray.com/kotlin/ktor")
+        maven("https://dl.bintray.com/kotlin/kotlin-dev")
+        maven("https://dl.bintray.com/badoo/maven")
+
         google()
         jcenter()
-        mavenCentral()
     }
 }
