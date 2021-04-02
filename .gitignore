@@ -8,3 +8,4 @@
 .externalNativeBuild
 .cxx
 local.properties
+/shared/src/commonMain/kotlin/com/slavakukhto/lastfm/shared/PrivateKeys.kt
