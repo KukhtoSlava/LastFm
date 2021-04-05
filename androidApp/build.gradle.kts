@@ -5,8 +5,10 @@ plugins {
 
 dependencies {
     implementation(project(":shared"))
+    implementation(Dependencies.AndroidX.Core)
     implementation(Dependencies.AndroidX.AppCompat)
     implementation(Dependencies.AndroidX.ConstraintLayout)
+    implementation(Dependencies.Material)
 }
 
 android {
@@ -22,5 +24,8 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }

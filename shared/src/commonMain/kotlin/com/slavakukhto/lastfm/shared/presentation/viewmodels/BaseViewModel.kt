@@ -5,8 +5,13 @@ import com.badoo.reaktive.disposable.CompositeDisposable
 abstract class BaseViewModel {
 
     protected val compositeDisposable = CompositeDisposable()
+    protected var dataListener: UIDataListener? = null
 
-    abstract fun subscribe(data: ((UIData) -> Unit?)? = null)
+    open fun subscribe() = Unit
+
+    fun setUIDataListener(uiDataListener: UIDataListener) {
+        dataListener = uiDataListener
+    }
 
     fun unSubscribe() {
         compositeDisposable.clear()

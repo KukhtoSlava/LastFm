@@ -15,11 +15,15 @@ class AuthRepositoryImpl(
 ) : AuthRepository {
 
     override fun getMd5Hash(data: String): Single<String> {
-        return singleFromCoroutine { hashApi.getHash(data).digest }
+        return singleFromCoroutine {
+            hashApi.getHash(data).digest
+        }
     }
 
     override fun auth(name: String, password: String, apiSign: String): Single<String> {
-        return singleFromCoroutine { apiService.auth(name, password, apiSign) }
+        return singleFromCoroutine {
+            apiService.auth(name, password, apiSign)
+        }
     }
 
     override fun fetchUserInfo(name: String): Single<UserProfile> {

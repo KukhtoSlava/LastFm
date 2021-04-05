@@ -17,9 +17,14 @@ object Dependencies {
 
     object AndroidX {
 
+        object Core : dep(
+            name = "androidx.core:core-ktx",
+            version = Versions.coreCtx
+        )
+
         object AppCompat : dep(
             name = "androidx.appcompat:appcompat",
-            version = Versions.supportLib
+            version = Versions.androidX
         )
 
         object ConstraintLayout : dep(
@@ -27,6 +32,11 @@ object Dependencies {
             version = Versions.constraintLayout
         )
     }
+
+    object Material : dep(
+        name = "com.google.android.material:material",
+        version = Versions.material
+    )
 
     object Coroutines {
 
@@ -45,6 +55,11 @@ object Dependencies {
 
         object Core : dep(
             name = "io.ktor:ktor-client-core",
+            version = Versions.ktor
+        )
+
+        object Serialization : dep(
+            name = "io.ktor:ktor-client-serialization",
             version = Versions.ktor
         )
 

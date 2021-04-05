@@ -4,8 +4,6 @@ import com.slavakukhto.lastfm.shared.API_KEY
 import com.slavakukhto.lastfm.shared.data.responseentity.*
 import io.ktor.client.*
 import io.ktor.client.request.*
-import io.ktor.client.request.forms.*
-import io.ktor.http.*
 
 interface ApiService {
 
@@ -31,108 +29,108 @@ interface ApiService {
 class LastFmApiService(private val httpClient: HttpClient) : ApiService {
 
     override suspend fun auth(userName: String, password: String, apiSign: String): String {
-        return httpClient.get(BASE_URL) {
-            body = FormDataContent(Parameters.build {
-                append(KEY_METHOD, PARAM_METHOD_GET_SESSION)
-                append(KEY_USERNAME, userName)
-                append(KEY_PASSWORD, password)
-                append(KEY_API_SIGN, apiSign)
-                append(KEY_FORMAT, PARAM_FORMAT)
-                append(KEY_API, API_KEY)
-            })
+        return httpClient.post(BASE_URL) {
+            url {
+                parameters.append(KEY_METHOD, PARAM_METHOD_GET_SESSION)
+                parameters.append(KEY_USERNAME, userName)
+                parameters.append(KEY_PASSWORD, password)
+                parameters.append(KEY_API_SIGN, apiSign)
+                parameters.append(KEY_FORMAT, PARAM_FORMAT)
+                parameters.append(KEY_API, API_KEY)
+            }
         }
     }
 
     override suspend fun getUserInfo(userName: String): UserInfoResponse {
         return httpClient.get(BASE_URL) {
-            body = FormDataContent(Parameters.build {
-                append(KEY_METHOD, PARAM_METHOD_GET_USER_INFO)
-                append(KEY_USER, userName)
-                append(KEY_FORMAT, PARAM_FORMAT)
-                append(KEY_API, API_KEY)
-            })
+            url {
+                parameters.append(KEY_METHOD, PARAM_METHOD_GET_USER_INFO)
+                parameters.append(KEY_USER, userName)
+                parameters.append(KEY_FORMAT, PARAM_FORMAT)
+                parameters.append(KEY_API, API_KEY)
+            }
         }
     }
 
     override suspend fun getUserRecentTracks(userName: String): UserRecentTracksResponse {
         return httpClient.get(BASE_URL) {
-            body = FormDataContent(Parameters.build {
-                append(KEY_METHOD, PARAM_METHOD_GET_USER_RECENT_TRACKS)
-                append(KEY_USER, userName)
-                append(KEY_FORMAT, PARAM_FORMAT)
-                append(KEY_API, API_KEY)
-            })
+            url {
+                parameters.append(KEY_METHOD, PARAM_METHOD_GET_USER_RECENT_TRACKS)
+                parameters.append(KEY_USER, userName)
+                parameters.append(KEY_FORMAT, PARAM_FORMAT)
+                parameters.append(KEY_API, API_KEY)
+            }
         }
     }
 
     override suspend fun getUserAlbums(userName: String, period: String): UserTopAlbumsResponse {
         return httpClient.get(BASE_URL) {
-            body = FormDataContent(Parameters.build {
-                append(KEY_METHOD, PARAM_METHOD_GET_USER_TOP_ALBUMS)
-                append(KEY_USER, userName)
-                append(KEY_FORMAT, PARAM_FORMAT)
-                append(KEY_API, API_KEY)
-                append(KEY_PERIOD, period)
-            })
+            url {
+                parameters.append(KEY_METHOD, PARAM_METHOD_GET_USER_TOP_ALBUMS)
+                parameters.append(KEY_USER, userName)
+                parameters.append(KEY_FORMAT, PARAM_FORMAT)
+                parameters.append(KEY_API, API_KEY)
+                parameters.append(KEY_PERIOD, period)
+            }
         }
     }
 
     override suspend fun getUserArtists(userName: String, period: String): UserTopArtistsResponse {
         return httpClient.get(BASE_URL) {
-            body = FormDataContent(Parameters.build {
-                append(KEY_METHOD, PARAM_METHOD_GET_USER_TOP_ARTISTS)
-                append(KEY_USER, userName)
-                append(KEY_FORMAT, PARAM_FORMAT)
-                append(KEY_API, API_KEY)
-                append(KEY_PERIOD, period)
-            })
+            url {
+                parameters.append(KEY_METHOD, PARAM_METHOD_GET_USER_TOP_ARTISTS)
+                parameters.append(KEY_USER, userName)
+                parameters.append(KEY_FORMAT, PARAM_FORMAT)
+                parameters.append(KEY_API, API_KEY)
+                parameters.append(KEY_PERIOD, period)
+            }
         }
     }
 
     override suspend fun getUserTracks(userName: String, period: String): UserTopTracksResponse {
         return httpClient.get(BASE_URL) {
-            body = FormDataContent(Parameters.build {
-                append(KEY_METHOD, PARAM_METHOD_GET_USER_TOP_TRACKS)
-                append(KEY_USER, userName)
-                append(KEY_FORMAT, PARAM_FORMAT)
-                append(KEY_API, API_KEY)
-                append(KEY_PERIOD, period)
-            })
+            url {
+                parameters.append(KEY_METHOD, PARAM_METHOD_GET_USER_TOP_TRACKS)
+                parameters.append(KEY_USER, userName)
+                parameters.append(KEY_FORMAT, PARAM_FORMAT)
+                parameters.append(KEY_API, API_KEY)
+                parameters.append(KEY_PERIOD, period)
+            }
         }
     }
 
     override suspend fun getAlbum(artist: String, album: String): AlbumResponse {
         return httpClient.get(BASE_URL) {
-            body = FormDataContent(Parameters.build {
-                append(KEY_METHOD, PARAM_METHOD_GET_ALBUM_INFO)
-                append(KEY_ARTIST, artist)
-                append(KEY_ALBUM, album)
-                append(KEY_FORMAT, PARAM_FORMAT)
-                append(KEY_API, API_KEY)
-            })
+            url {
+                parameters.append(KEY_METHOD, PARAM_METHOD_GET_ALBUM_INFO)
+                parameters.append(KEY_ARTIST, artist)
+                parameters.append(KEY_ALBUM, album)
+                parameters.append(KEY_FORMAT, PARAM_FORMAT)
+                parameters.append(KEY_API, API_KEY)
+            }
         }
     }
 
     override suspend fun getArtist(artist: String): ArtistResponse {
         return httpClient.get(BASE_URL) {
-            body = FormDataContent(Parameters.build {
-                append(KEY_METHOD, PARAM_METHOD_GET_ARTIST_INFO)
-                append(KEY_ARTIST, artist)
-                append(KEY_FORMAT, PARAM_FORMAT)
-                append(KEY_API, API_KEY)
-            })
+            url {
+                parameters.append(KEY_METHOD, PARAM_METHOD_GET_ARTIST_INFO)
+                parameters.append(KEY_ARTIST, artist)
+                parameters.append(KEY_FORMAT, PARAM_FORMAT)
+                parameters.append(KEY_API, API_KEY)
+            }
         }
     }
 
     override suspend fun getTrack(artist: String, song: String): TrackResponse {
         return httpClient.get(BASE_URL) {
-            body = FormDataContent(Parameters.build {
-                append(KEY_METHOD, PARAM_METHOD_GET_TRACK_INFO)
-                append(KEY_ARTIST, artist)
-                append(KEY_TRACK, song)
-                append(KEY_FORMAT, PARAM_FORMAT)
-                append(KEY_API, API_KEY)
-            })
+            url {
+                parameters.append(KEY_METHOD, PARAM_METHOD_GET_TRACK_INFO)
+                parameters.append(KEY_ARTIST, artist)
+                parameters.append(KEY_TRACK, song)
+                parameters.append(KEY_FORMAT, PARAM_FORMAT)
+                parameters.append(KEY_API, API_KEY)
+            }
         }
     }
 

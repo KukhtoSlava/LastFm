@@ -1,5 +1,6 @@
 package com.slavakukhto.lastfm.shared.di
 
+import com.russhwolf.settings.Settings
 import com.slavakukhto.lastfm.shared.data.mappers.TimeStampPeriodMapper
 import com.slavakukhto.lastfm.shared.data.mappers.UserProfileMapper
 import com.slavakukhto.lastfm.shared.data.mappers.UserProfileResponseMapper
@@ -8,7 +9,12 @@ import com.slavakukhto.lastfm.shared.data.repositoryimpl.UserRepositoryImpl
 import com.slavakukhto.lastfm.shared.data.source.*
 import com.slavakukhto.lastfm.shared.domain.repository.AuthRepository
 import com.slavakukhto.lastfm.shared.domain.repository.UserRepository
+import com.slavakukhto.lastfm.shared.resolvers.provideSettings
 import io.ktor.client.*
+import io.ktor.client.features.DefaultRequest.Feature.install
+import io.ktor.client.features.json.*
+import io.ktor.client.features.json.serializer.*
+import io.ktor.http.ContentType.Application.Json
 import org.kodein.di.DI
 import org.kodein.di.bind
 import org.kodein.di.instance
@@ -16,12 +22,20 @@ import org.kodein.di.singleton
 
 val applicationModule = DI.Module(APP_MODULE) {
 
+    bind<Settings>() with singleton {
+        provideSettings(ApplicationInjector.context)
+    }
+
     bind<LocalStorage>() with singleton {
-        LocalStorageImpl(ApplicationInjector.settings)
+        LocalStorageImpl(instance())
     }
 
     bind() from singleton {
-        HttpClient()
+        HttpClient {
+            install(JsonFeature) {
+                serializer = KotlinxSerializer()
+            }
+        }
     }
 
     bind<ApiService>() with singleton {

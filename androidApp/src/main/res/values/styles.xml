@@ -1,10 +1,49 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/pitchBlack</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+
+    <style name="LastFM.Auth.EditText.Field" parent="">
+        <item name="android:textColor">@color/whiteOpaque</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/auth_text_size</item>
+        <item name="android:background">@drawable/selector_bg_edit_text</item>
+    </style>
+
+    <style name="LastFM.TextInput" parent="">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/auth_text_size</item>
+        <item name="android:textColorHint">@color/whiteOpaque</item>
+        <item name="android:layout_marginTop">@dimen/auth_text_input_mg_top</item>
+        <item name="android:layout_marginStart">@dimen/auth_default_mg_start</item>
+        <item name="android:layout_marginEnd">@dimen/auth_default_mg_start</item>
+    </style>
+
+    <style name="LastFM.Button" parent="">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:background">@drawable/selector_bg_btn</item>
+        <item name="android:textSize">@dimen/auth_text_size</item>
+        <item name="android:textColor">@color/whiteOpaque</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_marginStart">@dimen/auth_default_mg_start</item>
+        <item name="android:layout_marginEnd">@dimen/auth_default_mg_start</item>
+    </style>
+
+    <style name="LastFM.ButtonTV" parent="">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/auth_text_size</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/enabled_textview_btn</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">@dimen/auth_default_mg_start</item>
+        <item name="android:layout_marginEnd">@dimen/auth_default_mg_start</item>
     </style>
 
 </resources>

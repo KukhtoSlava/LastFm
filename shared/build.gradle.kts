@@ -21,6 +21,7 @@ kotlin {
             dependencies {
                 implementation(Dependencies.Coroutines.Common)
                 implementation(Dependencies.Ktor.Core)
+                implementation(Dependencies.Ktor.Serialization)
                 implementation(Dependencies.Serialization)
                 implementation(Dependencies.Reaktive.Core)
                 implementation(Dependencies.Reaktive.Interop)

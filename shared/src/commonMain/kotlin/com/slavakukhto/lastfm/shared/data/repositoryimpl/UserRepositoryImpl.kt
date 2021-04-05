@@ -18,39 +18,50 @@ class UserRepositoryImpl(
 ) : UserRepository {
 
     override fun getUserName(): Single<String> {
-        return single { localStorage.userName }
+        return single { emitter ->
+            emitter.onSuccess(localStorage.userName)
+        }
     }
 
     override fun setUserName(userName: String): Completable {
-        return completable { localStorage.userName = userName }
+        return completable { emitter ->
+            localStorage.userName = userName
+            emitter.onComplete()
+        }
     }
 
     override fun getUserProfile(): Single<UserProfile> {
-        return single {
-            userProfileMapper.transformToObject(localStorage.userProfileJson)
+        return single { emitter ->
+            emitter.onSuccess(userProfileMapper.transformToObject(localStorage.userProfileJson))
         }
     }
 
     override fun updateUserProfile(userProfile: UserProfile): Completable {
-        return completable {
+        return completable { emitter ->
             localStorage.userProfileJson = userProfileMapper.transformToJson(userProfile)
+            emitter.onComplete()
+
         }
     }
 
     override fun getUserTimeStamp(): Single<TimeStampPeriod> {
-        return single {
-            timeStampPeriodMapper.parsePeriod(localStorage.timeStampPeriod)
+        return single { emitter ->
+            emitter.onSuccess(timeStampPeriodMapper.parsePeriod(localStorage.timeStampPeriod))
         }
     }
 
     override fun setUserTimeStamp(timeStampPeriod: TimeStampPeriod): Completable {
-        return completable {
+        return completable { emitter ->
             localStorage.timeStampPeriod =
                 timeStampPeriodMapper.getPeriodTopValuesQuery(timeStampPeriod)
+            emitter.onComplete()
         }
     }
 
     override fun clearUserData(): Completable {
-        return completable { localStorage.clear() }
+        return completable { emitter ->
+            localStorage.clear()
+            emitter.onComplete()
+        }
     }
 }

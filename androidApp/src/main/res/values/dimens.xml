@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+<dimen name="auth_btn_height">44.4444dp</dimen>
+    <dimen name="auth_btn_pd_top">28.4444dp</dimen>
+    <dimen name="auth_default_mg_start">28.4444dp</dimen>
+    <dimen name="auth_edit_text_height">44.4444dp</dimen>
+    <dimen name="auth_edit_text_padding">-2.66667dp</dimen>
+    <dimen name="auth_edit_text_stroke">1.77778dp</dimen>
+    <dimen name="auth_logo_height">133.333dp</dimen>
+    <dimen name="auth_text_input_mg_top">21.3333dp</dimen>
+    <dimen name="auth_text_size">14.2222sp</dimen>
+    <dimen name="auth_textview_mg_top">21.3333dp</dimen>
+    <dimen name="auth_textview_pd_bot">21.3333dp</dimen>
+
+    <dimen name="splash_image_padding">64dp</dimen>
+</resources>

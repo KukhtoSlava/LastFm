@@ -1,10 +1,12 @@
 object Versions {
 
     const val targetSdk = 30
-    const val minSdk = 21
+    const val minSdk = 23
     const val kotlin = "1.4.31"
     const val gradle = "4.0.1"
-    const val supportLib = "1.1.0"
+    const val androidX = "1.2.0"
+    const val coreCtx = "1.3.2"
+    const val material = "1.3.0"
     const val constraintLayout = "2.0.4"
     const val ktor = "1.5.2"
     const val serialization = "1.1.0"

@@ -1,15 +1,14 @@
 package com.slavakukhto.lastfm.shared.di
 
-import com.russhwolf.settings.Settings
 import kotlin.native.concurrent.ThreadLocal
 
 @ThreadLocal
 object ApplicationInjector {
 
-    lateinit var settings: Settings
+    var context: Any? = null
 
-    fun provideSettings(settings: Settings): Settings {
-        this.settings = settings
-        return settings
+    fun provideContext(context: Any?): Any? {
+        this.context = context
+        return context
     }
 }

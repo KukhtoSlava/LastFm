@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
+        tools:visibility="visible"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivLogoName"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/auth_logo_height"
+        android:src="@drawable/logo_transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_1"/>
+
+    <com.slavakukhto.lastfm.androidApp.customviews.NoChangingBackgroundTextInputLayout
+        android:id="@+id/tilLogin"
+        style="@style/LastFM.TextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogoName">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etName"
+            style="@style/LastFM.Auth.EditText.Field"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/auth_edit_text_height"
+            android:inputType="textEmailAddress"
+            tools:text="caseyjonesmedea"/>
+
+    </com.slavakukhto.lastfm.androidApp.customviews.NoChangingBackgroundTextInputLayout>
+
+    <com.slavakukhto.lastfm.androidApp.customviews.NoChangingBackgroundTextInputLayout
+        android:id="@+id/tilPassword"
+        style="@style/LastFM.TextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilLogin"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/whiteTint">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPassword"
+            style="@style/LastFM.Auth.EditText.Field"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/auth_edit_text_height"
+            android:inputType="textPassword"
+            tools:text="testXYZ23"/>
+
+    </com.slavakukhto.lastfm.androidApp.customviews.NoChangingBackgroundTextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignIn"
+        style="@style/LastFM.Button"
+        android:layout_width="0dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="@dimen/auth_btn_height"
+        android:layout_marginTop="@dimen/auth_btn_pd_top"
+        android:text="@string/sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilPassword"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSignUp"
+        style="@style/LastFM.ButtonTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginTop="@dimen/auth_textview_mg_top"
+        android:text="@string/sign_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSignIn"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvReset"
+        style="@style/LastFM.ButtonTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginTop="@dimen/auth_textview_mg_top"
+        android:paddingBottom="@dimen/auth_textview_pd_bot"
+        android:text="@string/reset_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSignUp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
