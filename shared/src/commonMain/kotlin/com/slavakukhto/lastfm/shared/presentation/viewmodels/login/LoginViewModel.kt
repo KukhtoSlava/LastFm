@@ -36,9 +36,8 @@ class LoginViewModelImpl : LoginViewModel() {
 
     override fun signInClicked(loginParams: LoginParams) {
         authUserUseCase.execute(loginParams.name, loginParams.password)
-            .subscribeOn(ioScheduler)
-            .observeOn(mainScheduler)
-            .doOnAfterSubscribe {
+            .threadLocal()
+            .doOnBeforeSubscribe {
                 dataListener?.onUIDataReceived(LoginUIData.Loading)
             }
             .subscribe(object : CompletableObserver {

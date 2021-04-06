@@ -1,12 +1,12 @@
 package com.slavakukhto.lastfm.androidApp
 
 import android.app.Application
-import com.slavakukhto.lastfm.shared.di.ApplicationInjector
+import com.slavakukhto.lastfm.shared.di.provideContext
 
 class LastFmApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        ApplicationInjector.provideContext(this)
+        provideContext(this)
     }
 }

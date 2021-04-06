@@ -8,6 +8,6 @@ import org.kodein.di.singleton
 val generalModule = DI.Module(GENERAL_MODULE) {
 
     bind<ScreenNavigator>() with singleton {
-        GeneralInjector.screenNavigator
+        navigator
     }
 }

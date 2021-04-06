@@ -5,6 +5,7 @@ import com.badoo.reaktive.scheduler.mainScheduler
 import com.badoo.reaktive.single.observeOn
 import com.badoo.reaktive.single.subscribe
 import com.badoo.reaktive.single.subscribeOn
+import com.badoo.reaktive.single.threadLocal
 import com.slavakukhto.lastfm.shared.di.splashModule
 import com.slavakukhto.lastfm.shared.domain.usecases.IsUserAuthorizedUseCase
 import com.slavakukhto.lastfm.shared.presentation.navigation.Screen
@@ -28,16 +29,32 @@ class SplashViewModelImpl : SplashViewModel() {
         isUserAuthorizedUseCase.execute()
             .subscribeOn(ioScheduler)
             .observeOn(mainScheduler)
+            .threadLocal()
             .subscribe(
                 onSuccess = { isUserAuth ->
                     if (isUserAuth) {
-                        screenNavigator.pushScreen(Screen.MAIN)
+                        screenNavigator.pushScreen(
+                            Screen.MAIN,
+                            null,
+                            addToBackStack = false,
+                            withAnimation = false
+                        )
                     } else {
-                        screenNavigator.pushScreen(Screen.AUTH)
+                        screenNavigator.pushScreen(
+                            Screen.AUTH,
+                            null,
+                            addToBackStack = false,
+                            withAnimation = false
+                        )
                     }
                 },
                 onError = {
-                    screenNavigator.pushScreen(Screen.AUTH)
+                    screenNavigator.pushScreen(
+                        Screen.AUTH,
+                        null,
+                        addToBackStack = false,
+                        withAnimation = false
+                    )
                 }
             )
     }
