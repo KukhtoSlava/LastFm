@@ -5,7 +5,7 @@ interface ScreenNavigator {
     fun pushScreen(
         screen: Screen,
         params: ScreenParams? = null,
-        addToBackStack: Boolean = true,
+        clearBackStack: Boolean = true,
         withAnimation: Boolean = false
     )
 

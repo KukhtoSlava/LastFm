@@ -1,22 +1,26 @@
 package com.slavakukhto.lastfm.shared.di
 
 import com.russhwolf.settings.Settings
-import com.slavakukhto.lastfm.shared.data.mappers.TimeStampPeriodMapper
-import com.slavakukhto.lastfm.shared.data.mappers.UserProfileMapper
-import com.slavakukhto.lastfm.shared.data.mappers.UserProfileResponseMapper
+import com.slavakukhto.lastfm.shared.data.mappers.*
 import com.slavakukhto.lastfm.shared.data.repositoryimpl.AuthRepositoryImpl
+import com.slavakukhto.lastfm.shared.data.repositoryimpl.MediaRepositoryImpl
 import com.slavakukhto.lastfm.shared.data.repositoryimpl.UserRepositoryImpl
 import com.slavakukhto.lastfm.shared.data.source.*
+import com.slavakukhto.lastfm.shared.di.injectors.appContext
 import com.slavakukhto.lastfm.shared.domain.repository.AuthRepository
+import com.slavakukhto.lastfm.shared.domain.repository.MediaRepository
 import com.slavakukhto.lastfm.shared.domain.repository.UserRepository
 import com.slavakukhto.lastfm.shared.resolvers.provideSettings
 import io.ktor.client.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
-import org.kodein.di.DI
-import org.kodein.di.bind
-import org.kodein.di.instance
-import org.kodein.di.singleton
+import org.kodein.di.*
+
+val applicationDi = LazyDI {
+    DI {
+        import(applicationModule)
+    }
+}
 
 val applicationModule = DI.Module(APP_MODULE) {
 
@@ -52,6 +56,10 @@ val applicationModule = DI.Module(APP_MODULE) {
         UserRepositoryImpl(instance(), instance(), instance())
     }
 
+    bind<MediaRepository>() with singleton {
+        MediaRepositoryImpl(instance(), instance(), instance(), instance(), instance(), instance())
+    }
+
     bind() from singleton {
         UserProfileResponseMapper()
     }
@@ -62,5 +70,21 @@ val applicationModule = DI.Module(APP_MODULE) {
 
     bind() from singleton {
         UserProfileMapper()
+    }
+
+    bind() from singleton {
+        UserScrobblesTracksMapper()
+    }
+
+    bind() from singleton {
+        UserFavouriteTracksMapper()
+    }
+
+    bind() from singleton {
+        UserFavouriteAlbumsMapper()
+    }
+
+    bind() from singleton {
+        UserFavouriteArtistsMapper()
     }
 }

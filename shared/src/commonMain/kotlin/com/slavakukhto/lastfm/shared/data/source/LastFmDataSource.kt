@@ -7,7 +7,7 @@ import io.ktor.client.request.*
 
 interface ApiService {
 
-    suspend fun auth(userName: String, password: String, apiSign: String): String
+    suspend fun auth(userName: String, password: String, apiSign: String): UserAuthResponse
 
     suspend fun getUserInfo(userName: String): UserInfoResponse
 
@@ -28,7 +28,7 @@ interface ApiService {
 
 class LastFmApiService(private val httpClient: HttpClient) : ApiService {
 
-    override suspend fun auth(userName: String, password: String, apiSign: String): String {
+    override suspend fun auth(userName: String, password: String, apiSign: String): UserAuthResponse {
         return httpClient.post(BASE_URL) {
             url {
                 parameters.append(KEY_METHOD, PARAM_METHOD_GET_SESSION)

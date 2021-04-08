@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/pitchBlack"
+    android:paddingBottom="@dimen/period_sheet_main_padding"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:text="@string/period"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="@dimen/period_sheet_title_padding"
+        android:textSize="@dimen/period_sheet_title_textsize"
+        android:textColor="@color/whiteOpaque"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/period_sheet_devider_height"
+        android:background="@color/whiteTint"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvOverall"
+        android:text="@string/overall"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="@dimen/period_sheet_text_padding"
+        android:textSize="@dimen/period_sheet_text_textsize"
+        android:textColor="@color/whiteOpaque"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/period_sheet_devider_height"
+        android:background="@color/whiteTint"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv7days"
+        android:text="@string/days_7"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="@dimen/period_sheet_text_padding"
+        android:textSize="@dimen/period_sheet_text_textsize"
+        android:textColor="@color/whiteOpaque"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/period_sheet_devider_height"
+        android:background="@color/whiteTint"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv1month"
+        android:text="@string/month_1"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="@dimen/period_sheet_text_padding"
+        android:textSize="@dimen/period_sheet_text_textsize"
+        android:textColor="@color/whiteOpaque"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/period_sheet_devider_height"
+        android:background="@color/whiteTint"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv3month"
+        android:text="@string/month_3"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="@dimen/period_sheet_text_padding"
+        android:textSize="@dimen/period_sheet_text_textsize"
+        android:textColor="@color/whiteOpaque"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/period_sheet_devider_height"
+        android:background="@color/whiteTint"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv6month"
+        android:text="@string/month_6"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="@dimen/period_sheet_text_padding"
+        android:textSize="@dimen/period_sheet_text_textsize"
+        android:textColor="@color/whiteOpaque"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/period_sheet_devider_height"
+        android:background="@color/whiteTint"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv12month"
+        android:text="@string/month_12"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="@dimen/period_sheet_text_padding"
+        android:textSize="@dimen/period_sheet_text_textsize"
+        android:textColor="@color/whiteOpaque"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/period_sheet_devider_height"
+        android:background="@color/whiteTint"/>
+
+</LinearLayout>

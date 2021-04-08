@@ -23,7 +23,7 @@ class AuthRepositoryImpl(
 
     override fun auth(name: String, password: String, apiSign: String): Single<String> {
         return singleFromCoroutineUnsafe(uiRxDispatcher) {
-            apiService.auth(name, password, apiSign)
+            apiService.auth(name, password, apiSign).session.name
         }
     }
 

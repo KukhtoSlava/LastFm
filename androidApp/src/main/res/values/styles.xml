@@ -46,4 +46,9 @@
         <item name="android:layout_marginEnd">@dimen/auth_default_mg_start</item>
     </style>
 
+    <style name="LastFM.BottomNavigationTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/whiteOpaque</item>
+    </style>
+
 </resources>

@@ -10,7 +10,7 @@ class UserProfileResponseMapper {
             userName = userInfoResponse.user.name,
             scrobbles = userInfoResponse.user.playcount.toLong(),
             country = userInfoResponse.user.country,
-            registrationDate = userInfoResponse.user.registered.text.toLong(),
+            registrationDate = userInfoResponse.user.registered.text.toLong() * 1000,
             profileImagePath = userInfoResponse.user.image?.get(3)?.text
         )
     }

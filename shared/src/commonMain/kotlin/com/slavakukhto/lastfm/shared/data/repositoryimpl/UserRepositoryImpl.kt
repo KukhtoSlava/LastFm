@@ -2,8 +2,11 @@ package com.slavakukhto.lastfm.shared.data.repositoryimpl
 
 import com.badoo.reaktive.completable.Completable
 import com.badoo.reaktive.completable.completable
+import com.badoo.reaktive.completable.doOnAfterComplete
+import com.badoo.reaktive.observable.Observable
 import com.badoo.reaktive.single.Single
 import com.badoo.reaktive.single.single
+import com.badoo.reaktive.subject.behavior.BehaviorSubject
 import com.slavakukhto.lastfm.shared.data.mappers.TimeStampPeriodMapper
 import com.slavakukhto.lastfm.shared.data.mappers.UserProfileMapper
 import com.slavakukhto.lastfm.shared.data.source.LocalStorage
@@ -16,6 +19,9 @@ class UserRepositoryImpl(
     private val timeStampPeriodMapper: TimeStampPeriodMapper,
     private val userProfileMapper: UserProfileMapper
 ) : UserRepository {
+
+    private val changeTimestampPeriodSubject =
+        BehaviorSubject(timeStampPeriodMapper.parsePeriod(localStorage.timeStampPeriod))
 
     override fun getUserName(): Single<String> {
         return single { emitter ->
@@ -40,7 +46,6 @@ class UserRepositoryImpl(
         return completable { emitter ->
             localStorage.userProfileJson = userProfileMapper.transformToJson(userProfile)
             emitter.onComplete()
-
         }
     }
 
@@ -52,10 +57,12 @@ class UserRepositoryImpl(
 
     override fun setUserTimeStamp(timeStampPeriod: TimeStampPeriod): Completable {
         return completable { emitter ->
-            localStorage.timeStampPeriod =
-                timeStampPeriodMapper.getPeriodTopValuesQuery(timeStampPeriod)
+            localStorage.timeStampPeriod = timeStampPeriod.name
             emitter.onComplete()
         }
+            .doOnAfterComplete {
+                changeTimestampPeriodSubject.onNext(timeStampPeriod)
+            }
     }
 
     override fun clearUserData(): Completable {
@@ -63,5 +70,9 @@ class UserRepositoryImpl(
             localStorage.clear()
             emitter.onComplete()
         }
+    }
+
+    override fun timeStampPeriodChangeState(): Observable<TimeStampPeriod> {
+        return changeTimestampPeriodSubject
     }
 }

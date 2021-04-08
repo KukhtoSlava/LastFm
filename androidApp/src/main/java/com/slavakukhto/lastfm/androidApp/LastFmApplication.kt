@@ -1,7 +1,7 @@
 package com.slavakukhto.lastfm.androidApp
 
 import android.app.Application
-import com.slavakukhto.lastfm.shared.di.provideContext
+import com.slavakukhto.lastfm.shared.di.injectors.provideContext
 
 class LastFmApplication : Application() {
 

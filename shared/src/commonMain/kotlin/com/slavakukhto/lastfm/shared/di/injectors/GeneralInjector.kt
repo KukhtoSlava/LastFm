@@ -1,4 +1,4 @@
-package com.slavakukhto.lastfm.shared.di
+package com.slavakukhto.lastfm.shared.di.injectors
 
 import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 import kotlin.native.concurrent.ThreadLocal

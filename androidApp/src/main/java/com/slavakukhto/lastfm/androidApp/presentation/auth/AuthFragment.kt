@@ -21,13 +21,17 @@ class AuthFragment : BaseFragment<FragmentAuthBinding, LoginViewModel>() {
         LoginViewModelImpl()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         viewModel.setUIDataListener(object : UIDataListener {
             override fun onUIDataReceived(uiData: UIData) {
                 handleUIData(uiData)
             }
         })
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initViews()
     }
 

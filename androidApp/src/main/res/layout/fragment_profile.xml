@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginTop="@dimen/profile_image_margin_top"
+                android:id="@+id/ivProfileImage"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/profile_image_height"
+                android:background="@color/pitchBlack"
+                android:src="@drawable/ic_empty_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:paddingTop="@dimen/profile_name_padding_top"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@+id/ivProfileImage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/whiteOpaque"
+                android:textSize="@dimen/profile_name_textsize"
+                tools:text="Casey Jones"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvScrobblesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:paddingStart="@dimen/profile_title_padding_start"
+                android:paddingTop="@dimen/profile_title_padding_top"
+                android:textSize="@dimen/profile_title_textsize"
+                android:textStyle="bold"
+                android:paddingEnd="@dimen/profile_title_padding_end"
+                android:text="@string/scrobbles"
+                android:textColor="@color/whiteOpaque"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                tools:text="Scrobbles"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvScrobblesCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:paddingStart="@dimen/profile_description_padding_start"
+                android:paddingTop="@dimen/profile_description_padding_top"
+                android:paddingEnd="@dimen/profile_description_padding_end"
+                app:layout_constraintTop_toBottomOf="@id/tvScrobblesTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/whiteOpaque"
+                tools:text="100000"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCountryTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center|start"
+                android:paddingStart="@dimen/profile_title_padding_start"
+                android:paddingTop="@dimen/profile_title_padding_top"
+                android:textSize="@dimen/profile_title_textsize"
+                android:textStyle="bold"
+                android:paddingEnd="@dimen/profile_title_padding_end"
+                android:text="@string/country"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvScrobblesCount"
+                android:textColor="@color/whiteOpaque"
+                tools:text="Country"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCountryName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center|start"
+                android:paddingStart="@dimen/profile_description_padding_start"
+                android:paddingTop="@dimen/profile_description_padding_top"
+                android:paddingEnd="@dimen/profile_description_padding_end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCountryTitle"
+                android:textColor="@color/whiteOpaque"
+                tools:text="Belarus"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRegistrationDateTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/profile_title_padding_start"
+                android:paddingTop="@dimen/profile_title_padding_top"
+                android:textSize="@dimen/profile_title_textsize"
+                android:textStyle="bold"
+                android:paddingEnd="@dimen/profile_title_padding_end"
+                android:fontFamily="sans-serif"
+                android:gravity="center|start"
+                android:text="@string/registration_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCountryName"
+                android:textColor="@color/whiteOpaque"
+                tools:text="Registration date"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRegistrationDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center|start"
+                android:paddingStart="@dimen/profile_description_padding_start"
+                android:paddingTop="@dimen/profile_description_padding_top"
+                android:paddingEnd="@dimen/profile_description_padding_end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRegistrationDateTitle"
+                android:textColor="@color/whiteOpaque"
+                tools:text="23.04.2016"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLogOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/logout"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRegistrationDate"
+                android:paddingStart="@dimen/profile_description_padding_start"
+                android:paddingEnd="@dimen/profile_description_padding_end"
+                android:layout_marginTop="@dimen/profile_log_out_margin_top"
+                android:textColor="@color/colorPrimary"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

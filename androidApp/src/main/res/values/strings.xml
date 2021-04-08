@@ -5,4 +5,22 @@
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
     <string name="reset_password">Reset Password</string>
+    <string name="scrobbles">Scrobbles</string>
+    <string name="artists">Artists</string>
+    <string name="albums">Albums</string>
+    <string name="tracks">Tracks</string>
+    <string name="profile">Profile</string>
+    <string name="see_more">See more…</string>
+    <string name="scrobbling_now">Scrobbling now</string>
+    <string name="scrobbles_count">Scrobbles: %s</string>
+    <string name="logout">Log out</string>
+    <string name="country">Country</string>
+    <string name="registration_date">Registration date</string>
+    <string name="period">Period</string>
+    <string name="overall">Overall</string>
+    <string name="days_7">7 Days</string>
+    <string name="month_1">1 Month</string>
+    <string name="month_3">3 Month</string>
+    <string name="month_6">6 Month</string>
+    <string name="month_12">12 Month</string>
 </resources>

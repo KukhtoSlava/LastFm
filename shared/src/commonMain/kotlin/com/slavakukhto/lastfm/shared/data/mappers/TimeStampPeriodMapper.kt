@@ -8,7 +8,6 @@ class TimeStampPeriodMapper {
         return when (period) {
             TimeStampPeriod.OVERALL.name -> TimeStampPeriod.OVERALL
             TimeStampPeriod.DAYS7.name -> TimeStampPeriod.DAYS7
-            TimeStampPeriod.DAYS7.name -> TimeStampPeriod.DAYS7
             TimeStampPeriod.MONTH1.name -> TimeStampPeriod.MONTH1
             TimeStampPeriod.MONTH3.name -> TimeStampPeriod.MONTH3
             TimeStampPeriod.MONTH6.name -> TimeStampPeriod.MONTH6

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/scrobbles"
+        android:icon="@drawable/ic_headphone"
+        android:title="@string/scrobbles"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/artists"
+        android:icon="@drawable/ic_microphone"
+        android:title="@string/artists"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/albums"
+        android:icon="@drawable/ic_album"
+        android:title="@string/albums"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/tracks"
+        android:icon="@drawable/ic_musical_note"
+        android:title="@string/tracks"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile"
+        app:showAsAction="ifRoom"/>
+</menu>

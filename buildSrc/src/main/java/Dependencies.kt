@@ -38,6 +38,16 @@ object Dependencies {
         version = Versions.material
     )
 
+    object SwipeRefreshLayout : dep(
+        name = "androidx.swiperefreshlayout:swiperefreshlayout",
+        version = Versions.swipeRefreshLayout
+    )
+
+    object Glide : dep(
+        name = "com.github.bumptech.glide:glide",
+        version = Versions.glide
+    )
+
     object Coroutines {
 
         object Common : dep(

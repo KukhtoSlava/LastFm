@@ -6,4 +6,5 @@
     <color name="whiteOpaque">#FFFFFFFF</color>
     <color name="pitchBlack">#FF000000</color>
     <color name="whiteTint">#A0A0A0</color>
+    <color name="black_60">#99000000</color>
 </resources>

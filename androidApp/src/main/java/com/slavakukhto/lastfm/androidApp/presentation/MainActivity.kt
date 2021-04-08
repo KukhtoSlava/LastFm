@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.slavakukhto.lastfm.androidApp.R
 import com.slavakukhto.lastfm.androidApp.navigator.AndroidGeneralScreenNavigator
-import com.slavakukhto.lastfm.shared.di.provideScreenNavigator
+import com.slavakukhto.lastfm.shared.di.injectors.provideScreenNavigator
 import com.slavakukhto.lastfm.shared.presentation.navigation.Screen
 import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 

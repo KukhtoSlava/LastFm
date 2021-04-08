@@ -1,6 +1,6 @@
 package com.slavakukhto.lastfm.shared.domain.models
 
-enum class TimeStampPeriod(period: String) {
+enum class TimeStampPeriod(val period: String) {
 
     OVERALL("Overall"),
     DAYS7("7 Days"),

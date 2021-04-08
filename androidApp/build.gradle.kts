@@ -9,6 +9,8 @@ dependencies {
     implementation(Dependencies.AndroidX.AppCompat)
     implementation(Dependencies.AndroidX.ConstraintLayout)
     implementation(Dependencies.Material)
+    implementation(Dependencies.Glide)
+    implementation(Dependencies.SwipeRefreshLayout)
 }
 
 android {

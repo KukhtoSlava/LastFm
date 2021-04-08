@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE
 import com.slavakukhto.lastfm.androidApp.R
 import com.slavakukhto.lastfm.androidApp.presentation.auth.AuthFragment
@@ -20,13 +21,13 @@ class AndroidGeneralScreenNavigator constructor(private val activity: FragmentAc
     override fun pushScreen(
         screen: Screen,
         params: ScreenParams?,
-        addToBackStack: Boolean,
+        clearBackStack: Boolean,
         withAnimation: Boolean
     ) {
         if (isScreenExternal(screen)) {
             openExternalScreen(screen, params)
         } else {
-            openInternalScreens(screen, params, addToBackStack, withAnimation)
+            openInternalScreens(screen, params, clearBackStack, withAnimation)
         }
     }
 
@@ -52,20 +53,20 @@ class AndroidGeneralScreenNavigator constructor(private val activity: FragmentAc
     private fun openInternalScreens(
         screen: Screen,
         params: ScreenParams?,
-        addToBackStack: Boolean,
+        clearBackStack: Boolean,
         withAnimation: Boolean
     ) {
         with(activity.supportFragmentManager) {
             val fragment = createScreenFragment(screen, params)
             val fragmentTransaction = beginTransaction()
+            fragmentTransaction.replace(R.id.fragment_container, fragment)
             if (withAnimation) {
                 fragmentTransaction.setTransition(TRANSIT_FRAGMENT_FADE)
             }
-            fragmentTransaction.replace(R.id.fragment_container, fragment)
-            if (addToBackStack) {
-                fragmentTransaction.addToBackStack(screen.name)
-            }
             fragmentTransaction.commit()
+            if (clearBackStack) {
+                popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            }
         }
     }
 

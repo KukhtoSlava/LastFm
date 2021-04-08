@@ -2,13 +2,78 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:text="Main Fragment"
-        android:textSize="30sp"
-        android:gravity="center"
+    <com.slavakukhto.lastfm.androidApp.customviews.BaseStatusBar
+        android:id="@+id/statusBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusBar"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end|center"
+        android:minHeight="?attr/actionBarSize"
+        android:padding="@dimen/main_tv_period_padding"
+        android:textStyle="bold"
+        android:textSize="@dimen/main_tv_period_textsize"
         android:textColor="@color/whiteOpaque"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:paddingEnd="@dimen/main_tv_period_padding_end"
+        android:paddingStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusBar"
+        tools:text="365 days"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:minHeight="?attr/actionBarSize"
+        android:padding="@dimen/main_title_padding"
+        android:textColor="@color/whiteOpaque"
+        android:textSize="@dimen/main_title_textsize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusBar"
+        tools:text="Scrobbles"
+    />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/main_navigation_bar_height"
+        android:theme="@style/LastFM.BottomNavigationTheme"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/main_menu"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

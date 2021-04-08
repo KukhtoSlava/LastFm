@@ -12,5 +12,49 @@
     <dimen name="auth_textview_mg_top">21.3333dp</dimen>
     <dimen name="auth_textview_pd_bot">21.3333dp</dimen>
 
+    <dimen name="item_album_default_padding">7.11111dp</dimen>
+    <dimen name="item_album_guidline">88.8889dp</dimen>
+    <dimen name="item_album_height">160dp</dimen>
+    <dimen name="item_album_text_padding">3.55556dp</dimen>
+    <dimen name="item_album_textsize">14.2222sp</dimen>
+    <dimen name="item_album_width">160dp</dimen>
+    <dimen name="item_scrobbles_textsize">12.4444sp</dimen>
+    <dimen name="item_track_artist_textsize">14.2222sp</dimen>
+    <dimen name="item_track_date_textsize">10.6667sp</dimen>
+    <dimen name="item_track_default_padding">7.11111dp</dimen>
+    <dimen name="item_track_fotter_padding">14.2222dp</dimen>
+    <dimen name="item_track_picture_height">71.1111dp</dimen>
+    <dimen name="item_track_picture_width">71.1111dp</dimen>
+    <dimen name="item_track_song_textsize">14.2222sp</dimen>
+    <dimen name="item_track_textview_padding">3.55556dp</dimen>
+    <dimen name="item_track_textview_padding_start">10.6667dp</dimen>
+
+    <dimen name="main_navigation_bar_height">49.7778dp</dimen>
+    <dimen name="main_title_padding">7.11111dp</dimen>
+    <dimen name="main_title_textsize">19.5556sp</dimen>
+    <dimen name="main_tv_period_padding">7.11111dp</dimen>
+    <dimen name="main_tv_period_padding_end">14.2222dp</dimen>
+    <dimen name="main_tv_period_textsize">13.3333sp</dimen>
+
+    <dimen name="period_sheet_devider_height">0.444444dp</dimen>
+    <dimen name="period_sheet_main_padding">7.11111dp</dimen>
+    <dimen name="period_sheet_text_padding">7.11111dp</dimen>
+    <dimen name="period_sheet_text_textsize">14.2222sp</dimen>
+    <dimen name="period_sheet_title_padding">14.2222dp</dimen>
+    <dimen name="period_sheet_title_textsize">21.3333sp</dimen>
+
+    <dimen name="profile_description_padding_end">7.11111dp</dimen>
+    <dimen name="profile_description_padding_start">19.5556dp</dimen>
+    <dimen name="profile_description_padding_top">7.11111dp</dimen>
+    <dimen name="profile_image_height">142.222dp</dimen>
+    <dimen name="profile_image_margin_top">14.2222dp</dimen>
+    <dimen name="profile_log_out_margin_top">14.2222dp</dimen>
+    <dimen name="profile_name_padding_top">14.2222dp</dimen>
+    <dimen name="profile_name_textsize">26.6667sp</dimen>
+    <dimen name="profile_title_padding_end">7.11111dp</dimen>
+    <dimen name="profile_title_padding_start">19.5556dp</dimen>
+    <dimen name="profile_title_padding_top">14.2222dp</dimen>
+    <dimen name="profile_title_textsize">16sp</dimen>
+
     <dimen name="splash_image_padding">64dp</dimen>
 </resources>

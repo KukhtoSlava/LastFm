@@ -16,4 +16,6 @@ object Versions {
     const val kodein = "7.4.0"
     const val settings = "0.7.4"
     const val pluginSerialization = "1.4.30"
+    const val glide = "4.12.0"
+    const val swipeRefreshLayout = "1.1.0"
 }

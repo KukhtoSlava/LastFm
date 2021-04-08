@@ -12,5 +12,49 @@
     <dimen name="auth_textview_mg_top">24dp</dimen>
     <dimen name="auth_textview_pd_bot">24dp</dimen>
 
+    <dimen name="item_album_default_padding">8dp</dimen>
+    <dimen name="item_album_guidline">100dp</dimen>
+    <dimen name="item_album_height">180dp</dimen>
+    <dimen name="item_album_text_padding">4dp</dimen>
+    <dimen name="item_album_textsize">16sp</dimen>
+    <dimen name="item_album_width">180dp</dimen>
+    <dimen name="item_scrobbles_textsize">14sp</dimen>
+    <dimen name="item_track_artist_textsize">16sp</dimen>
+    <dimen name="item_track_date_textsize">12sp</dimen>
+    <dimen name="item_track_default_padding">8dp</dimen>
+    <dimen name="item_track_fotter_padding">16dp</dimen>
+    <dimen name="item_track_picture_height">80dp</dimen>
+    <dimen name="item_track_picture_width">80dp</dimen>
+    <dimen name="item_track_song_textsize">16sp</dimen>
+    <dimen name="item_track_textview_padding">4dp</dimen>
+    <dimen name="item_track_textview_padding_start">12dp</dimen>
+
+    <dimen name="main_navigation_bar_height">56dp</dimen>
+    <dimen name="main_title_padding">8dp</dimen>
+    <dimen name="main_title_textsize">22sp</dimen>
+    <dimen name="main_tv_period_padding">8dp</dimen>
+    <dimen name="main_tv_period_padding_end">16dp</dimen>
+    <dimen name="main_tv_period_textsize">15sp</dimen>
+
+    <dimen name="period_sheet_devider_height">0.5dp</dimen>
+    <dimen name="period_sheet_main_padding">8dp</dimen>
+    <dimen name="period_sheet_text_padding">8dp</dimen>
+    <dimen name="period_sheet_text_textsize">16sp</dimen>
+    <dimen name="period_sheet_title_padding">16dp</dimen>
+    <dimen name="period_sheet_title_textsize">24sp</dimen>
+
+    <dimen name="profile_description_padding_end">8dp</dimen>
+    <dimen name="profile_description_padding_start">22dp</dimen>
+    <dimen name="profile_description_padding_top">8dp</dimen>
+    <dimen name="profile_image_height">160dp</dimen>
+    <dimen name="profile_image_margin_top">16dp</dimen>
+    <dimen name="profile_log_out_margin_top">16dp</dimen>
+    <dimen name="profile_name_padding_top">16dp</dimen>
+    <dimen name="profile_name_textsize">30sp</dimen>
+    <dimen name="profile_title_padding_end">8dp</dimen>
+    <dimen name="profile_title_padding_start">22dp</dimen>
+    <dimen name="profile_title_padding_top">16dp</dimen>
+    <dimen name="profile_title_textsize">18sp</dimen>
+
     <dimen name="splash_image_padding">72dp</dimen>
 </resources>
