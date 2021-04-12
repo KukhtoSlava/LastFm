@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FavouriteAlbumViewCell" customModule="iosApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLp-NO-1kh">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yci-pz-cXB">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                            </imageView>
+                            <stackView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Awk-2u-Kqp">
+                                <rect key="frame" x="0.0" y="134" width="200" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="I'm human" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euf-XN-wQt">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scrobbles 123456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9h-pB-DKy">
+                                        <rect key="frame" x="0.0" y="41" width="200" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yci-pz-cXB" secondAttribute="bottom" id="59D-ol-NS8"/>
+                            <constraint firstAttribute="trailing" secondItem="Awk-2u-Kqp" secondAttribute="trailing" id="W11-yY-5tZ"/>
+                            <constraint firstItem="yci-pz-cXB" firstAttribute="leading" secondItem="LLp-NO-1kh" secondAttribute="leading" id="dAA-7U-tpg"/>
+                            <constraint firstAttribute="trailing" secondItem="yci-pz-cXB" secondAttribute="trailing" id="eRR-LX-fhZ"/>
+                            <constraint firstItem="Awk-2u-Kqp" firstAttribute="height" secondItem="yci-pz-cXB" secondAttribute="height" multiplier="0.33" id="nQN-DT-As5"/>
+                            <constraint firstItem="yci-pz-cXB" firstAttribute="top" secondItem="LLp-NO-1kh" secondAttribute="top" id="vth-35-Qnj"/>
+                            <constraint firstAttribute="bottom" secondItem="Awk-2u-Kqp" secondAttribute="bottom" id="zOU-Es-vlI"/>
+                            <constraint firstItem="Awk-2u-Kqp" firstAttribute="leading" secondItem="LLp-NO-1kh" secondAttribute="leading" id="zor-pb-fxf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="LLp-NO-1kh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1I0-hZ-kF8"/>
+                <constraint firstAttribute="bottom" secondItem="LLp-NO-1kh" secondAttribute="bottom" id="CVO-pI-C4O"/>
+                <constraint firstItem="LLp-NO-1kh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SPE-RO-GRe"/>
+                <constraint firstAttribute="trailing" secondItem="LLp-NO-1kh" secondAttribute="trailing" id="dak-3m-puI"/>
+            </constraints>
+            <size key="customSize" width="200" height="200"/>
+            <connections>
+                <outlet property="albumImage" destination="yci-pz-cXB" id="USY-qm-qrc"/>
+                <outlet property="albumLabel" destination="Euf-XN-wQt" id="jY0-du-G27"/>
+                <outlet property="scrobblesLabel" destination="I9h-pB-DKy" id="0OQ-P1-cf9"/>
+            </connections>
+            <point key="canvasLocation" x="220.28985507246378" y="111.16071428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

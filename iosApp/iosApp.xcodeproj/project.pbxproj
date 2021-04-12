@@ -19,6 +19,29 @@
 		E519C5C3261B155400B06468 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5C2261B155400B06468 /* AuthViewController.swift */; };
 		E519C5C5261B156200B06468 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5C4261B156200B06468 /* MainViewController.swift */; };
 		E519C5CD261B9F7700B06468 /* UIProgressViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5CC261B9F7700B06468 /* UIProgressViewExtension.swift */; };
+		E56C7F7C261F2CC300E69720 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7B261F2CC300E69720 /* ProfileViewController.swift */; };
+		E56C7F7E261F2CE200E69720 /* FavouriteTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7D261F2CE200E69720 /* FavouriteTracksViewController.swift */; };
+		E56C7F80261F2CFC00E69720 /* FavouriteAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7F261F2CFC00E69720 /* FavouriteAlbumsViewController.swift */; };
+		E56C7F82261F2D0F00E69720 /* FavouriteArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F81261F2D0F00E69720 /* FavouriteArtistsViewController.swift */; };
+		E56C7F84261F2D1C00E69720 /* ScrobblesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F83261F2D1C00E69720 /* ScrobblesViewController.swift */; };
+		E56C7F88261F379100E69720 /* ScrobbleTrackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F86261F379100E69720 /* ScrobbleTrackViewCell.swift */; };
+		E56C7F89261F379100E69720 /* ScrobbleTrackViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56C7F87261F379100E69720 /* ScrobbleTrackViewCell.xib */; };
+		E56C7F8B261F591600E69720 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F8A261F591600E69720 /* UIImageViewExtension.swift */; };
+		E5C6B03326242A1300483108 /* TimeStampHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6B03226242A1300483108 /* TimeStampHelper.swift */; };
+		E5E8857C26205AEF000F2D6E /* EmptyFieldViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8857A26205AEF000F2D6E /* EmptyFieldViewCell.swift */; };
+		E5E8857D26205AEF000F2D6E /* EmptyFieldViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E8857B26205AEF000F2D6E /* EmptyFieldViewCell.xib */; };
+		E5E8858126206CE5000F2D6E /* FavouriteTrackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8857F26206CE5000F2D6E /* FavouriteTrackViewCell.swift */; };
+		E5E8858226206CE5000F2D6E /* FavouriteTrackViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E8858026206CE5000F2D6E /* FavouriteTrackViewCell.xib */; };
+		E5E885862620991F000F2D6E /* FavouriteAlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E885842620991F000F2D6E /* FavouriteAlbumViewCell.swift */; };
+		E5E885872620991F000F2D6E /* FavouriteAlbumViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E885852620991F000F2D6E /* FavouriteAlbumViewCell.xib */; };
+		E5E8858A2620A685000F2D6E /* EmptyFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E885882620A685000F2D6E /* EmptyFieldCollectionViewCell.swift */; };
+		E5E8858B2620A685000F2D6E /* EmptyFieldCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E885892620A685000F2D6E /* EmptyFieldCollectionViewCell.xib */; };
+		E5E8858F2620AB78000F2D6E /* FavouriteArtistViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8858D2620AB78000F2D6E /* FavouriteArtistViewCell.swift */; };
+		E5E885902620AB78000F2D6E /* FavouriteArtistViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E8858E2620AB78000F2D6E /* FavouriteArtistViewCell.xib */; };
+		E5F9CF3D26236FE6001BFD2A /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F9CF3C26236FE6001BFD2A /* MainTabBarViewController.swift */; };
+		E5F9CF3F26238ED0001BFD2A /* UITabBarListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F9CF3E26238ED0001BFD2A /* UITabBarListener.swift */; };
+		E5F9CF4126238F3A001BFD2A /* UITabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F9CF4026238F3A001BFD2A /* UITabBarDelegate.swift */; };
+		E5F9CF43262396C7001BFD2A /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F9CF42262396C7001BFD2A /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +72,29 @@
 		E519C5C2261B155400B06468 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		E519C5C4261B156200B06468 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E519C5CC261B9F7700B06468 /* UIProgressViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProgressViewExtension.swift; sourceTree = "<group>"; };
+		E56C7F7B261F2CC300E69720 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E56C7F7D261F2CE200E69720 /* FavouriteTracksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTracksViewController.swift; sourceTree = "<group>"; };
+		E56C7F7F261F2CFC00E69720 /* FavouriteAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteAlbumsViewController.swift; sourceTree = "<group>"; };
+		E56C7F81261F2D0F00E69720 /* FavouriteArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteArtistsViewController.swift; sourceTree = "<group>"; };
+		E56C7F83261F2D1C00E69720 /* ScrobblesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblesViewController.swift; sourceTree = "<group>"; };
+		E56C7F86261F379100E69720 /* ScrobbleTrackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobbleTrackViewCell.swift; sourceTree = "<group>"; };
+		E56C7F87261F379100E69720 /* ScrobbleTrackViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrobbleTrackViewCell.xib; sourceTree = "<group>"; };
+		E56C7F8A261F591600E69720 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		E5C6B03226242A1300483108 /* TimeStampHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampHelper.swift; sourceTree = "<group>"; };
+		E5E8857A26205AEF000F2D6E /* EmptyFieldViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFieldViewCell.swift; sourceTree = "<group>"; };
+		E5E8857B26205AEF000F2D6E /* EmptyFieldViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyFieldViewCell.xib; sourceTree = "<group>"; };
+		E5E8857F26206CE5000F2D6E /* FavouriteTrackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTrackViewCell.swift; sourceTree = "<group>"; };
+		E5E8858026206CE5000F2D6E /* FavouriteTrackViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteTrackViewCell.xib; sourceTree = "<group>"; };
+		E5E885842620991F000F2D6E /* FavouriteAlbumViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteAlbumViewCell.swift; sourceTree = "<group>"; };
+		E5E885852620991F000F2D6E /* FavouriteAlbumViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteAlbumViewCell.xib; sourceTree = "<group>"; };
+		E5E885882620A685000F2D6E /* EmptyFieldCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFieldCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5E885892620A685000F2D6E /* EmptyFieldCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyFieldCollectionViewCell.xib; sourceTree = "<group>"; };
+		E5E8858D2620AB78000F2D6E /* FavouriteArtistViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteArtistViewCell.swift; sourceTree = "<group>"; };
+		E5E8858E2620AB78000F2D6E /* FavouriteArtistViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteArtistViewCell.xib; sourceTree = "<group>"; };
+		E5F9CF3C26236FE6001BFD2A /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		E5F9CF3E26238ED0001BFD2A /* UITabBarListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarListener.swift; sourceTree = "<group>"; };
+		E5F9CF4026238F3A001BFD2A /* UITabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarDelegate.swift; sourceTree = "<group>"; };
+		E5F9CF42262396C7001BFD2A /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +129,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				E5C6B031262429FE00483108 /* helpers */,
 				E519C5CB261B9F5C00B06468 /* customviews */,
 				E519C5BA261B106A00B06468 /* navigator */,
 				E519C5B9261B105F00B06468 /* presentation */,
@@ -141,7 +188,15 @@
 		E519C5BF261B116600B06468 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				E5D971F7261CA6BE0010EBC6 /* profile */,
+				E5D971F6261CA6B80010EBC6 /* tracks */,
+				E5D971F5261CA6AD0010EBC6 /* albums */,
+				E5D971F4261CA6A40010EBC6 /* artists */,
+				E5D971F3261CA69C0010EBC6 /* scrobbles */,
 				E519C5C4261B156200B06468 /* MainViewController.swift */,
+				E5F9CF3C26236FE6001BFD2A /* MainTabBarViewController.swift */,
+				E5F9CF3E26238ED0001BFD2A /* UITabBarListener.swift */,
+				E5F9CF4026238F3A001BFD2A /* UITabBarDelegate.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -150,8 +205,102 @@
 			isa = PBXGroup;
 			children = (
 				E519C5CC261B9F7700B06468 /* UIProgressViewExtension.swift */,
+				E56C7F8A261F591600E69720 /* UIImageViewExtension.swift */,
+				E5F9CF42262396C7001BFD2A /* UIColorExtension.swift */,
 			);
 			path = customviews;
+			sourceTree = "<group>";
+		};
+		E56C7F85261F350B00E69720 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E56C7F86261F379100E69720 /* ScrobbleTrackViewCell.swift */,
+				E56C7F87261F379100E69720 /* ScrobbleTrackViewCell.xib */,
+				E5E8857A26205AEF000F2D6E /* EmptyFieldViewCell.swift */,
+				E5E8857B26205AEF000F2D6E /* EmptyFieldViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		E5C6B031262429FE00483108 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E5C6B03226242A1300483108 /* TimeStampHelper.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		E5D971F3261CA69C0010EBC6 /* scrobbles */ = {
+			isa = PBXGroup;
+			children = (
+				E56C7F85261F350B00E69720 /* cells */,
+				E56C7F83261F2D1C00E69720 /* ScrobblesViewController.swift */,
+			);
+			path = scrobbles;
+			sourceTree = "<group>";
+		};
+		E5D971F4261CA6A40010EBC6 /* artists */ = {
+			isa = PBXGroup;
+			children = (
+				E5E8858C2620AAB6000F2D6E /* cells */,
+				E56C7F81261F2D0F00E69720 /* FavouriteArtistsViewController.swift */,
+			);
+			path = artists;
+			sourceTree = "<group>";
+		};
+		E5D971F5261CA6AD0010EBC6 /* albums */ = {
+			isa = PBXGroup;
+			children = (
+				E5E88583262098F6000F2D6E /* cells */,
+				E56C7F7F261F2CFC00E69720 /* FavouriteAlbumsViewController.swift */,
+			);
+			path = albums;
+			sourceTree = "<group>";
+		};
+		E5D971F6261CA6B80010EBC6 /* tracks */ = {
+			isa = PBXGroup;
+			children = (
+				E5E8857E26206CCA000F2D6E /* cells */,
+				E56C7F7D261F2CE200E69720 /* FavouriteTracksViewController.swift */,
+			);
+			path = tracks;
+			sourceTree = "<group>";
+		};
+		E5D971F7261CA6BE0010EBC6 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				E56C7F7B261F2CC300E69720 /* ProfileViewController.swift */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		E5E8857E26206CCA000F2D6E /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E5E8857F26206CE5000F2D6E /* FavouriteTrackViewCell.swift */,
+				E5E8858026206CE5000F2D6E /* FavouriteTrackViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		E5E88583262098F6000F2D6E /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E5E885842620991F000F2D6E /* FavouriteAlbumViewCell.swift */,
+				E5E885852620991F000F2D6E /* FavouriteAlbumViewCell.xib */,
+				E5E885882620A685000F2D6E /* EmptyFieldCollectionViewCell.swift */,
+				E5E885892620A685000F2D6E /* EmptyFieldCollectionViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		E5E8858C2620AAB6000F2D6E /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E5E8858D2620AB78000F2D6E /* FavouriteArtistViewCell.swift */,
+				E5E8858E2620AB78000F2D6E /* FavouriteArtistViewCell.xib */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,7 +332,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = orgName;
 				TargetAttributes = {
 					7555FF7A242A565900829871 = {
@@ -214,9 +363,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E8858226206CE5000F2D6E /* FavouriteTrackViewCell.xib in Resources */,
 				7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */,
 				7555FF85242A565B00829871 /* Assets.xcassets in Resources */,
+				E5E885902620AB78000F2D6E /* FavouriteArtistViewCell.xib in Resources */,
+				E5E885872620991F000F2D6E /* FavouriteAlbumViewCell.xib in Resources */,
+				E56C7F89261F379100E69720 /* ScrobbleTrackViewCell.xib in Resources */,
 				E519C5B8261B0B4E00B06468 /* Main.storyboard in Resources */,
+				E5E8858B2620A685000F2D6E /* EmptyFieldCollectionViewCell.xib in Resources */,
+				E5E8857D26205AEF000F2D6E /* EmptyFieldViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,12 +402,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E8857C26205AEF000F2D6E /* EmptyFieldViewCell.swift in Sources */,
 				E519C5BC261B109100B06468 /* IosGeneralScreenNavigator.swift in Sources */,
+				E5F9CF4126238F3A001BFD2A /* UITabBarDelegate.swift in Sources */,
+				E5E8858F2620AB78000F2D6E /* FavouriteArtistViewCell.swift in Sources */,
+				E5C6B03326242A1300483108 /* TimeStampHelper.swift in Sources */,
+				E5F9CF43262396C7001BFD2A /* UIColorExtension.swift in Sources */,
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
+				E5E8858A2620A685000F2D6E /* EmptyFieldCollectionViewCell.swift in Sources */,
+				E5F9CF3D26236FE6001BFD2A /* MainTabBarViewController.swift in Sources */,
+				E5E885862620991F000F2D6E /* FavouriteAlbumViewCell.swift in Sources */,
+				E56C7F80261F2CFC00E69720 /* FavouriteAlbumsViewController.swift in Sources */,
+				E56C7F88261F379100E69720 /* ScrobbleTrackViewCell.swift in Sources */,
+				E56C7F7E261F2CE200E69720 /* FavouriteTracksViewController.swift in Sources */,
+				E5F9CF3F26238ED0001BFD2A /* UITabBarListener.swift in Sources */,
 				E519C5C3261B155400B06468 /* AuthViewController.swift in Sources */,
+				E56C7F82261F2D0F00E69720 /* FavouriteArtistsViewController.swift in Sources */,
 				E519C5CD261B9F7700B06468 /* UIProgressViewExtension.swift in Sources */,
+				E56C7F8B261F591600E69720 /* UIImageViewExtension.swift in Sources */,
 				E519C5C5261B156200B06468 /* MainViewController.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
+				E5E8858126206CE5000F2D6E /* FavouriteTrackViewCell.swift in Sources */,
+				E56C7F7C261F2CC300E69720 /* ProfileViewController.swift in Sources */,
+				E56C7F84261F2D1C00E69720 /* ScrobblesViewController.swift in Sources */,
 				E519C5C1261B119600B06468 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +469,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -357,6 +530,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

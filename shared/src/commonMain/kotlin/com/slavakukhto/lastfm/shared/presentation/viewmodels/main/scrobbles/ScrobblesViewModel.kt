@@ -3,6 +3,7 @@ package com.slavakukhto.lastfm.shared.presentation.viewmodels.main.scrobbles
 import com.badoo.reaktive.disposable.Disposable
 import com.badoo.reaktive.single.SingleObserver
 import com.badoo.reaktive.single.doOnAfterSubscribe
+import com.badoo.reaktive.single.threadLocal
 import com.slavakukhto.lastfm.shared.di.scrobblesDI
 import com.slavakukhto.lastfm.shared.domain.models.ScrobblesTrack
 import com.slavakukhto.lastfm.shared.domain.usecases.GetMoreScrobblesUrlUseCase
@@ -35,6 +36,7 @@ class ScrobblesViewModelImpl : ScrobblesViewModel() {
 
     override fun loadScrobblesTracks() {
         getUserScrobblesTracksUseCase.execute()
+            .threadLocal()
             .doOnAfterSubscribe { dataListener?.onUIDataReceived(ScrobblesUIData.Loading) }
             .subscribe(object : SingleObserver<List<ScrobblesTrack>> {
                 override fun onError(error: Throwable) {

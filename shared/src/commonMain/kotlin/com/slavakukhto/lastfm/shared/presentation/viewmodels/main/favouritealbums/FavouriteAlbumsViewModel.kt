@@ -2,6 +2,7 @@ package com.slavakukhto.lastfm.shared.presentation.viewmodels.main.favouritealbu
 
 import com.badoo.reaktive.disposable.Disposable
 import com.badoo.reaktive.observable.ObservableObserver
+import com.badoo.reaktive.observable.threadLocal
 import com.badoo.reaktive.single.SingleObserver
 import com.badoo.reaktive.single.doOnAfterSubscribe
 import com.slavakukhto.lastfm.shared.di.favouritesAlbumsDI
@@ -15,6 +16,7 @@ import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.BaseViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.browser.BrowserScreenParams
+import io.ktor.utils.io.concurrent.*
 import org.kodein.di.instance
 
 abstract class FavouriteAlbumsViewModel : BaseViewModel() {
@@ -35,6 +37,7 @@ class FavouriteAlbumsViewModelImpl : FavouriteAlbumsViewModel() {
 
     override fun subscribe() {
         timestampPeriodChangedUseCase.execute()
+            .threadLocal()
             .subscribe(object : ObservableObserver<TimeStampPeriod> {
                 override fun onComplete() = Unit
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="EmptyFieldCollectionViewCell" customModule="iosApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASw-SI-God">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See more..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiF-p1-Tyq">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eiF-p1-Tyq" firstAttribute="leading" secondItem="ASw-SI-God" secondAttribute="leading" id="8my-BG-4jH"/>
+                            <constraint firstItem="eiF-p1-Tyq" firstAttribute="top" secondItem="ASw-SI-God" secondAttribute="top" id="PtO-w4-hFG"/>
+                            <constraint firstAttribute="trailing" secondItem="eiF-p1-Tyq" secondAttribute="trailing" id="pE7-4q-W3f"/>
+                            <constraint firstAttribute="bottom" secondItem="eiF-p1-Tyq" secondAttribute="bottom" id="plI-tO-kAx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ASw-SI-God" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="97L-4W-dcR"/>
+                <constraint firstAttribute="trailing" secondItem="ASw-SI-God" secondAttribute="trailing" id="CAF-dR-2Nz"/>
+                <constraint firstAttribute="bottom" secondItem="ASw-SI-God" secondAttribute="bottom" id="JTF-9e-mVB"/>
+                <constraint firstItem="ASw-SI-God" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yo2-OZ-S6b"/>
+            </constraints>
+            <size key="customSize" width="200" height="200"/>
+            <point key="canvasLocation" x="220.28985507246378" y="111.16071428571428"/>
+        </collectionViewCell>
+    </objects>
+</document>

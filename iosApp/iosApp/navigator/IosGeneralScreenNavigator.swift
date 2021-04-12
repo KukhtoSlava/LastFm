@@ -22,11 +22,11 @@ class IosGeneralScreenNavigator : ScreenNavigator {
         navigationController.popViewController(animated: true)
     }
     
-    func pushScreen(screen: Screen, params: ScreenParams?, addToBackStack: Bool, withAnimation: Bool) {
+    func pushScreen(screen: Screen, params: ScreenParams?, clearBackStack: Bool, withAnimation: Bool) {
         if(isScreenExternal(screen: screen)){
             openExternalScreen(screen: screen, params: params)
         }else{
-            openInternalScreen(screen: screen, params: params, addToBackStack: addToBackStack, withAnimation: withAnimation)
+            openInternalScreen(screen: screen, params: params, clearBackStack: clearBackStack, withAnimation: withAnimation)
         }
     }
     
@@ -59,7 +59,7 @@ class IosGeneralScreenNavigator : ScreenNavigator {
             break
         case Screen.main:
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            viewController = storyboard.instantiateViewController(identifier: "main") as MainViewController
+            viewController = storyboard.instantiateViewController(identifier: "main") as MainTabBarViewController
             break
         default:
             viewController = UIViewController()
@@ -70,10 +70,13 @@ class IosGeneralScreenNavigator : ScreenNavigator {
     
     private func openInternalScreen(screen: Screen,
                                      params: ScreenParams?,
-                                     addToBackStack: Bool,
+                                     clearBackStack: Bool,
                                      withAnimation: Bool){
         let viewController = createUIViewController(screen: screen, screenParams: params)
             navigationController.pushViewController(viewController, animated: withAnimation)
+        if(clearBackStack){
+            navigationController.viewControllers.removeAll(where: {$0 != viewController})
+        }
     }
     
     private func openExternalScreen(screen: Screen,

@@ -3,6 +3,7 @@ package com.slavakukhto.lastfm.shared.presentation.viewmodels.main
 import com.badoo.reaktive.completable.CompletableObserver
 import com.badoo.reaktive.disposable.Disposable
 import com.badoo.reaktive.observable.ObservableObserver
+import com.badoo.reaktive.observable.threadLocal
 import com.slavakukhto.lastfm.shared.di.mainDI
 import com.slavakukhto.lastfm.shared.domain.models.TimeStampPeriod
 import com.slavakukhto.lastfm.shared.domain.usecases.SetUserTimeStampUseCase
@@ -43,6 +44,7 @@ class MainViewModelImpl : MainViewModel() {
     override fun subscribe() {
         super.subscribe()
         timestampPeriodChangedUseCase.execute()
+            .threadLocal()
             .subscribe(object : ObservableObserver<TimeStampPeriod> {
                 override fun onComplete() = Unit
 

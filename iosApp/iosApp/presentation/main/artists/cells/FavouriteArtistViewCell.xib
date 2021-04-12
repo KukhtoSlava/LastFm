@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FavouriteArtistViewCell" customModule="iosApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUV-U5-QKq">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gP-22-WnW">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                            </imageView>
+                            <stackView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gYE-xK-XkR">
+                                <rect key="frame" x="0.0" y="130" width="200" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xv9-KW-CPX">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scrobbles 123456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4d-fM-gDx">
+                                        <rect key="frame" x="0.0" y="35" width="200" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0gP-22-WnW" firstAttribute="top" secondItem="VUV-U5-QKq" secondAttribute="top" id="1TL-kc-OzA"/>
+                            <constraint firstAttribute="trailing" secondItem="0gP-22-WnW" secondAttribute="trailing" id="2K2-ea-boD"/>
+                            <constraint firstItem="gYE-xK-XkR" firstAttribute="height" secondItem="0gP-22-WnW" secondAttribute="height" multiplier="0.35" id="Bpt-9P-bJU"/>
+                            <constraint firstItem="gYE-xK-XkR" firstAttribute="leading" secondItem="VUV-U5-QKq" secondAttribute="leading" id="Brk-Jc-jDg"/>
+                            <constraint firstAttribute="trailing" secondItem="gYE-xK-XkR" secondAttribute="trailing" id="PnC-wa-Fom"/>
+                            <constraint firstAttribute="bottom" secondItem="gYE-xK-XkR" secondAttribute="bottom" id="aOi-1x-qsK"/>
+                            <constraint firstItem="0gP-22-WnW" firstAttribute="leading" secondItem="VUV-U5-QKq" secondAttribute="leading" id="mLm-0b-UpP"/>
+                            <constraint firstAttribute="bottom" secondItem="0gP-22-WnW" secondAttribute="bottom" id="xJK-IK-VJu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="VUV-U5-QKq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7Ho-Iv-BsQ"/>
+                <constraint firstAttribute="trailing" secondItem="VUV-U5-QKq" secondAttribute="trailing" id="837-eX-o1y"/>
+                <constraint firstItem="VUV-U5-QKq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mZd-x2-Ss1"/>
+                <constraint firstAttribute="bottom" secondItem="VUV-U5-QKq" secondAttribute="bottom" id="pcV-iV-euo"/>
+            </constraints>
+            <size key="customSize" width="200" height="200"/>
+            <connections>
+                <outlet property="artistLabel" destination="xv9-KW-CPX" id="zeC-bc-Mgx"/>
+                <outlet property="imageArtist" destination="0gP-22-WnW" id="gEY-7v-zaC"/>
+                <outlet property="scrobblesLabel" destination="R4d-fM-gDx" id="Z1b-wK-25f"/>
+            </connections>
+            <point key="canvasLocation" x="220.28985507246378" y="33.482142857142854"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="FavouriteTrackViewCell" customModule="iosApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="394" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UAC-Cf-5fJ">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="7LR-2q-sx9"/>
+                            <constraint firstAttribute="width" secondItem="UAC-Cf-5fJ" secondAttribute="height" multiplier="1:1" id="ADR-85-nE3"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Faceless" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrl-bd-l2p">
+                        <rect key="frame" x="110" y="10" width="100" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kill the Lights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-9X-QIx">
+                        <rect key="frame" x="110" y="41" width="103" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scrobbles: 123456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lt-M4-HPE">
+                        <rect key="frame" x="110" y="73" width="115" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="UAC-Cf-5fJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7xF-Sy-LCB"/>
+                    <constraint firstItem="rQT-9X-QIx" firstAttribute="leading" secondItem="UAC-Cf-5fJ" secondAttribute="trailing" constant="10" id="ETm-rG-RYa"/>
+                    <constraint firstItem="UAC-Cf-5fJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LDS-9l-k8q"/>
+                    <constraint firstItem="UAC-Cf-5fJ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.253807" id="Le0-zL-iqJ"/>
+                    <constraint firstItem="3lt-M4-HPE" firstAttribute="leading" secondItem="UAC-Cf-5fJ" secondAttribute="trailing" constant="10" id="Uuv-Oq-WbY"/>
+                    <constraint firstItem="rQT-9X-QIx" firstAttribute="top" secondItem="Qrl-bd-l2p" secondAttribute="bottom" constant="10" id="Wf1-vr-S1q"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="3lt-M4-HPE" secondAttribute="bottom" id="X7F-BX-DeM"/>
+                    <constraint firstItem="Qrl-bd-l2p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ceg-vO-GVC"/>
+                    <constraint firstAttribute="bottom" secondItem="UAC-Cf-5fJ" secondAttribute="bottom" id="nhI-TP-uSe"/>
+                    <constraint firstItem="Qrl-bd-l2p" firstAttribute="leading" secondItem="UAC-Cf-5fJ" secondAttribute="trailing" constant="10" id="u4D-T4-tBA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="artistLabel" destination="rQT-9X-QIx" id="c68-TQ-KNj"/>
+                <outlet property="imageTrack" destination="UAC-Cf-5fJ" id="z8z-iJ-x4C"/>
+                <outlet property="scrobblesLabel" destination="3lt-M4-HPE" id="8nS-4G-792"/>
+                <outlet property="trackLabel" destination="Qrl-bd-l2p" id="5Up-PE-2fH"/>
+            </connections>
+            <point key="canvasLocation" x="57.971014492753625" y="150"/>
+        </tableViewCell>
+    </objects>
+</document>

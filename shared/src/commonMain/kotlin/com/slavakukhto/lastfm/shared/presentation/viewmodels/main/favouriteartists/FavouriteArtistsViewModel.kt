@@ -2,6 +2,7 @@ package com.slavakukhto.lastfm.shared.presentation.viewmodels.main.favouritearti
 
 import com.badoo.reaktive.disposable.Disposable
 import com.badoo.reaktive.observable.ObservableObserver
+import com.badoo.reaktive.observable.threadLocal
 import com.badoo.reaktive.single.SingleObserver
 import com.badoo.reaktive.single.doOnAfterSubscribe
 import com.slavakukhto.lastfm.shared.di.favouritesArtistsDI
@@ -35,6 +36,7 @@ class FavouriteArtistsViewModelImpl : FavouriteArtistsViewModel() {
 
     override fun subscribe() {
         timestampPeriodChangedUseCase.execute()
+            .threadLocal()
             .subscribe(object : ObservableObserver<TimeStampPeriod> {
                 override fun onComplete() = Unit
 
