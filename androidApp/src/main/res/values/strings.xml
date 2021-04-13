@@ -28,6 +28,7 @@
     <string name="artist">Artist</string>
     <string name="from_album">From album</string>
     <string name="youtube">YouTube</string>
+    <string name="last_fm">Last FM</string>
     <string name="play">Play</string>
     <string name="wiki">Wiki</string>
 </resources>

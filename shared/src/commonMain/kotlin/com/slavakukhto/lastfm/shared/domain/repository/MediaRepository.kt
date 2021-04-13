@@ -15,5 +15,7 @@ interface MediaRepository {
 
     fun getTrack(track: String, artist: String): Single<TrackModel>
 
+    fun getArtist(artist: String): Single<ArtistModel>
+
     fun getLinkBody(url: String): Single<String>
 }

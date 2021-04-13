@@ -5,5 +5,6 @@ enum class Screen {
     MAIN,
     AUTH,
     BROWSER,
-    TRACK
+    TRACK,
+    ARTIST
 }

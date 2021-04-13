@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-<dimen name="auth_btn_height">44.4444dp</dimen>
+<dimen name="artist_image_height">222.222dp</dimen>
+    <dimen name="auth_btn_height">44.4444dp</dimen>
     <dimen name="auth_btn_pd_top">28.4444dp</dimen>
     <dimen name="auth_default_mg_start">28.4444dp</dimen>
     <dimen name="auth_edit_text_height">44.4444dp</dimen>

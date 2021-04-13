@@ -61,9 +61,8 @@ class TrackFragment : BaseFragment<FragmentTrackBinding, TrackViewModel>() {
     private fun initViews() {
         binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadTrack() }
         binding.ivBack.setOnClickListener { viewModel.onBackClicked() }
-        binding.tvArtist.setOnClickListener { viewModel.onArtistClicked(binding.tvArtist.textView.text.toString()) }
-        binding.tvAlbum.setOnClickListener { viewModel.onAlbumClicked(binding.tvAlbum.textView.text.toString()) }
         binding.tvYoutube.setOnClickListener { viewModel.onPlayClicked() }
+        binding.tvArtist.setOnClickListener { viewModel.onArtistClicked(binding.tvArtist.textView.text.toString()) }
     }
 
     private fun handleUIData(uiData: UIData) {

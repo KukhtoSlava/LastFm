@@ -15,6 +15,7 @@ import com.slavakukhto.lastfm.shared.presentation.navigation.Screen
 import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.BaseViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
+import com.slavakukhto.lastfm.shared.presentation.viewmodels.artist.ArtistViewParams
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.browser.BrowserScreenParams
 import org.kodein.di.instance
 
@@ -71,7 +72,8 @@ class FavouriteArtistsViewModelImpl : FavouriteArtistsViewModel() {
     }
 
     override fun onArtistClicked(favouriteArtist: FavouriteArtist) {
-//        screenNavigator.pushScreen()
+        val artistViewParams = ArtistViewParams(artist = favouriteArtist.artist)
+        screenNavigator.pushScreen(Screen.ARTIST, artistViewParams, clearBackStack = false)
     }
 
     override fun onMoreClicked() {

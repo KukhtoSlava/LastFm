@@ -7,9 +7,11 @@ import com.badoo.reaktive.single.threadLocal
 import com.slavakukhto.lastfm.shared.di.trackDI
 import com.slavakukhto.lastfm.shared.domain.models.TrackModel
 import com.slavakukhto.lastfm.shared.domain.usecases.GetTrackModelUseCase
+import com.slavakukhto.lastfm.shared.presentation.navigation.Screen
 import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.BaseViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
+import com.slavakukhto.lastfm.shared.presentation.viewmodels.artist.ArtistViewParams
 import org.kodein.di.instance
 
 abstract class TrackViewModel : BaseViewModel() {
@@ -17,8 +19,6 @@ abstract class TrackViewModel : BaseViewModel() {
     abstract fun setUpParams(track: String, artist: String)
 
     abstract fun onArtistClicked(artist: String)
-
-    abstract fun onAlbumClicked(album: String)
 
     abstract fun onBackClicked()
 
@@ -44,16 +44,13 @@ class TrackViewModelImpl : TrackViewModel() {
         loadTrack()
     }
 
-    override fun onArtistClicked(artist: String) {
-//        screenNavigator
-    }
-
-    override fun onAlbumClicked(album: String) {
-//        screenNavigator
-    }
-
     override fun onBackClicked() {
         screenNavigator.popScreen()
+    }
+
+    override fun onArtistClicked(artist: String) {
+        val artistViewParams = ArtistViewParams(artist = artist)
+        screenNavigator.pushScreen(Screen.ARTIST, artistViewParams, clearBackStack = false)
     }
 
     override fun onPlayClicked() {

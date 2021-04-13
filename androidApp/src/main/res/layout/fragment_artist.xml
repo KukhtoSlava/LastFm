@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidline_toolbar"
+        android:layout_width="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingStart="@dimen/track_header_padding"
+        android:paddingEnd="@dimen/track_header_padding"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:padding="@dimen/main_title_padding"
+        android:textColor="@color/whiteOpaque"
+        android:textSize="@dimen/main_title_textsize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guidline_toolbar"
+        tools:text="Animals"
+    />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBack"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:src="@drawable/ic_back"
+        android:padding="@dimen/main_title_padding"
+        android:textColor="@color/whiteOpaque"
+        android:textSize="@dimen/main_title_textsize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guidline_toolbar"
+        tools:text="Animals"
+    />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        app:layout_constraintTop_toBottomOf="@+id/guidline_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidline_vertical"
+                    android:layout_width="0dp"
+                    app:layout_constraintGuide_percent="0.5"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivTrack"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="@dimen/track_screen_margin"
+                    android:src="@drawable/ic_empty_place"
+                    android:scaleType="centerInside"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/artist_image_height"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvScrobblesTitle"
+                    android:layout_marginTop="@dimen/track_screen_margin"
+                    android:textSize="@dimen/track_subtitle_textsize"
+                    android:text="@string/scrobbles"
+                    android:textColor="@color/whiteOpaque"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivTrack"
+                    app:layout_constraintEnd_toEndOf="@+id/guidline_vertical"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvListenersTitle"
+                    android:layout_marginTop="@dimen/track_screen_margin"
+                    android:textSize="@dimen/track_subtitle_textsize"
+                    android:text="@string/listeners"
+                    android:textColor="@color/whiteOpaque"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivTrack"
+                    app:layout_constraintStart_toStartOf="@+id/guidline_vertical"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvScrobbles"
+                    android:layout_marginTop="@dimen/track_description_margin_top"
+                    android:textSize="@dimen/track_description_textsize"
+                    android:textColor="@color/whiteOpaque"
+                    android:layout_width="0dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvScrobblesTitle"
+                    app:layout_constraintEnd_toEndOf="@+id/guidline_vertical"
+                    android:layout_height="wrap_content"
+                    tools:text="---"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvListeners"
+                    android:layout_marginTop="@dimen/track_description_margin_top"
+                    android:textSize="@dimen/track_description_textsize"
+                    android:textColor="@color/whiteOpaque"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvListenersTitle"
+                    app:layout_constraintStart_toStartOf="@+id/guidline_vertical"
+                    android:layout_height="wrap_content"
+                    tools:text="---"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTagsTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/track_text_margin"
+                    android:text="@string/tags"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:textColor="@color/whiteOpaque"
+                    android:textSize="@dimen/track_title_textsize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvScrobbles"
+                />
+
+                <com.slavakukhto.lastfm.androidApp.customviews.DividerTextView
+                    android:id="@+id/tvTags"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/track_text_margin"
+                    android:textColor="@color/whiteOpaque"
+                    android:textSize="@dimen/track_description_textsize"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTagsTitle"
+                    tools:text="---"
+                />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvUrlTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/track_text_margin"
+                    android:text="@string/last_fm"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:textColor="@color/whiteOpaque"
+                    android:textSize="@dimen/track_title_textsize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTags"
+                />
+
+                <com.slavakukhto.lastfm.androidApp.customviews.DividerTextView
+                    android:id="@+id/tvUrl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/track_text_margin"
+                    android:text="@string/play"
+                    android:textColor="@color/whiteOpaque"
+                    android:textSize="@dimen/track_description_textsize"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvUrlTitle"
+                />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvWikiTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/track_text_margin"
+                    android:text="@string/wiki"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:textColor="@color/whiteOpaque"
+                    android:textSize="@dimen/track_title_textsize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvUrl"
+                />
+
+                <com.slavakukhto.lastfm.androidApp.customviews.DividerTextView
+                    android:id="@+id/tvWiki"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/track_text_margin"
+                    android:textColor="@color/whiteOpaque"
+                    android:textSize="@dimen/track_description_textsize"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:gravity="start"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWikiTitle"
+                    tools:text="---"
+                />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
