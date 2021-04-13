@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE
 import com.slavakukhto.lastfm.androidApp.R
+import com.slavakukhto.lastfm.androidApp.presentation.album.AlbumFragment
 import com.slavakukhto.lastfm.androidApp.presentation.artist.ArtistFragment
 import com.slavakukhto.lastfm.androidApp.presentation.auth.AuthFragment
 import com.slavakukhto.lastfm.androidApp.presentation.main.MainFragment
@@ -18,6 +19,7 @@ import com.slavakukhto.lastfm.androidApp.presentation.track.TrackFragment
 import com.slavakukhto.lastfm.shared.presentation.navigation.Screen
 import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenParams
+import com.slavakukhto.lastfm.shared.presentation.viewmodels.album.AlbumViewParams
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.artist.ArtistViewParams
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.browser.BrowserScreenParams
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.track.TrackViewParams
@@ -59,7 +61,8 @@ class AndroidGeneralScreenNavigator constructor(
             Screen.MAIN,
             Screen.AUTH,
             Screen.TRACK,
-            Screen.ARTIST -> false
+            Screen.ARTIST,
+            Screen.ALBUM -> false
             Screen.BROWSER -> true
         }
     }
@@ -109,6 +112,7 @@ class AndroidGeneralScreenNavigator constructor(
             Screen.AUTH -> AuthFragment()
             Screen.TRACK -> TrackFragment.newInstance(screenParams as TrackViewParams)
             Screen.ARTIST -> ArtistFragment.newInstance(screenParams as ArtistViewParams)
+            Screen.ALBUM -> AlbumFragment.newInstance(screenParams as AlbumViewParams)
             else -> throw IllegalArgumentException(
                 "This $screenType screen doesn't seem to be internal screen!"
             )

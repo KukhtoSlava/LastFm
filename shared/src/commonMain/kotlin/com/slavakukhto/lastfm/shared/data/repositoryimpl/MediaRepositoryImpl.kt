@@ -18,6 +18,7 @@ class MediaRepositoryImpl(
     private val timeStampPeriodMapper: TimeStampPeriodMapper,
     private val trackMapper: TrackMapper,
     private val artistMapper: ArtistMapper,
+    private val albumMapper: AlbumMapper,
     private val parseYouTubeSource: ParseYouTubeSource
 ) : MediaRepository {
 
@@ -57,6 +58,12 @@ class MediaRepositoryImpl(
     override fun getArtist(artist: String): Single<ArtistModel> {
         return singleFromCoroutineUnsafe(uiRxDispatcher) {
             artistMapper.transform(apiService.getArtist(artist))
+        }
+    }
+
+    override fun getAlbum(artist: String, album: String): Single<AlbumModel> {
+        return singleFromCoroutineUnsafe(uiRxDispatcher) {
+            albumMapper.transform(apiService.getAlbum(artist, album))
         }
     }
 

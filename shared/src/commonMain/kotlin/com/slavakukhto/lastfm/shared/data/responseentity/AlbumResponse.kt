@@ -19,15 +19,15 @@ data class AlbumResponse(
         @SerialName("url")
         val url: String,
         @SerialName("image")
-        val image: List<Image?>?,
+        val image: List<Image?>? = null,
         @SerialName("listeners")
-        val listeners: String?,
+        val listeners: String? = null,
         @SerialName("playcount")
-        val playcount: String?,
+        val playcount: String? = null,
         @SerialName("tracks")
-        val tracks: Tracks?,
+        val tracks: Tracks? = null,
         @SerialName("tags")
-        val tags: Tags?,
+        val tags: Tags? = null,
         @SerialName("wiki")
         val wiki: Wiki? = null
     ) {
@@ -42,7 +42,7 @@ data class AlbumResponse(
         @Serializable
         data class Tracks(
             @SerialName("track")
-            val track: List<Track>?
+            val track: List<Track>? = null
         ) {
             @Serializable
             data class Track(
@@ -53,7 +53,7 @@ data class AlbumResponse(
                 @SerialName("duration")
                 val duration: String,
                 @SerialName("@attr")
-                val attr: Attr?,
+                val attr: Attr? = null,
                 @SerialName("streamable")
                 val streamable: Streamable,
                 @SerialName("artist")
@@ -62,7 +62,7 @@ data class AlbumResponse(
                 @Serializable
                 data class Attr(
                     @SerialName("rank")
-                    val rank: String?
+                    val rank: String? = null
                 )
 
                 @Serializable
@@ -88,25 +88,25 @@ data class AlbumResponse(
         @Serializable
         data class Tags(
             @SerialName("tag")
-            val tag: List<Tag>?
+            val tag: List<Tag>? = null
         ) {
             @Serializable
             data class Tag(
                 @SerialName("name")
-                val name: String?,
+                val name: String? = null,
                 @SerialName("url")
-                val url: String?
+                val url: String? = null
             )
         }
 
         @Serializable
         data class Wiki(
             @SerialName("published")
-            val published: String?,
+            val published: String? = null,
             @SerialName("summary")
-            val summary: String?,
+            val summary: String? = null,
             @SerialName("content")
-            val content: String?
+            val content: String? = null
         )
     }
 }

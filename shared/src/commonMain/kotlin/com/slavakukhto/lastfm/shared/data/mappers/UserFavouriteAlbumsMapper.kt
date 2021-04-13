@@ -9,6 +9,7 @@ class UserFavouriteAlbumsMapper {
         val list = mutableListOf<FavouriteAlbum>()
         val albums = userTopAlbumsResponse.topalbums.album
         albums.forEach { data ->
+            val artist = data.artist?.name ?: ""
             val album = data.name
             val scrobbles = data.playcount.toInt()
             val path = data.image?.get(3)?.text
@@ -17,7 +18,7 @@ class UserFavouriteAlbumsMapper {
             } else {
                 path
             }
-            val favouriteAlbum = FavouriteAlbum(album, scrobbles, imagePath)
+            val favouriteAlbum = FavouriteAlbum(artist, album, scrobbles, imagePath)
             list.add(favouriteAlbum)
         }
         return list

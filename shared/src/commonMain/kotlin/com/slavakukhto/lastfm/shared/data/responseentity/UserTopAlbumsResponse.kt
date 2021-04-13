@@ -18,7 +18,7 @@ data class UserTopAlbumsResponse(
         @Serializable
         data class Album(
             @SerialName("artist")
-            val artist: Artist?,
+            val artist: Artist? = null,
             @SerialName("@attr")
             val attr: Attr?,
             @SerialName("image")

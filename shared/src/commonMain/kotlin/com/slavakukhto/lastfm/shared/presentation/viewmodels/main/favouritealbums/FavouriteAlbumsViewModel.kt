@@ -15,8 +15,8 @@ import com.slavakukhto.lastfm.shared.presentation.navigation.Screen
 import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.BaseViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
+import com.slavakukhto.lastfm.shared.presentation.viewmodels.album.AlbumViewParams
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.browser.BrowserScreenParams
-import io.ktor.utils.io.concurrent.*
 import org.kodein.di.instance
 
 abstract class FavouriteAlbumsViewModel : BaseViewModel() {
@@ -72,7 +72,8 @@ class FavouriteAlbumsViewModelImpl : FavouriteAlbumsViewModel() {
     }
 
     override fun onAlbumClicked(favouriteAlbum: FavouriteAlbum) {
-//        screenNavigator.pushScreen()
+        val albumViewParams = AlbumViewParams(favouriteAlbum.artist, favouriteAlbum.album)
+        screenNavigator.pushScreen(Screen.ALBUM, albumViewParams, clearBackStack = false, withAnimation = true)
     }
 
     override fun onMoreClicked() {

@@ -72,6 +72,7 @@ val applicationModule = DI.Module(APP_MODULE) {
             instance(),
             instance(),
             instance(),
+            instance(),
             instance()
         )
     }
@@ -110,6 +111,10 @@ val applicationModule = DI.Module(APP_MODULE) {
 
     bind() from singleton {
         ArtistMapper()
+    }
+
+    bind() from singleton {
+        AlbumMapper()
     }
 
     bind<ParseYouTubeSource>() with singleton {

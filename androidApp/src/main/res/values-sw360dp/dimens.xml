@@ -16,6 +16,7 @@
     <dimen name="item_album_default_padding">8dp</dimen>
     <dimen name="item_album_guidline">100dp</dimen>
     <dimen name="item_album_height">180dp</dimen>
+    <dimen name="item_album_margin">4dp</dimen>
     <dimen name="item_album_text_padding">4dp</dimen>
     <dimen name="item_album_textsize">16sp</dimen>
     <dimen name="item_album_width">180dp</dimen>

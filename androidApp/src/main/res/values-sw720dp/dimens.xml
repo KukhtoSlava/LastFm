@@ -16,6 +16,7 @@
     <dimen name="item_album_default_padding">13.6dp</dimen>
     <dimen name="item_album_guidline">170dp</dimen>
     <dimen name="item_album_height">306dp</dimen>
+    <dimen name="item_album_margin">6.8dp</dimen>
     <dimen name="item_album_text_padding">6.8dp</dimen>
     <dimen name="item_album_textsize">27.2sp</dimen>
     <dimen name="item_album_width">306dp</dimen>
