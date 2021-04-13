@@ -18,4 +18,5 @@ object Versions {
     const val pluginSerialization = "1.4.30"
     const val glide = "4.12.0"
     const val swipeRefreshLayout = "1.1.0"
+    const val jsoup = "1.13.1"
 }

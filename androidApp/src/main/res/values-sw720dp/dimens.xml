@@ -57,4 +57,17 @@
     <dimen name="profile_title_textsize">30.6sp</dimen>
 
     <dimen name="splash_image_padding">122.4dp</dimen>
+
+    <dimen name="track_description_margin_top">6.8sp</dimen>
+    <dimen name="track_description_textsize">27.2sp</dimen>
+    <dimen name="track_header_padding">61.2dp</dimen>
+    <dimen name="track_image_height">340dp</dimen>
+    <dimen name="track_image_width">340dp</dimen>
+    <dimen name="track_screen_margin">27.2dp</dimen>
+    <dimen name="track_subtitle_textsize">34sp</dimen>
+    <dimen name="track_text_margin">27.2dp</dimen>
+    <dimen name="track_title_textsize">30.6sp</dimen>
+
+    <dimen name="view_divider_height">3.4dp</dimen>
+    <dimen name="view_divider_margin">10.2dp</dimen>
 </resources>

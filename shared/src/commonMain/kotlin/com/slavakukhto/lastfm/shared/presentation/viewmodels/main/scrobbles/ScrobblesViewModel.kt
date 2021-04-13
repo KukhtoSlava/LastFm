@@ -13,6 +13,7 @@ import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.BaseViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.browser.BrowserScreenParams
+import com.slavakukhto.lastfm.shared.presentation.viewmodels.track.TrackViewParams
 import org.kodein.di.instance
 
 abstract class ScrobblesViewModel : BaseViewModel() {
@@ -54,7 +55,8 @@ class ScrobblesViewModelImpl : ScrobblesViewModel() {
     }
 
     override fun onTrackClicked(scrobblesTrack: ScrobblesTrack) {
-//        screenNavigator.pushScreen()
+        val trackViewParams = TrackViewParams(scrobblesTrack.track, scrobblesTrack.artist)
+        screenNavigator.pushScreen(Screen.TRACK, trackViewParams, clearBackStack = false, withAnimation = true)
     }
 
     override fun onMoreClicked() {

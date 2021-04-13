@@ -7,9 +7,11 @@ import com.slavakukhto.lastfm.shared.data.repositoryimpl.MediaRepositoryImpl
 import com.slavakukhto.lastfm.shared.data.repositoryimpl.UserRepositoryImpl
 import com.slavakukhto.lastfm.shared.data.source.*
 import com.slavakukhto.lastfm.shared.di.injectors.appContext
+import com.slavakukhto.lastfm.shared.di.injectors.htmlParser
 import com.slavakukhto.lastfm.shared.domain.repository.AuthRepository
 import com.slavakukhto.lastfm.shared.domain.repository.MediaRepository
 import com.slavakukhto.lastfm.shared.domain.repository.UserRepository
+import com.slavakukhto.lastfm.shared.resolvers.HtmlParser
 import com.slavakukhto.lastfm.shared.resolvers.provideSettings
 import io.ktor.client.*
 import io.ktor.client.features.json.*
@@ -26,6 +28,10 @@ val applicationModule = DI.Module(APP_MODULE) {
 
     bind<Settings>() with singleton {
         provideSettings(appContext)
+    }
+
+    bind<HtmlParser>() with singleton {
+        htmlParser
     }
 
     bind<LocalStorage>() with singleton {
@@ -57,7 +63,16 @@ val applicationModule = DI.Module(APP_MODULE) {
     }
 
     bind<MediaRepository>() with singleton {
-        MediaRepositoryImpl(instance(), instance(), instance(), instance(), instance(), instance())
+        MediaRepositoryImpl(
+            instance(),
+            instance(),
+            instance(),
+            instance(),
+            instance(),
+            instance(),
+            instance(),
+            instance()
+        )
     }
 
     bind() from singleton {
@@ -86,5 +101,13 @@ val applicationModule = DI.Module(APP_MODULE) {
 
     bind() from singleton {
         UserFavouriteArtistsMapper()
+    }
+
+    bind() from singleton {
+        TrackMapper()
+    }
+
+    bind<ParseYouTubeSource>() with singleton {
+        ParseYouTubeSourceImpl(instance())
     }
 }

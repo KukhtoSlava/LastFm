@@ -4,5 +4,6 @@ enum class Screen {
     SPLASH,
     MAIN,
     AUTH,
-    BROWSER
+    BROWSER,
+    TRACK
 }

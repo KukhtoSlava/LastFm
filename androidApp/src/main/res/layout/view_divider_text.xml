@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <View
+        android:layout_marginBottom="@dimen/view_divider_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_divider_height"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/text_diary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_below="@+id/image_diary"
+        android:layout_alignStart="@+id/image_diary"
+        android:layout_alignEnd="@+id/image_diary"
+        android:textSize="@dimen/track_description_textsize"
+        android:textColor="@color/whiteOpaque"
+        tools:text="Metalcore"/>
+
+    <View
+        android:layout_marginTop="@dimen/view_divider_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_divider_height"
+        android:background="@color/colorPrimary"/>
+
+</merge>

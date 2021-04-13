@@ -19,6 +19,7 @@
 		E519C5C3261B155400B06468 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5C2261B155400B06468 /* AuthViewController.swift */; };
 		E519C5C5261B156200B06468 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5C4261B156200B06468 /* MainViewController.swift */; };
 		E519C5CD261B9F7700B06468 /* UIProgressViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5CC261B9F7700B06468 /* UIProgressViewExtension.swift */; };
+		E546B0092625C4D40050CF94 /* IosHtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546B0082625C4D40050CF94 /* IosHtmlParser.swift */; };
 		E56C7F7C261F2CC300E69720 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7B261F2CC300E69720 /* ProfileViewController.swift */; };
 		E56C7F7E261F2CE200E69720 /* FavouriteTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7D261F2CE200E69720 /* FavouriteTracksViewController.swift */; };
 		E56C7F80261F2CFC00E69720 /* FavouriteAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7F261F2CFC00E69720 /* FavouriteAlbumsViewController.swift */; };
@@ -72,6 +73,7 @@
 		E519C5C2261B155400B06468 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		E519C5C4261B156200B06468 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E519C5CC261B9F7700B06468 /* UIProgressViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProgressViewExtension.swift; sourceTree = "<group>"; };
+		E546B0082625C4D40050CF94 /* IosHtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IosHtmlParser.swift; sourceTree = "<group>"; };
 		E56C7F7B261F2CC300E69720 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E56C7F7D261F2CE200E69720 /* FavouriteTracksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTracksViewController.swift; sourceTree = "<group>"; };
 		E56C7F7F261F2CFC00E69720 /* FavouriteAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteAlbumsViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				E5C6B03226242A1300483108 /* TimeStampHelper.swift */,
+				E546B0082625C4D40050CF94 /* IosHtmlParser.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				E519C5C5261B156200B06468 /* MainViewController.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
 				E5E8858126206CE5000F2D6E /* FavouriteTrackViewCell.swift in Sources */,
+				E546B0092625C4D40050CF94 /* IosHtmlParser.swift in Sources */,
 				E56C7F7C261F2CC300E69720 /* ProfileViewController.swift in Sources */,
 				E56C7F84261F2D1C00E69720 /* ScrobblesViewController.swift in Sources */,
 				E519C5C1261B119600B06468 /* SplashViewController.swift in Sources */,

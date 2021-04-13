@@ -12,4 +12,8 @@ interface MediaRepository {
     fun getUserFavouriteAlbums(userName: String, period: TimeStampPeriod): Single<List<FavouriteAlbum>>
 
     fun getUserFavouriteTracks(userName: String, period: TimeStampPeriod): Single<List<FavouriteTrack>>
+
+    fun getTrack(track: String, artist: String): Single<TrackModel>
+
+    fun getLinkBody(url: String): Single<String>
 }

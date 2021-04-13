@@ -48,6 +48,11 @@ object Dependencies {
         version = Versions.glide
     )
 
+    object Jsoup : dep(
+        name = "org.jsoup:jsoup",
+        version = Versions.jsoup
+    )
+
     object Coroutines {
 
         object Common : dep(

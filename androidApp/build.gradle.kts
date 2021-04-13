@@ -11,6 +11,7 @@ dependencies {
     implementation(Dependencies.Material)
     implementation(Dependencies.Glide)
     implementation(Dependencies.SwipeRefreshLayout)
+    implementation(Dependencies.Jsoup)
 }
 
 android {

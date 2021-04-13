@@ -13,63 +13,63 @@ data class TrackResponse(
         @SerialName("name")
         val name: String,
         @SerialName("mbid")
-        val mbid: String,
+        val mbid: String? = null,
         @SerialName("url")
         val url: String,
         @SerialName("duration")
         val duration: String,
         @SerialName("streamable")
-        val streamable: Streamable?,
+        val streamable: Streamable? = null,
         @SerialName("listeners")
-        val listeners: String?,
+        val listeners: String? = null,
         @SerialName("playcount")
-        val playcount: String?,
+        val playcount: String? = null,
         @SerialName("artist")
-        val artist: Artist?,
+        val artist: Artist? = null,
         @SerialName("album")
-        val album: Album?,
+        val album: Album? = null,
         @SerialName("toptags")
-        val toptags: Toptags?,
+        val toptags: Toptags? = null,
         @SerialName("wiki")
-        val wiki: Wiki?
+        val wiki: Wiki? = null
     ) {
         @Serializable
         data class Streamable(
             @SerialName("#text")
-            val text: String?,
+            val text: String? = null,
             @SerialName("fulltrack")
-            val fulltrack: String?
+            val fulltrack: String? = null
         )
 
         @Serializable
         data class Artist(
             @SerialName("name")
-            val name: String?,
+            val name: String? = null,
             @SerialName("mbid")
-            val mbid: String?,
+            val mbid: String? = null,
             @SerialName("url")
-            val url: String?
+            val url: String? = null
         )
 
         @Serializable
         data class Album(
             @SerialName("artist")
-            val artist: String?,
+            val artist: String? = null,
             @SerialName("title")
-            val title: String?,
+            val title: String? = null,
             @SerialName("mbid")
-            val mbid: String?,
+            val mbid: String? = null,
             @SerialName("url")
-            val url: String?,
+            val url: String? = null,
             @SerialName("image")
-            val image: List<Image?>?,
+            val image: List<Image?>? = null,
             @SerialName("@attr")
-            val attr: Attr?
+            val attr: Attr? = null
         ) {
             @Serializable
             data class Image(
                 @SerialName("#text")
-                val text: String?,
+                val text: String? = null,
                 @SerialName("size")
                 val size: String?
             )
@@ -77,19 +77,19 @@ data class TrackResponse(
             @Serializable
             data class Attr(
                 @SerialName("position")
-                val position: String?
+                val position: String? = null
             )
         }
 
         @Serializable
         data class Toptags(
             @SerialName("tag")
-            val tag: List<Tag?>?
+            val tag: List<Tag?>? = null
         ) {
             @Serializable
             data class Tag(
                 @SerialName("name")
-                val name: String?,
+                val name: String,
                 @SerialName("url")
                 val url: String?
             )
@@ -98,11 +98,11 @@ data class TrackResponse(
         @Serializable
         data class Wiki(
             @SerialName("published")
-            val published: String?,
+            val published: String? = null,
             @SerialName("summary")
-            val summary: String?,
+            val summary: String? = null,
             @SerialName("content")
-            val content: String?
+            val content: String? = null
         )
     }
 }

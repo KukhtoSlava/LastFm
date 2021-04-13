@@ -23,4 +23,11 @@
     <string name="month_3">3 Month</string>
     <string name="month_6">6 Month</string>
     <string name="month_12">12 Month</string>
+    <string name="listeners">Listeners</string>
+    <string name="tags">Tags</string>
+    <string name="artist">Artist</string>
+    <string name="from_album">From album</string>
+    <string name="youtube">YouTube</string>
+    <string name="play">Play</string>
+    <string name="wiki">Wiki</string>
 </resources>
