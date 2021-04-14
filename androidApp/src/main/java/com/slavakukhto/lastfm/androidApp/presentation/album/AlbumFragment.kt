@@ -15,7 +15,6 @@ import com.slavakukhto.lastfm.androidApp.helpers.showToast
 import com.slavakukhto.lastfm.androidApp.helpers.viewBinding
 import com.slavakukhto.lastfm.shared.domain.models.AlbumModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
-import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIDataListener
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.album.AlbumUIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.album.AlbumViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.album.AlbumViewModelImpl
@@ -46,15 +45,10 @@ class AlbumFragment : BaseFragment<FragmentAlbumBinding, AlbumViewModel>(), Trac
     private lateinit var tracksAdapter: TracksAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         val artist: String = arguments?.getString(KEY_ARTIST, "") ?: ""
         val album: String = arguments?.getString(KEY_ALBUM, "") ?: ""
         viewModel.setUpParams(album, artist)
-        viewModel.setUIDataListener(object : UIDataListener {
-            override fun onUIDataReceived(uiData: UIData) {
-                handleUIData(uiData)
-            }
-        })
+        super.onCreate(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,11 +67,11 @@ class AlbumFragment : BaseFragment<FragmentAlbumBinding, AlbumViewModel>(), Trac
         binding.rwTracks.adapter = tracksAdapter
         binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadAlbum() }
         binding.ivBack.setOnClickListener { viewModel.onBackClicked() }
-        binding.tvUrl.setOnClickListener { viewModel.onUrlClicked() }
+        binding.tvUrl.setOnClickListener { viewModel.onLastFmClicked(binding.tvUrl.textView.text.toString()) }
         binding.tvArtist.setOnClickListener { viewModel.onArtistClicked(binding.tvArtist.textView.text.toString()) }
     }
 
-    private fun handleUIData(uiData: UIData) {
+    override fun handleUIData(uiData: UIData) {
         when (val data = uiData as? AlbumUIData) {
             is AlbumUIData.Loading -> {
                 binding.swipeRefreshLayout.isRefreshing = true

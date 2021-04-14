@@ -9,7 +9,7 @@
 import UIKit
 import shared
 
-class SplashViewController: UIViewController {
+class SplashViewController: BaseViewController {
     
     private lazy var splashViewModel: SplashViewModel = {
         SplashViewModelImpl()
@@ -22,14 +22,17 @@ class SplashViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         splashViewModel.subscribe()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         splashViewModel.unSubscribe()
     }
 }

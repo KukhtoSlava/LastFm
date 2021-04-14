@@ -35,11 +35,11 @@ class ProfileViewModelImpl : ProfileViewModel() {
     override fun loadProfile() {
         getUserProfileUseCase.execute()
             .doOnAfterSubscribe {
-                dataListener?.onUIDataReceived(ProfileUIData.Loading)
+                liveData.value = ProfileUIData.Loading
             }
             .subscribe(object : SingleObserver<UserProfile> {
                 override fun onError(error: Throwable) {
-                    dataListener?.onUIDataReceived(ProfileUIData.Error(error.message))
+                    liveData.value = ProfileUIData.Error(error.message)
                 }
 
                 override fun onSubscribe(disposable: Disposable) {
@@ -47,7 +47,7 @@ class ProfileViewModelImpl : ProfileViewModel() {
                 }
 
                 override fun onSuccess(value: UserProfile) {
-                    dataListener?.onUIDataReceived(ProfileUIData.Success(value))
+                    liveData.value = ProfileUIData.Success(value)
                 }
             })
     }

@@ -21,19 +21,20 @@ class FavouriteTracksViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        favouriteTracksViewModel.setUIDataListener(uiDataListener: self)
         initTable()
+        favouriteTracksViewModel.subscribe()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "Tracks"
         super.viewDidAppear(animated)
-        favouriteTracksViewModel.subscribe()
+        favouriteTracksViewModel.liveData.observe(lifecycle: lifecycle) { data in
+            self.onUIDataReceived(uiData: data!)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        favouriteTracksViewModel.unSubscribe()
     }
     
     private func initTable(){
@@ -48,6 +49,10 @@ class FavouriteTracksViewController: MainViewController {
     
     @objc func refresh(_ sender: AnyObject) {
         favouriteTracksViewModel.loadFavouriteTracks()
+    }
+    
+    deinit {
+        favouriteTracksViewModel.unSubscribe()
     }
 }
 

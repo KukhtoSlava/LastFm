@@ -14,7 +14,6 @@ import com.slavakukhto.lastfm.androidApp.helpers.showToast
 import com.slavakukhto.lastfm.androidApp.helpers.viewBinding
 import com.slavakukhto.lastfm.shared.domain.models.ArtistModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
-import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIDataListener
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.artist.ArtistUIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.artist.ArtistViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.artist.ArtistViewModelImpl
@@ -42,14 +41,9 @@ class ArtistFragment : BaseFragment<FragmentArtistBinding, ArtistViewModel>() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         val artist: String = arguments?.getString(KEY_ARTIST, "") ?: ""
         viewModel.setUpParams(artist)
-        viewModel.setUIDataListener(object : UIDataListener {
-            override fun onUIDataReceived(uiData: UIData) {
-                handleUIData(uiData)
-            }
-        })
+        super.onCreate(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,13 +51,7 @@ class ArtistFragment : BaseFragment<FragmentArtistBinding, ArtistViewModel>() {
         initViews()
     }
 
-    private fun initViews() {
-        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadArtist() }
-        binding.ivBack.setOnClickListener { viewModel.onBackClicked() }
-        binding.tvUrl.setOnClickListener { viewModel.onUrlClicked() }
-    }
-
-    private fun handleUIData(uiData: UIData) {
+    override fun handleUIData(uiData: UIData) {
         when (val data = uiData as? ArtistUIData) {
             is ArtistUIData.Loading -> {
                 binding.swipeRefreshLayout.isRefreshing = true
@@ -77,6 +65,12 @@ class ArtistFragment : BaseFragment<FragmentArtistBinding, ArtistViewModel>() {
                 requireActivity().showToast(data.message)
             }
         }
+    }
+
+    private fun initViews() {
+        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadArtist() }
+        binding.ivBack.setOnClickListener { viewModel.onBackClicked() }
+        binding.tvUrl.setOnClickListener { viewModel.onLastFmClicked(binding.tvUrl.textView.text.toString()) }
     }
 
     private fun setUpArtist(artistModel: ArtistModel) {

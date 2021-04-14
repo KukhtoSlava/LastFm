@@ -10,7 +10,6 @@ import com.slavakukhto.lastfm.androidApp.helpers.showToast
 import com.slavakukhto.lastfm.androidApp.helpers.viewBinding
 import com.slavakukhto.lastfm.shared.domain.models.FavouriteTrack
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
-import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIDataListener
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.favouritetracks.FavouriteTracksUIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.favouritetracks.FavouriteTracksViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.favouritetracks.FavouriteTracksViewModelImpl
@@ -25,15 +24,6 @@ class FavouriteTracksFragment : BaseFragment<FragmentFavouriteTracksBinding, Fav
     }
     private val favouriteTracksAdapter = FavouriteTracksAdapter(this)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.setUIDataListener(object : UIDataListener {
-            override fun onUIDataReceived(uiData: UIData) {
-                handleUIData(uiData)
-            }
-        })
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViews()
         super.onViewCreated(view, savedInstanceState)
@@ -47,14 +37,7 @@ class FavouriteTracksFragment : BaseFragment<FragmentFavouriteTracksBinding, Fav
         viewModel.onMoreClicked()
     }
 
-    private fun initViews() {
-        val linearLayoutManager = LinearLayoutManager(requireContext())
-        binding.favouriteTracksRecyclerView.layoutManager = linearLayoutManager
-        binding.favouriteTracksRecyclerView.adapter = favouriteTracksAdapter
-        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadFavouriteTracks() }
-    }
-
-    private fun handleUIData(uiData: UIData) {
+    override fun handleUIData(uiData: UIData) {
         when (val data = uiData as? FavouriteTracksUIData) {
             is FavouriteTracksUIData.Loading -> {
                 binding.swipeRefreshLayout.isRefreshing = true
@@ -68,5 +51,12 @@ class FavouriteTracksFragment : BaseFragment<FragmentFavouriteTracksBinding, Fav
                 requireActivity().showToast(data.message)
             }
         }
+    }
+
+    private fun initViews() {
+        val linearLayoutManager = LinearLayoutManager(requireContext())
+        binding.favouriteTracksRecyclerView.layoutManager = linearLayoutManager
+        binding.favouriteTracksRecyclerView.adapter = favouriteTracksAdapter
+        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadFavouriteTracks() }
     }
 }

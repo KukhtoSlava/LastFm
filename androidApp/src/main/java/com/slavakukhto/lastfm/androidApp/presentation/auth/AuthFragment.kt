@@ -7,7 +7,6 @@ import com.slavakukhto.lastfm.androidApp.R
 import com.slavakukhto.lastfm.androidApp.databinding.FragmentAuthBinding
 import com.slavakukhto.lastfm.androidApp.helpers.*
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
-import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIDataListener
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.login.LoginParams
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.login.LoginUIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.login.LoginViewModel
@@ -21,32 +20,12 @@ class AuthFragment : BaseFragment<FragmentAuthBinding, LoginViewModel>() {
         LoginViewModelImpl()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.setUIDataListener(object : UIDataListener {
-            override fun onUIDataReceived(uiData: UIData) {
-                handleUIData(uiData)
-            }
-        })
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
     }
 
-    private fun initViews() {
-        binding.btnSignIn.setOnClickListener {
-            val name = binding.etName.text.toString()
-            val password = binding.etPassword.text.toString()
-            val loginParams = LoginParams(name, password)
-            viewModel.signInClicked(loginParams)
-        }
-        binding.tvReset.setOnClickListener { viewModel.resetPasswordClicked() }
-        binding.tvSignUp.setOnClickListener { viewModel.signUpClicked() }
-    }
-
-    private fun handleUIData(uiData: UIData) {
+    override fun handleUIData(uiData: UIData) {
         when (val data = uiData as? LoginUIData) {
             is LoginUIData.Loading -> {
                 loading(true)
@@ -59,6 +38,17 @@ class AuthFragment : BaseFragment<FragmentAuthBinding, LoginViewModel>() {
                 requireActivity().showToast(data.message)
             }
         }
+    }
+
+    private fun initViews() {
+        binding.btnSignIn.setOnClickListener {
+            val name = binding.etName.text.toString()
+            val password = binding.etPassword.text.toString()
+            val loginParams = LoginParams(name, password)
+            viewModel.signInClicked(loginParams)
+        }
+        binding.tvReset.setOnClickListener { viewModel.resetPasswordClicked() }
+        binding.tvSignUp.setOnClickListener { viewModel.signUpClicked() }
     }
 
     private fun loading(load: Boolean) {

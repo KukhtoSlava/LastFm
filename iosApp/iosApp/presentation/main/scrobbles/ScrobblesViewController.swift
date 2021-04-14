@@ -21,19 +21,20 @@ class ScrobblesViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrobblesViewModel.setUIDataListener(uiDataListener: self)
         initTable()
+        scrobblesViewModel.subscribe()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "Scrobbles"
         super.viewDidAppear(animated)
-        scrobblesViewModel.subscribe()
+        scrobblesViewModel.liveData.observe(lifecycle: lifecycle) { data in
+            self.onUIDataReceived(uiData: data!)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        scrobblesViewModel.unSubscribe()
     }
     
     private func initTable(){
@@ -48,6 +49,10 @@ class ScrobblesViewController: MainViewController {
     
     @objc func refresh(_ sender: AnyObject) {
         scrobblesViewModel.loadScrobblesTracks()
+    }
+    
+    deinit {
+        scrobblesViewModel.unSubscribe()
     }
 }
 

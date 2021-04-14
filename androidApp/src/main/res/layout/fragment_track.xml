@@ -267,6 +267,35 @@
                 />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLastFmTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/track_text_margin"
+                    android:text="@string/last_fm"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:textColor="@color/whiteOpaque"
+                    android:textSize="@dimen/track_title_textsize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvYoutube"
+                />
+
+                <com.slavakukhto.lastfm.androidApp.customviews.DividerTextView
+                    android:id="@+id/tvLastFm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/track_text_margin"
+                    android:text="@string/play"
+                    android:textColor="@color/whiteOpaque"
+                    android:textSize="@dimen/track_description_textsize"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLastFmTitle"
+                />
+
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvWikiTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -277,7 +306,7 @@
                     android:textColor="@color/whiteOpaque"
                     android:textSize="@dimen/track_title_textsize"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvYoutube"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLastFm"
                 />
 
                 <com.slavakukhto.lastfm.androidApp.customviews.DividerTextView

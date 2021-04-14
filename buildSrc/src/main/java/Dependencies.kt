@@ -116,4 +116,12 @@ object Dependencies {
         name = "com.russhwolf:multiplatform-settings",
         version = Versions.settings
     )
+
+    object LiveData {
+
+        object Android : dep(
+            name = "androidx.lifecycle:lifecycle-livedata",
+            version = Versions.livedata
+        )
+    }
 }

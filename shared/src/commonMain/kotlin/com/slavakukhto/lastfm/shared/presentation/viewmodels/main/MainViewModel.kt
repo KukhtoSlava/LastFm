@@ -25,7 +25,7 @@ class MainViewModelImpl : MainViewModel() {
     private val setUserTimeStampUseCase: SetUserTimeStampUseCase by mainDI.instance()
 
     override fun onPeriodClicked() {
-        dataListener?.onUIDataReceived(MainUIData.PeriodEvent)
+        liveData.value = MainUIData.PeriodEvent
     }
 
     override fun setTimePeriod(timeStampPeriod: TimeStampPeriod) {
@@ -55,7 +55,7 @@ class MainViewModelImpl : MainViewModel() {
                 }
 
                 override fun onNext(value: TimeStampPeriod) {
-                    dataListener?.onUIDataReceived(MainUIData.TimeData(value.period))
+                    liveData.value = MainUIData.TimeData(value.period)
                 }
             })
     }

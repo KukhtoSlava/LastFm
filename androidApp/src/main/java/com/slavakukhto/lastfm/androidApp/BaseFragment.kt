@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.BaseViewModel
+import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
+import com.slavakukhto.lastfm.shared.resolvers.livedata.toMutableLiveData
 
 abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
 
@@ -14,9 +16,12 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     abstract val layoutId: Int
     protected abstract val viewModel: VM
 
+    abstract fun handleUIData(uiData: UIData)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
+        viewModel.subscribe()
     }
 
     override fun onCreateView(
@@ -27,16 +32,11 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.subscribe()
+        viewModel.liveData.toMutableLiveData.observe(viewLifecycleOwner) { handleUIData(it) }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE")
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onDestroyView() {
+    override fun onDestroy() {
         viewModel.unSubscribe()
-        super.onDestroyView()
+        super.onDestroy()
     }
 }

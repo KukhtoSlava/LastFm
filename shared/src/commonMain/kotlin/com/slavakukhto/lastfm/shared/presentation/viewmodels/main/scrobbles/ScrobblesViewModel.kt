@@ -38,10 +38,10 @@ class ScrobblesViewModelImpl : ScrobblesViewModel() {
     override fun loadScrobblesTracks() {
         getUserScrobblesTracksUseCase.execute()
             .threadLocal()
-            .doOnAfterSubscribe { dataListener?.onUIDataReceived(ScrobblesUIData.Loading) }
+            .doOnAfterSubscribe { liveData.value = ScrobblesUIData.Loading }
             .subscribe(object : SingleObserver<List<ScrobblesTrack>> {
                 override fun onError(error: Throwable) {
-                    dataListener?.onUIDataReceived(ScrobblesUIData.Error(error.message))
+                    liveData.value = ScrobblesUIData.Error(error.message)
                 }
 
                 override fun onSubscribe(disposable: Disposable) {
@@ -49,7 +49,7 @@ class ScrobblesViewModelImpl : ScrobblesViewModel() {
                 }
 
                 override fun onSuccess(value: List<ScrobblesTrack>) {
-                    dataListener?.onUIDataReceived(ScrobblesUIData.Success(value))
+                    liveData.value = ScrobblesUIData.Success(value)
                 }
             })
     }
@@ -64,7 +64,7 @@ class ScrobblesViewModelImpl : ScrobblesViewModel() {
             .execute()
             .subscribe(object : SingleObserver<String> {
                 override fun onError(error: Throwable) {
-                    dataListener?.onUIDataReceived(ScrobblesUIData.Error(error.message))
+                    liveData.value = ScrobblesUIData.Error(error.message)
                 }
 
                 override fun onSubscribe(disposable: Disposable) {

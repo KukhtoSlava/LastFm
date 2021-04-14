@@ -33,11 +33,11 @@ class LoginViewModelImpl : LoginViewModel() {
         authUserUseCase.execute(loginParams.name, loginParams.password)
             .threadLocal()
             .doOnBeforeSubscribe {
-                dataListener?.onUIDataReceived(LoginUIData.Loading)
+                liveData.value = LoginUIData.Loading
             }
             .subscribe(object : CompletableObserver {
                 override fun onComplete() {
-                    dataListener?.onUIDataReceived(LoginUIData.Success)
+                    liveData.value = LoginUIData.Success
                     screenNavigator.pushScreen(
                         Screen.MAIN,
                         null,
@@ -47,7 +47,7 @@ class LoginViewModelImpl : LoginViewModel() {
                 }
 
                 override fun onError(error: Throwable) {
-                    dataListener?.onUIDataReceived(LoginUIData.ErrorAuth(error.message))
+                    liveData.value = LoginUIData.ErrorAuth(error.message)
                 }
 
                 override fun onSubscribe(disposable: Disposable) {

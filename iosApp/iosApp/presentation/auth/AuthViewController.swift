@@ -9,7 +9,7 @@
 import UIKit
 import shared
 
-class AuthViewController: UIViewController {
+class AuthViewController: BaseViewController {
 
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var userNameEditText: UITextField!
@@ -25,15 +25,19 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViews()
-        loginViewModel.setUIDataListener(uiDataListener: self)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         loginViewModel.subscribe()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        loginViewModel.liveData.observe(lifecycle: lifecycle) { data in
+            self.onUIDataReceived(uiData: data!)
+        }
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
-        loginViewModel.unSubscribe()
+        super.viewDidDisappear(animated)
     }
     
     @IBAction func onSignInClicked(_ sender: Any) {
@@ -55,9 +59,13 @@ class AuthViewController: UIViewController {
         progressBar.animateProgress()
         userPasswordEditText.isSecureTextEntry = true
     }
+    
+    deinit {
+        loginViewModel.unSubscribe()
+    }
 }
 
-extension AuthViewController: UIDataListener{
+extension AuthViewController{
     
     func onUIDataReceived(uiData: UIData) {
         guard let data = uiData as? LoginUIData else {

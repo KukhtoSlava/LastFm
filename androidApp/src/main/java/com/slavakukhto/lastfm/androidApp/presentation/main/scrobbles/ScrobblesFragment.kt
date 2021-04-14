@@ -10,7 +10,6 @@ import com.slavakukhto.lastfm.androidApp.helpers.showToast
 import com.slavakukhto.lastfm.androidApp.helpers.viewBinding
 import com.slavakukhto.lastfm.shared.domain.models.ScrobblesTrack
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
-import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIDataListener
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.scrobbles.ScrobblesUIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.scrobbles.ScrobblesViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.scrobbles.ScrobblesViewModelImpl
@@ -23,15 +22,6 @@ class ScrobblesFragment : BaseFragment<FragmentScrobblesBinding, ScrobblesViewMo
         ScrobblesViewModelImpl()
     }
     private val scrobblesAdapter = ScrobblesAdapter(this)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.setUIDataListener(object : UIDataListener {
-            override fun onUIDataReceived(uiData: UIData) {
-                handleUIData(uiData)
-            }
-        })
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViews()
@@ -46,14 +36,7 @@ class ScrobblesFragment : BaseFragment<FragmentScrobblesBinding, ScrobblesViewMo
         viewModel.onMoreClicked()
     }
 
-    private fun initViews() {
-        val linearLayoutManager = LinearLayoutManager(requireContext())
-        binding.scrobblesRecyclerView.layoutManager = linearLayoutManager
-        binding.scrobblesRecyclerView.adapter = scrobblesAdapter
-        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadScrobblesTracks() }
-    }
-
-    private fun handleUIData(uiData: UIData) {
+    override fun handleUIData(uiData: UIData) {
         when (val data = uiData as? ScrobblesUIData) {
             is ScrobblesUIData.Loading -> {
                 binding.swipeRefreshLayout.isRefreshing = true
@@ -67,5 +50,12 @@ class ScrobblesFragment : BaseFragment<FragmentScrobblesBinding, ScrobblesViewMo
                 requireActivity().showToast(data.message)
             }
         }
+    }
+
+    private fun initViews() {
+        val linearLayoutManager = LinearLayoutManager(requireContext())
+        binding.scrobblesRecyclerView.layoutManager = linearLayoutManager
+        binding.scrobblesRecyclerView.adapter = scrobblesAdapter
+        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadScrobblesTracks() }
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import shared
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
     
     private var listener: UITabBarListener?
     
@@ -21,15 +21,19 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         listener = self.tabBarController as? UITabBarListener
         listener?.setUITabBarDelegate(delegate: self)
-        mainViewModel.setUIDataListener(uiDataListener: self)
+        lifecycle.start()
+        mainViewModel.subscribe()
+        mainViewModel.liveData.observe(lifecycle: lifecycle) { data in
+            self.onUIDataReceived(uiData: data!)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        mainViewModel.subscribe()
+        // skip
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        mainViewModel.unSubscribe()
+        // skip
     }
     
     func showErrorMessage(message: String?){
@@ -37,11 +41,16 @@ class MainViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    deinit {
+        lifecycle.stop()
+        mainViewModel.unSubscribe()
+    }
 }
 
-extension MainViewController : UIDataListener{
+extension MainViewController {
     
-    func onUIDataReceived(uiData: UIData) {
+    @objc func onUIDataReceived(uiData: UIData) {
         guard let data = uiData as? MainUIData else {
             return
         }

@@ -33,6 +33,7 @@ kotlin {
             dependencies {
                 implementation(Dependencies.Coroutines.Android)
                 implementation(Dependencies.Ktor.Android)
+                implementation(Dependencies.LiveData.Android)
             }
         }
         val iosMain by getting {

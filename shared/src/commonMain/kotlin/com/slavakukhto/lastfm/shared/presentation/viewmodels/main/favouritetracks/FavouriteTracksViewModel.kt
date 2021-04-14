@@ -55,10 +55,10 @@ class FavouriteTracksViewModelImpl : FavouriteTracksViewModel() {
 
     override fun loadFavouriteTracks() {
         getUserFavouritesTracksUseCase.execute()
-            .doOnAfterSubscribe { dataListener?.onUIDataReceived(FavouriteTracksUIData.Loading) }
+            .doOnAfterSubscribe { liveData.value = FavouriteTracksUIData.Loading }
             .subscribe(object : SingleObserver<List<FavouriteTrack>> {
                 override fun onError(error: Throwable) {
-                    dataListener?.onUIDataReceived(FavouriteTracksUIData.Error(error.message))
+                    liveData.value = FavouriteTracksUIData.Error(error.message)
                 }
 
                 override fun onSubscribe(disposable: Disposable) {
@@ -66,7 +66,7 @@ class FavouriteTracksViewModelImpl : FavouriteTracksViewModel() {
                 }
 
                 override fun onSuccess(value: List<FavouriteTrack>) {
-                    dataListener?.onUIDataReceived(FavouriteTracksUIData.Success(value))
+                    liveData.value = FavouriteTracksUIData.Success(value)
                 }
             })
     }
@@ -81,7 +81,7 @@ class FavouriteTracksViewModelImpl : FavouriteTracksViewModel() {
             .execute()
             .subscribe(object : SingleObserver<String> {
                 override fun onError(error: Throwable) {
-                    dataListener?.onUIDataReceived(FavouriteTracksUIData.Error(error.message))
+                    liveData.value = FavouriteTracksUIData.Error(error.message)
                 }
 
                 override fun onSubscribe(disposable: Disposable) {

@@ -7,5 +7,6 @@ enum class Screen {
     BROWSER,
     TRACK,
     ARTIST,
-    ALBUM
+    ALBUM,
+    YOUTUBE
 }

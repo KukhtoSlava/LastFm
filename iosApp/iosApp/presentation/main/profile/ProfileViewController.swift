@@ -25,19 +25,20 @@ class ProfileViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileViewModel.setUIDataListener(uiDataListener: self)
         initScrollView()
+        profileViewModel.subscribe()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "Profile"
         super.viewDidAppear(animated)
-        profileViewModel.subscribe()
+        profileViewModel.liveData.observe(lifecycle: lifecycle) { data in
+            self.onUIDataReceived(uiData: data!)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        profileViewModel.unSubscribe()
     }
     
     private func initScrollView(){
@@ -52,6 +53,10 @@ class ProfileViewController: MainViewController {
     
     @objc func refresh(_ sender: AnyObject) {
         profileViewModel.loadProfile()
+    }
+    
+    deinit {
+        profileViewModel.unSubscribe()
     }
 }
 

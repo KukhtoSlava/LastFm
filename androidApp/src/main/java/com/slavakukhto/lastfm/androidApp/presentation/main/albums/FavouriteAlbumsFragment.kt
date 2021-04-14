@@ -10,7 +10,6 @@ import com.slavakukhto.lastfm.androidApp.helpers.showToast
 import com.slavakukhto.lastfm.androidApp.helpers.viewBinding
 import com.slavakukhto.lastfm.shared.domain.models.FavouriteAlbum
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
-import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIDataListener
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.favouritealbums.FavouriteAlbumsUIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.favouritealbums.FavouriteAlbumsViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.favouritealbums.FavouriteAlbumsViewModelImpl
@@ -25,15 +24,6 @@ class FavouriteAlbumsFragment : BaseFragment<FragmentFavouriteAlbumsBinding, Fav
     }
     private val favouriteAlbumsAdapter = FavouriteAlbumsAdapter(this)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.setUIDataListener(object : UIDataListener {
-            override fun onUIDataReceived(uiData: UIData) {
-                handleUIData(uiData)
-            }
-        })
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViews()
         super.onViewCreated(view, savedInstanceState)
@@ -47,14 +37,7 @@ class FavouriteAlbumsFragment : BaseFragment<FragmentFavouriteAlbumsBinding, Fav
         viewModel.onMoreClicked()
     }
 
-    private fun initViews() {
-        val gridLayoutManager = GridLayoutManager(requireContext(), 2)
-        binding.favouriteAlbumsRecyclerView.layoutManager = gridLayoutManager
-        binding.favouriteAlbumsRecyclerView.adapter = favouriteAlbumsAdapter
-        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadFavouriteAlbums() }
-    }
-
-    private fun handleUIData(uiData: UIData) {
+    override fun handleUIData(uiData: UIData) {
         when (val data = uiData as? FavouriteAlbumsUIData) {
             is FavouriteAlbumsUIData.Loading -> {
                 binding.swipeRefreshLayout.isRefreshing = true
@@ -68,5 +51,12 @@ class FavouriteAlbumsFragment : BaseFragment<FragmentFavouriteAlbumsBinding, Fav
                 requireActivity().showToast(data.message)
             }
         }
+    }
+
+    private fun initViews() {
+        val gridLayoutManager = GridLayoutManager(requireContext(), 2)
+        binding.favouriteAlbumsRecyclerView.layoutManager = gridLayoutManager
+        binding.favouriteAlbumsRecyclerView.adapter = favouriteAlbumsAdapter
+        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadFavouriteAlbums() }
     }
 }

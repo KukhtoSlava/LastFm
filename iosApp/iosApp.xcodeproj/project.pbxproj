@@ -28,6 +28,7 @@
 		E56C7F88261F379100E69720 /* ScrobbleTrackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F86261F379100E69720 /* ScrobbleTrackViewCell.swift */; };
 		E56C7F89261F379100E69720 /* ScrobbleTrackViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56C7F87261F379100E69720 /* ScrobbleTrackViewCell.xib */; };
 		E56C7F8B261F591600E69720 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F8A261F591600E69720 /* UIImageViewExtension.swift */; };
+		E57EAA992626FBEB00FC56B7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57EAA982626FBEB00FC56B7 /* BaseViewController.swift */; };
 		E5C6B03326242A1300483108 /* TimeStampHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6B03226242A1300483108 /* TimeStampHelper.swift */; };
 		E5E8857C26205AEF000F2D6E /* EmptyFieldViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8857A26205AEF000F2D6E /* EmptyFieldViewCell.swift */; };
 		E5E8857D26205AEF000F2D6E /* EmptyFieldViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E8857B26205AEF000F2D6E /* EmptyFieldViewCell.xib */; };
@@ -82,6 +83,7 @@
 		E56C7F86261F379100E69720 /* ScrobbleTrackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobbleTrackViewCell.swift; sourceTree = "<group>"; };
 		E56C7F87261F379100E69720 /* ScrobbleTrackViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrobbleTrackViewCell.xib; sourceTree = "<group>"; };
 		E56C7F8A261F591600E69720 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		E57EAA982626FBEB00FC56B7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E5C6B03226242A1300483108 /* TimeStampHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampHelper.swift; sourceTree = "<group>"; };
 		E5E8857A26205AEF000F2D6E /* EmptyFieldViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFieldViewCell.swift; sourceTree = "<group>"; };
 		E5E8857B26205AEF000F2D6E /* EmptyFieldViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyFieldViewCell.xib; sourceTree = "<group>"; };
@@ -156,9 +158,11 @@
 		E519C5B9261B105F00B06468 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E57EAA9A2627109000FC56B7 /* artist */,
 				E519C5BF261B116600B06468 /* main */,
 				E519C5BE261B115A00B06468 /* auth */,
 				E519C5BD261B115400B06468 /* splash */,
+				E57EAA982626FBEB00FC56B7 /* BaseViewController.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -222,6 +226,13 @@
 				E5E8857B26205AEF000F2D6E /* EmptyFieldViewCell.xib */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		E57EAA9A2627109000FC56B7 /* artist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = artist;
 			sourceTree = "<group>";
 		};
 		E5C6B031262429FE00483108 /* helpers */ = {
@@ -418,6 +429,7 @@
 				E56C7F80261F2CFC00E69720 /* FavouriteAlbumsViewController.swift in Sources */,
 				E56C7F88261F379100E69720 /* ScrobbleTrackViewCell.swift in Sources */,
 				E56C7F7E261F2CE200E69720 /* FavouriteTracksViewController.swift in Sources */,
+				E57EAA992626FBEB00FC56B7 /* BaseViewController.swift in Sources */,
 				E5F9CF3F26238ED0001BFD2A /* UITabBarListener.swift in Sources */,
 				E519C5C3261B155400B06468 /* AuthViewController.swift in Sources */,
 				E56C7F82261F2D0F00E69720 /* FavouriteArtistsViewController.swift in Sources */,

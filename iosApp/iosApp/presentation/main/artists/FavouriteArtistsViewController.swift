@@ -21,19 +21,20 @@ class FavouriteArtistsViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        favouriteArtistsViewModel.setUIDataListener(uiDataListener: self)
         initCollection()
+        favouriteArtistsViewModel.subscribe()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "Artists"
         super.viewDidAppear(animated)
-        favouriteArtistsViewModel.subscribe()
+        favouriteArtistsViewModel.liveData.observe(lifecycle: lifecycle) { data in
+            self.onUIDataReceived(uiData: data!)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        favouriteArtistsViewModel.unSubscribe()
     }
     
     private func initCollection(){
@@ -48,6 +49,10 @@ class FavouriteArtistsViewController: MainViewController {
     
     @objc func refresh(_ sender: AnyObject) {
         favouriteArtistsViewModel.loadFavouriteArtists()
+    }
+    
+    deinit {
+        favouriteArtistsViewModel.unSubscribe()
     }
 }
 

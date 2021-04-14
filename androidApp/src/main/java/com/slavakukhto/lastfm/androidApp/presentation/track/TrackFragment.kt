@@ -12,7 +12,6 @@ import com.slavakukhto.lastfm.androidApp.helpers.showToast
 import com.slavakukhto.lastfm.androidApp.helpers.viewBinding
 import com.slavakukhto.lastfm.shared.domain.models.TrackModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
-import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIDataListener
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.track.TrackUIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.track.TrackViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.track.TrackViewModelImpl
@@ -42,15 +41,10 @@ class TrackFragment : BaseFragment<FragmentTrackBinding, TrackViewModel>() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         val track: String = arguments?.getString(KEY_TRACK, "") ?: ""
         val artist: String = arguments?.getString(KEY_ARTIST, "") ?: ""
         viewModel.setUpParams(track, artist)
-        viewModel.setUIDataListener(object : UIDataListener {
-            override fun onUIDataReceived(uiData: UIData) {
-                handleUIData(uiData)
-            }
-        })
+        super.onCreate(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,14 +52,7 @@ class TrackFragment : BaseFragment<FragmentTrackBinding, TrackViewModel>() {
         initViews()
     }
 
-    private fun initViews() {
-        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadTrack() }
-        binding.ivBack.setOnClickListener { viewModel.onBackClicked() }
-        binding.tvYoutube.setOnClickListener { viewModel.onPlayClicked() }
-        binding.tvArtist.setOnClickListener { viewModel.onArtistClicked(binding.tvArtist.textView.text.toString()) }
-    }
-
-    private fun handleUIData(uiData: UIData) {
+    override fun handleUIData(uiData: UIData) {
         when (val data = uiData as? TrackUIData) {
             is TrackUIData.Loading -> {
                 binding.swipeRefreshLayout.isRefreshing = true
@@ -79,6 +66,24 @@ class TrackFragment : BaseFragment<FragmentTrackBinding, TrackViewModel>() {
                 requireActivity().showToast(data.message)
             }
         }
+    }
+
+    private fun initViews() {
+        binding.swipeRefreshLayout.setOnRefreshListener { viewModel.loadTrack() }
+        binding.ivBack.setOnClickListener { viewModel.onBackClicked() }
+        binding.tvLastFm.setOnClickListener {
+            viewModel.onLastFmClicked(
+                binding.tvLastFm.textView.text.toString()
+            )
+        }
+        binding.tvAlbum.setOnClickListener {
+            viewModel.onAlbumClicked(
+                binding.tvArtist.textView.text.toString(),
+                binding.tvAlbum.textView.text.toString()
+            )
+        }
+        binding.tvYoutube.setOnClickListener { viewModel.onYouTubeClicked(binding.tvYoutube.textView.text.toString()) }
+        binding.tvArtist.setOnClickListener { viewModel.onArtistClicked(binding.tvArtist.textView.text.toString()) }
     }
 
     private fun setUpTrack(trackModel: TrackModel) {
@@ -129,6 +134,14 @@ class TrackFragment : BaseFragment<FragmentTrackBinding, TrackViewModel>() {
             binding.tvWiki.makeVisible()
             binding.tvWikiTitle.makeVisible()
             binding.tvWikiTitle.text = trackModel.wiki
+        }
+        if (trackModel.url.isEmpty()) {
+            binding.tvLastFmTitle.makeGone()
+            binding.tvLastFm.makeGone()
+        } else {
+            binding.tvLastFmTitle.makeVisible()
+            binding.tvLastFm.makeVisible()
+            binding.tvLastFm.textView.text = trackModel.url
         }
     }
 }

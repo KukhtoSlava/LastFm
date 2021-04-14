@@ -1,17 +1,14 @@
 package com.slavakukhto.lastfm.shared.presentation.viewmodels
 
 import com.badoo.reaktive.disposable.CompositeDisposable
+import com.slavakukhto.lastfm.shared.resolvers.livedata.KMutableLiveData
 
 abstract class BaseViewModel {
 
     protected val compositeDisposable = CompositeDisposable()
-    protected var dataListener: UIDataListener? = null
+    val liveData: KMutableLiveData<UIData> = KMutableLiveData()
 
     open fun subscribe() = Unit
-
-    fun setUIDataListener(uiDataListener: UIDataListener) {
-        dataListener = uiDataListener
-    }
 
     fun unSubscribe() {
         compositeDisposable.clear()

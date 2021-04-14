@@ -7,9 +7,11 @@ import com.badoo.reaktive.single.threadLocal
 import com.slavakukhto.lastfm.shared.di.artistDI
 import com.slavakukhto.lastfm.shared.domain.models.ArtistModel
 import com.slavakukhto.lastfm.shared.domain.usecases.GetArtistModelUseCase
+import com.slavakukhto.lastfm.shared.presentation.navigation.Screen
 import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.BaseViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
+import com.slavakukhto.lastfm.shared.presentation.viewmodels.browser.BrowserScreenParams
 import org.kodein.di.instance
 
 abstract class ArtistViewModel : BaseViewModel() {
@@ -20,7 +22,7 @@ abstract class ArtistViewModel : BaseViewModel() {
 
     abstract fun loadArtist()
 
-    abstract fun onUrlClicked()
+    abstract fun onLastFmClicked(link: String)
 }
 
 class ArtistViewModelImpl : ArtistViewModel() {
@@ -42,21 +44,22 @@ class ArtistViewModelImpl : ArtistViewModel() {
         screenNavigator.popScreen()
     }
 
-    override fun onUrlClicked() {
-
+    override fun onLastFmClicked(link: String) {
+        val browserScreenParams = BrowserScreenParams(url = link)
+        screenNavigator.pushScreen(Screen.BROWSER, browserScreenParams)
     }
 
     override fun loadArtist() {
         if (artist.isEmpty()) {
-            dataListener?.onUIDataReceived(ArtistUIData.Error(null))
+            liveData.value = ArtistUIData.Error(null)
             return
         }
         getArtistModelUseCase.execute(artist)
-            .doOnAfterSubscribe { dataListener?.onUIDataReceived(ArtistUIData.Loading) }
+            .doOnAfterSubscribe { liveData.value = ArtistUIData.Loading }
             .threadLocal()
             .subscribe(object : SingleObserver<ArtistModel> {
                 override fun onError(error: Throwable) {
-                    dataListener?.onUIDataReceived(ArtistUIData.Error(error.message))
+                    liveData.value = ArtistUIData.Error(error.message)
                 }
 
                 override fun onSubscribe(disposable: Disposable) {
@@ -64,7 +67,7 @@ class ArtistViewModelImpl : ArtistViewModel() {
                 }
 
                 override fun onSuccess(value: ArtistModel) {
-                    dataListener?.onUIDataReceived(ArtistUIData.Success(value))
+                    liveData.value = ArtistUIData.Success(value)
                 }
             })
     }

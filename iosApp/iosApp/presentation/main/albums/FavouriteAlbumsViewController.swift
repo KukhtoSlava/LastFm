@@ -21,19 +21,20 @@ class FavouriteAlbumsViewController: MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        favouriteAlbumsViewModel.setUIDataListener(uiDataListener: self)
         initCollection()
+        favouriteAlbumsViewModel.subscribe()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "Albums"
         super.viewDidAppear(animated)
-        favouriteAlbumsViewModel.subscribe()
+        favouriteAlbumsViewModel.liveData.observe(lifecycle: lifecycle) { data in
+            self.onUIDataReceived(uiData: data!)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        favouriteAlbumsViewModel.unSubscribe()
     }
     
     private func initCollection(){
@@ -48,6 +49,10 @@ class FavouriteAlbumsViewController: MainViewController {
     
     @objc func refresh(_ sender: AnyObject) {
         favouriteAlbumsViewModel.loadFavouriteAlbums()
+    }
+    
+    deinit {
+        favouriteAlbumsViewModel.unSubscribe()
     }
 }
 
@@ -91,7 +96,7 @@ extension FavouriteAlbumsViewController {
         }else if(data is FavouriteAlbumsUIData.Success){
             refreshControl.endRefreshing()
             let favouriteAlbumData = data as! FavouriteAlbumsUIData.Success
-            let footer = FavouriteAlbum(album: "", scrobbles: 0, imagePath: "")
+            let footer = FavouriteAlbum(artist: "", album: "", scrobbles: 0, imagePath: "")
             favouriteAlbumsList.removeAll()
             favouriteAlbumsList = favouriteAlbumData.favouriteAlbums
             favouriteAlbumsList.append(footer)

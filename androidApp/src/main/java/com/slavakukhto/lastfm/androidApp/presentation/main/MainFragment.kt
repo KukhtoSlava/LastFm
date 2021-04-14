@@ -9,7 +9,6 @@ import com.slavakukhto.lastfm.androidApp.R
 import com.slavakukhto.lastfm.androidApp.databinding.FragmentMainBinding
 import com.slavakukhto.lastfm.androidApp.helpers.viewBinding
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
-import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIDataListener
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.MainUIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.MainViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.main.MainViewModelImpl
@@ -23,18 +22,20 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
     }
     private lateinit var mainStateAdapter: MainStateAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.setUIDataListener(object : UIDataListener {
-            override fun onUIDataReceived(uiData: UIData) {
-                handleUIData(uiData)
-            }
-        })
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+    }
+
+    override fun handleUIData(uiData: UIData) {
+        when (val data = uiData as? MainUIData) {
+            is MainUIData.TimeData -> {
+                binding.tvPeriod.text = data.time
+            }
+            is MainUIData.PeriodEvent -> {
+                showPeriodSheet()
+            }
+        }
     }
 
     @SuppressLint("WrongConstant")
@@ -80,17 +81,6 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
                 }
             }
             false
-        }
-    }
-
-    private fun handleUIData(uiData: UIData) {
-        when (val data = uiData as? MainUIData) {
-            is MainUIData.TimeData -> {
-                binding.tvPeriod.text = data.time
-            }
-            is MainUIData.PeriodEvent -> {
-                showPeriodSheet()
-            }
         }
     }
 

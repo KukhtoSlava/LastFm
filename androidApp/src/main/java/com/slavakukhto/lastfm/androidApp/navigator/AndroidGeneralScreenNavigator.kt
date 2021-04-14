@@ -23,6 +23,9 @@ import com.slavakukhto.lastfm.shared.presentation.viewmodels.album.AlbumViewPara
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.artist.ArtistViewParams
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.browser.BrowserScreenParams
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.track.TrackViewParams
+import com.slavakukhto.lastfm.shared.presentation.viewmodels.youtube.YouTubeScreenParams
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class AndroidGeneralScreenNavigator constructor(
     private val activity: FragmentActivity
@@ -63,7 +66,7 @@ class AndroidGeneralScreenNavigator constructor(
             Screen.TRACK,
             Screen.ARTIST,
             Screen.ALBUM -> false
-            Screen.BROWSER -> true
+            Screen.BROWSER, Screen.YOUTUBE -> true
         }
     }
 
@@ -98,6 +101,7 @@ class AndroidGeneralScreenNavigator constructor(
     ) {
         when (screen) {
             Screen.BROWSER -> openBrowserIfPossible(params)
+            Screen.YOUTUBE -> openYouTubeIfPossible(params)
             else -> throw IllegalArgumentException("Unknown external screen type: $screen")
         }
     }
@@ -126,6 +130,24 @@ class AndroidGeneralScreenNavigator constructor(
             activity.startActivity(intent)
         } catch (e: ActivityNotFoundException) {
             e.printStackTrace()
+        }
+    }
+
+    private fun openYouTubeIfPossible(params: ScreenParams?) {
+        val url = (params as YouTubeScreenParams).url
+        val pattern = "(?<=watch\\?v=|/videos/|embed/)[^#&?]*"
+        val compiledPattern: Pattern = Pattern.compile(pattern)
+        val matcher: Matcher = compiledPattern.matcher(url)
+        val youtubeID = if (matcher.find()) {
+            matcher.group()
+        } else {
+            ""
+        }
+        val intentApp = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:$youtubeID"))
+        try {
+            activity.startActivity(intentApp)
+        } catch (ex: ActivityNotFoundException) {
+            openBrowserIfPossible(BrowserScreenParams(url))
         }
     }
 }

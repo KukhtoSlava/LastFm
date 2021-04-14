@@ -12,6 +12,7 @@ import com.slavakukhto.lastfm.shared.presentation.navigation.ScreenNavigator
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.BaseViewModel
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.UIData
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.artist.ArtistViewParams
+import com.slavakukhto.lastfm.shared.presentation.viewmodels.browser.BrowserScreenParams
 import com.slavakukhto.lastfm.shared.presentation.viewmodels.track.TrackViewParams
 import org.kodein.di.instance
 
@@ -23,11 +24,11 @@ abstract class AlbumViewModel : BaseViewModel() {
 
     abstract fun loadAlbum()
 
-    abstract fun onUrlClicked()
-
     abstract fun onTrackClicked(artist: String, track: String)
 
     abstract fun onArtistClicked(artist: String)
+
+    abstract fun onLastFmClicked(link: String)
 }
 
 class AlbumViewModelImpl : AlbumViewModel() {
@@ -53,15 +54,15 @@ class AlbumViewModelImpl : AlbumViewModel() {
 
     override fun loadAlbum() {
         if (artist.isEmpty() || album.isEmpty()) {
-            dataListener?.onUIDataReceived(AlbumUIData.Error(null))
+            liveData.value = AlbumUIData.Error(null)
             return
         }
         getAlbumModelUseCase.execute(artist, album)
-            .doOnAfterSubscribe { dataListener?.onUIDataReceived(AlbumUIData.Loading) }
+            .doOnAfterSubscribe { liveData.value = AlbumUIData.Loading }
             .threadLocal()
             .subscribe(object : SingleObserver<AlbumModel> {
                 override fun onError(error: Throwable) {
-                    dataListener?.onUIDataReceived(AlbumUIData.Error(error.message))
+                    liveData.value = AlbumUIData.Error(error.message)
                 }
 
                 override fun onSubscribe(disposable: Disposable) {
@@ -69,13 +70,14 @@ class AlbumViewModelImpl : AlbumViewModel() {
                 }
 
                 override fun onSuccess(value: AlbumModel) {
-                    dataListener?.onUIDataReceived(AlbumUIData.Success(value))
+                    liveData.value = AlbumUIData.Success(value)
                 }
             })
     }
 
-    override fun onUrlClicked() {
-
+    override fun onLastFmClicked(link: String) {
+        val browserScreenParams = BrowserScreenParams(url = link)
+        screenNavigator.pushScreen(Screen.BROWSER, browserScreenParams)
     }
 
     override fun onTrackClicked(artist: String, track: String) {
