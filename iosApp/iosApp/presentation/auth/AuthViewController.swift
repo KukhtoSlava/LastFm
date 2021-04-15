@@ -99,10 +99,4 @@ extension AuthViewController{
             userPasswordEditText.isEnabled = true
         }
     }
-    
-    private func showErrorMessage(message: String?){
-        let alert = UIAlertController(title: "Auth error", message: message ?? "Oops, something went wrong", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
 }

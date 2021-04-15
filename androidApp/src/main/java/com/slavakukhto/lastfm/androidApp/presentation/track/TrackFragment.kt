@@ -133,7 +133,7 @@ class TrackFragment : BaseFragment<FragmentTrackBinding, TrackViewModel>() {
         } else {
             binding.tvWiki.makeVisible()
             binding.tvWikiTitle.makeVisible()
-            binding.tvWikiTitle.text = trackModel.wiki
+            binding.tvWiki.textView.text = trackModel.wiki
         }
         if (trackModel.url.isEmpty()) {
             binding.tvLastFmTitle.makeGone()

@@ -23,6 +23,7 @@ class ScrobblesViewController: MainViewController {
         super.viewDidLoad()
         initTable()
         scrobblesViewModel.subscribe()
+        showActivityIndicatory()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,6 +95,7 @@ extension ScrobblesViewController {
         if(data is ScrobblesUIData.Loading){
             refreshControl.beginRefreshing()
         }else if(data is ScrobblesUIData.Success){
+            hideActivityIndicatory()
             refreshControl.endRefreshing()
             let scrobblesData = data as! ScrobblesUIData.Success
             let footer = ScrobblesTrack(track: "", artist: "", imagePath: "", date: "")
@@ -102,6 +104,7 @@ extension ScrobblesViewController {
             scrobblesTrackList.append(footer)
             scrobblesTableView.reloadData()
         }else if(data is ScrobblesUIData.Error){
+            hideActivityIndicatory()
             refreshControl.endRefreshing()
             let errorData = data as! ScrobblesUIData.Error
             showErrorMessage(message: errorData.message)

@@ -36,12 +36,6 @@ class MainViewController: BaseViewController {
         // skip
     }
     
-    func showErrorMessage(message: String?){
-        let alert = UIAlertController(title: "Error", message: message ?? "Oops, something went wrong", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     deinit {
         lifecycle.stop()
         mainViewModel.unSubscribe()

@@ -12,7 +12,8 @@ import shared
 class BaseViewController: UIViewController {
     
     var lifecycle = KLifecycle()
-
+    private let activityView = UIActivityIndicatorView(style: .whiteLarge)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lifecycle.start()
@@ -21,5 +22,22 @@ class BaseViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         lifecycle.stop()
+    }
+    
+    func showErrorMessage(message: String?){
+        let alert = UIAlertController(title: "Error", message: message ?? "Oops, something went wrong", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showActivityIndicatory() {
+        activityView.center = self.view.center
+        self.view.addSubview(activityView)
+        activityView.startAnimating()
+    }
+    
+    func hideActivityIndicatory() {
+        activityView.stopAnimating()
+        self.activityView.removeFromSuperview()
     }
 }

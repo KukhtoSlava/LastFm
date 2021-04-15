@@ -137,6 +137,96 @@
             </objects>
             <point key="canvasLocation" x="1764" y="-186"/>
         </scene>
+        <!--Artist View Controller-->
+        <scene sceneID="iB9-xp-ZZz">
+            <objects>
+                <viewController storyboardIdentifier="artist" id="gSo-C3-9Uv" customClass="ArtistViewController" customModule="iosApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Et7-8Y-FsH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BRu-r8-8ak">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ns2-ov-oFw"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BRu-r8-8ak" firstAttribute="top" secondItem="Ns2-ov-oFw" secondAttribute="top" id="PPD-sk-gs9"/>
+                            <constraint firstItem="Ns2-ov-oFw" firstAttribute="trailing" secondItem="BRu-r8-8ak" secondAttribute="trailing" id="aMo-Hc-mUm"/>
+                            <constraint firstItem="Ns2-ov-oFw" firstAttribute="bottom" secondItem="BRu-r8-8ak" secondAttribute="bottom" id="fVr-o9-ajm"/>
+                            <constraint firstItem="BRu-r8-8ak" firstAttribute="leading" secondItem="Ns2-ov-oFw" secondAttribute="leading" id="ibN-Zy-mp1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="artistTableView" destination="BRu-r8-8ak" id="ogn-cO-8uB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Juw-7f-n68" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2605.5999999999999" y="-186.20689655172416"/>
+        </scene>
+        <!--Track View Controller-->
+        <scene sceneID="g6u-fC-cHQ">
+            <objects>
+                <viewController storyboardIdentifier="track" id="ztK-st-Sdn" customClass="TrackViewController" customModule="iosApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="obc-aL-3HL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r7a-dZ-Dui">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KbR-wO-KYj"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KbR-wO-KYj" firstAttribute="trailing" secondItem="r7a-dZ-Dui" secondAttribute="trailing" id="68k-7q-oN4"/>
+                            <constraint firstItem="r7a-dZ-Dui" firstAttribute="top" secondItem="KbR-wO-KYj" secondAttribute="top" id="DIf-5C-fbg"/>
+                            <constraint firstItem="KbR-wO-KYj" firstAttribute="bottom" secondItem="r7a-dZ-Dui" secondAttribute="bottom" id="h0Y-A3-3a6"/>
+                            <constraint firstItem="r7a-dZ-Dui" firstAttribute="leading" secondItem="KbR-wO-KYj" secondAttribute="leading" id="jfh-ej-yFK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="trackTableView" destination="r7a-dZ-Dui" id="D6e-JI-hrs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T29-bQ-RIE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3433" y="-184"/>
+        </scene>
+        <!--Album View Controller-->
+        <scene sceneID="Ux0-Tj-2wh">
+            <objects>
+                <viewController storyboardIdentifier="album" id="Yom-6x-1n8" customClass="AlbumViewController" customModule="iosApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nha-Ak-J1K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4LW-hn-goW">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="O9Q-Ft-2oN"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4LW-hn-goW" firstAttribute="leading" secondItem="O9Q-Ft-2oN" secondAttribute="leading" id="28L-uU-DBp"/>
+                            <constraint firstItem="O9Q-Ft-2oN" firstAttribute="bottom" secondItem="4LW-hn-goW" secondAttribute="bottom" id="4Hs-qo-Lzx"/>
+                            <constraint firstItem="4LW-hn-goW" firstAttribute="top" secondItem="O9Q-Ft-2oN" secondAttribute="top" id="RQ0-mm-mgS"/>
+                            <constraint firstItem="O9Q-Ft-2oN" firstAttribute="trailing" secondItem="4LW-hn-goW" secondAttribute="trailing" id="ay7-5o-zB2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="albumTableView" destination="4LW-hn-goW" id="mj3-dG-ARc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Tu-Aa-H7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4270" y="-185"/>
+        </scene>
         <!--Artists-->
         <scene sceneID="DZB-ML-qwt">
             <objects>
@@ -465,6 +555,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UBF-xT-UXf">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

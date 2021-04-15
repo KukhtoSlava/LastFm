@@ -27,6 +27,7 @@ class ProfileViewController: MainViewController {
         super.viewDidLoad()
         initScrollView()
         profileViewModel.subscribe()
+        showActivityIndicatory()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,10 +71,12 @@ extension ProfileViewController{
         if(data is ProfileUIData.Loading){
             refreshControl.beginRefreshing()
         }else if(data is ProfileUIData.Success){
+            hideActivityIndicatory()
             refreshControl.endRefreshing()
             let profileData = data as! ProfileUIData.Success
             setProfile(userProfile: profileData.profile)
         }else if(data is ProfileUIData.Error){
+            hideActivityIndicatory()
             refreshControl.endRefreshing()
             let errorData = data as! ProfileUIData.Error
             showErrorMessage(message: errorData.message)

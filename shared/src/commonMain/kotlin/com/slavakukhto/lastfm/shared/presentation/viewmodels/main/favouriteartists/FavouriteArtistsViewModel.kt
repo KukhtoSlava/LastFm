@@ -73,7 +73,7 @@ class FavouriteArtistsViewModelImpl : FavouriteArtistsViewModel() {
 
     override fun onArtistClicked(favouriteArtist: FavouriteArtist) {
         val artistViewParams = ArtistViewParams(artist = favouriteArtist.artist)
-        screenNavigator.pushScreen(Screen.ARTIST, artistViewParams, clearBackStack = false)
+        screenNavigator.pushScreen(Screen.ARTIST, artistViewParams, clearBackStack = false, withAnimation = true)
     }
 
     override fun onMoreClicked() {

@@ -33,7 +33,7 @@ class IosGeneralScreenNavigator : ScreenNavigator {
     private func isScreenExternal(screen: Screen) -> Bool {
         var result = false
         switch screen {
-        case Screen.splash, Screen.auth, Screen.main:
+        case Screen.splash, Screen.auth, Screen.main, Screen.artist, Screen.track, Screen.album:
             result = false
             break
         default:
@@ -61,6 +61,27 @@ class IosGeneralScreenNavigator : ScreenNavigator {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             viewController = storyboard.instantiateViewController(identifier: "main") as MainTabBarViewController
             break
+        case Screen.artist:
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "artist") as ArtistViewController
+            let params = screenParams as! ArtistViewParams
+            vc.setUpParams(artist: params.artist)
+            viewController = vc
+            break
+        case Screen.track:
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "track") as TrackViewController
+            let params = screenParams as! TrackViewParams
+            vc.setUpParams(track: params.song, artist: params.artist)
+            viewController = vc
+            break
+        case Screen.album:
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "album") as AlbumViewController
+            let params = screenParams as! AlbumViewParams
+            vc.setUpParams(album: params.album, artist: params.artist)
+            viewController = vc
+            break
         default:
             viewController = UIViewController()
             break
@@ -85,6 +106,9 @@ class IosGeneralScreenNavigator : ScreenNavigator {
         case Screen.browser:
             openBrowserIfPossible(params: params)
             break
+        case Screen.youtube:
+            openYouTubeIfPossible(params: params)
+            break
         default:
             break
         }
@@ -96,6 +120,15 @@ class IosGeneralScreenNavigator : ScreenNavigator {
             return
         }
         if let url = URL(string: browserParams.url) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    private func openYouTubeIfPossible(params: ScreenParams?){
+        guard let youtubeParams = params as? YouTubeScreenParams else {
+            return
+        }
+        if let url = URL(string: youtubeParams.url) {
             UIApplication.shared.open(url)
         }
     }

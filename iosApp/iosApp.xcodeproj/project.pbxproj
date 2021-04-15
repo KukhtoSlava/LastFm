@@ -29,6 +29,25 @@
 		E56C7F89261F379100E69720 /* ScrobbleTrackViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56C7F87261F379100E69720 /* ScrobbleTrackViewCell.xib */; };
 		E56C7F8B261F591600E69720 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F8A261F591600E69720 /* UIImageViewExtension.swift */; };
 		E57EAA992626FBEB00FC56B7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57EAA982626FBEB00FC56B7 /* BaseViewController.swift */; };
+		E57EAA9C26271E5900FC56B7 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57EAA9B26271E5900FC56B7 /* ArtistViewController.swift */; };
+		E57EAA9E26273BC700FC56B7 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57EAA9D26273BC700FC56B7 /* StringExtension.swift */; };
+		E57EAAA12627518B00FC56B7 /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57EAAA02627518B00FC56B7 /* TrackViewController.swift */; };
+		E5ACCD5F2628434C00E09FC1 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD5E2628434C00E09FC1 /* CellType.swift */; };
+		E5ACCD61262845D600E09FC1 /* CellPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD60262845D600E09FC1 /* CellPrototype.swift */; };
+		E5ACCD6526284A7000E09FC1 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD6326284A7000E09FC1 /* ImageTableViewCell.swift */; };
+		E5ACCD6626284A7000E09FC1 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ACCD6426284A7000E09FC1 /* ImageTableViewCell.xib */; };
+		E5ACCD6926284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD6726284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.swift */; };
+		E5ACCD6A26284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ACCD6826284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.xib */; };
+		E5ACCD6F26284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD6D26284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.swift */; };
+		E5ACCD7026284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ACCD6E26284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.xib */; };
+		E5ACCD73262854D500E09FC1 /* TrackTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD71262854D500E09FC1 /* TrackTitleTableViewCell.swift */; };
+		E5ACCD74262854D500E09FC1 /* TrackTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ACCD72262854D500E09FC1 /* TrackTitleTableViewCell.xib */; };
+		E5ACCD77262855C300E09FC1 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD75262855C300E09FC1 /* TrackTableViewCell.swift */; };
+		E5ACCD78262855C300E09FC1 /* TrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5ACCD76262855C300E09FC1 /* TrackTableViewCell.xib */; };
+		E5ACCD7B2628567700E09FC1 /* AlbumForTableMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD7A2628567700E09FC1 /* AlbumForTableMapper.swift */; };
+		E5ACCD7E26285A8F00E09FC1 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD7D26285A8F00E09FC1 /* AlbumViewController.swift */; };
+		E5ACCD8026286E2700E09FC1 /* ArtistForTableMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD7F26286E2700E09FC1 /* ArtistForTableMapper.swift */; };
+		E5ACCD8226286ED700E09FC1 /* TrackForTableMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ACCD8126286ED700E09FC1 /* TrackForTableMapper.swift */; };
 		E5C6B03326242A1300483108 /* TimeStampHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6B03226242A1300483108 /* TimeStampHelper.swift */; };
 		E5E8857C26205AEF000F2D6E /* EmptyFieldViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E8857A26205AEF000F2D6E /* EmptyFieldViewCell.swift */; };
 		E5E8857D26205AEF000F2D6E /* EmptyFieldViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E8857B26205AEF000F2D6E /* EmptyFieldViewCell.xib */; };
@@ -84,6 +103,25 @@
 		E56C7F87261F379100E69720 /* ScrobbleTrackViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrobbleTrackViewCell.xib; sourceTree = "<group>"; };
 		E56C7F8A261F591600E69720 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		E57EAA982626FBEB00FC56B7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E57EAA9B26271E5900FC56B7 /* ArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
+		E57EAA9D26273BC700FC56B7 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		E57EAAA02627518B00FC56B7 /* TrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
+		E5ACCD5E2628434C00E09FC1 /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
+		E5ACCD60262845D600E09FC1 /* CellPrototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPrototype.swift; sourceTree = "<group>"; };
+		E5ACCD6326284A7000E09FC1 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		E5ACCD6426284A7000E09FC1 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		E5ACCD6726284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobblesAndListenersTableViewCell.swift; sourceTree = "<group>"; };
+		E5ACCD6826284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrobblesAndListenersTableViewCell.xib; sourceTree = "<group>"; };
+		E5ACCD6D26284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTitleAndDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		E5ACCD6E26284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseTitleAndDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		E5ACCD71262854D500E09FC1 /* TrackTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTitleTableViewCell.swift; sourceTree = "<group>"; };
+		E5ACCD72262854D500E09FC1 /* TrackTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTitleTableViewCell.xib; sourceTree = "<group>"; };
+		E5ACCD75262855C300E09FC1 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
+		E5ACCD76262855C300E09FC1 /* TrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTableViewCell.xib; sourceTree = "<group>"; };
+		E5ACCD7A2628567700E09FC1 /* AlbumForTableMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumForTableMapper.swift; sourceTree = "<group>"; };
+		E5ACCD7D26285A8F00E09FC1 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		E5ACCD7F26286E2700E09FC1 /* ArtistForTableMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistForTableMapper.swift; sourceTree = "<group>"; };
+		E5ACCD8126286ED700E09FC1 /* TrackForTableMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackForTableMapper.swift; sourceTree = "<group>"; };
 		E5C6B03226242A1300483108 /* TimeStampHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampHelper.swift; sourceTree = "<group>"; };
 		E5E8857A26205AEF000F2D6E /* EmptyFieldViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFieldViewCell.swift; sourceTree = "<group>"; };
 		E5E8857B26205AEF000F2D6E /* EmptyFieldViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyFieldViewCell.xib; sourceTree = "<group>"; };
@@ -158,6 +196,9 @@
 		E519C5B9261B105F00B06468 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E5ACCD7C26285A7900E09FC1 /* album */,
+				E5ACCD5D2628432B00E09FC1 /* pick */,
+				E57EAA9F26274BE500FC56B7 /* track */,
 				E57EAA9A2627109000FC56B7 /* artist */,
 				E519C5BF261B116600B06468 /* main */,
 				E519C5BE261B115A00B06468 /* auth */,
@@ -231,8 +272,63 @@
 		E57EAA9A2627109000FC56B7 /* artist */ = {
 			isa = PBXGroup;
 			children = (
+				E57EAA9B26271E5900FC56B7 /* ArtistViewController.swift */,
 			);
 			path = artist;
+			sourceTree = "<group>";
+		};
+		E57EAA9F26274BE500FC56B7 /* track */ = {
+			isa = PBXGroup;
+			children = (
+				E57EAAA02627518B00FC56B7 /* TrackViewController.swift */,
+			);
+			path = track;
+			sourceTree = "<group>";
+		};
+		E5ACCD5D2628432B00E09FC1 /* pick */ = {
+			isa = PBXGroup;
+			children = (
+				E5ACCD792628566100E09FC1 /* mappers */,
+				E5ACCD6226284A4800E09FC1 /* cells */,
+				E5ACCD5E2628434C00E09FC1 /* CellType.swift */,
+				E5ACCD60262845D600E09FC1 /* CellPrototype.swift */,
+			);
+			path = pick;
+			sourceTree = "<group>";
+		};
+		E5ACCD6226284A4800E09FC1 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E5ACCD6326284A7000E09FC1 /* ImageTableViewCell.swift */,
+				E5ACCD6426284A7000E09FC1 /* ImageTableViewCell.xib */,
+				E5ACCD6726284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.swift */,
+				E5ACCD6826284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.xib */,
+				E5ACCD6D26284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.swift */,
+				E5ACCD6E26284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.xib */,
+				E5ACCD71262854D500E09FC1 /* TrackTitleTableViewCell.swift */,
+				E5ACCD72262854D500E09FC1 /* TrackTitleTableViewCell.xib */,
+				E5ACCD75262855C300E09FC1 /* TrackTableViewCell.swift */,
+				E5ACCD76262855C300E09FC1 /* TrackTableViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		E5ACCD792628566100E09FC1 /* mappers */ = {
+			isa = PBXGroup;
+			children = (
+				E5ACCD7A2628567700E09FC1 /* AlbumForTableMapper.swift */,
+				E5ACCD7F26286E2700E09FC1 /* ArtistForTableMapper.swift */,
+				E5ACCD8126286ED700E09FC1 /* TrackForTableMapper.swift */,
+			);
+			path = mappers;
+			sourceTree = "<group>";
+		};
+		E5ACCD7C26285A7900E09FC1 /* album */ = {
+			isa = PBXGroup;
+			children = (
+				E5ACCD7D26285A8F00E09FC1 /* AlbumViewController.swift */,
+			);
+			path = album;
 			sourceTree = "<group>";
 		};
 		E5C6B031262429FE00483108 /* helpers */ = {
@@ -240,6 +336,7 @@
 			children = (
 				E5C6B03226242A1300483108 /* TimeStampHelper.swift */,
 				E546B0082625C4D40050CF94 /* IosHtmlParser.swift */,
+				E57EAA9D26273BC700FC56B7 /* StringExtension.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -378,12 +475,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E8858226206CE5000F2D6E /* FavouriteTrackViewCell.xib in Resources */,
+				E5ACCD78262855C300E09FC1 /* TrackTableViewCell.xib in Resources */,
 				7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */,
 				7555FF85242A565B00829871 /* Assets.xcassets in Resources */,
 				E5E885902620AB78000F2D6E /* FavouriteArtistViewCell.xib in Resources */,
+				E5ACCD74262854D500E09FC1 /* TrackTitleTableViewCell.xib in Resources */,
 				E5E885872620991F000F2D6E /* FavouriteAlbumViewCell.xib in Resources */,
+				E5ACCD6626284A7000E09FC1 /* ImageTableViewCell.xib in Resources */,
 				E56C7F89261F379100E69720 /* ScrobbleTrackViewCell.xib in Resources */,
 				E519C5B8261B0B4E00B06468 /* Main.storyboard in Resources */,
+				E5ACCD7026284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.xib in Resources */,
+				E5ACCD6A26284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.xib in Resources */,
 				E5E8858B2620A685000F2D6E /* EmptyFieldCollectionViewCell.xib in Resources */,
 				E5E8857D26205AEF000F2D6E /* EmptyFieldViewCell.xib in Resources */,
 			);
@@ -417,16 +519,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E8857C26205AEF000F2D6E /* EmptyFieldViewCell.swift in Sources */,
+				E5ACCD5F2628434C00E09FC1 /* CellType.swift in Sources */,
 				E519C5BC261B109100B06468 /* IosGeneralScreenNavigator.swift in Sources */,
+				E57EAA9C26271E5900FC56B7 /* ArtistViewController.swift in Sources */,
 				E5F9CF4126238F3A001BFD2A /* UITabBarDelegate.swift in Sources */,
 				E5E8858F2620AB78000F2D6E /* FavouriteArtistViewCell.swift in Sources */,
+				E5ACCD8026286E2700E09FC1 /* ArtistForTableMapper.swift in Sources */,
 				E5C6B03326242A1300483108 /* TimeStampHelper.swift in Sources */,
 				E5F9CF43262396C7001BFD2A /* UIColorExtension.swift in Sources */,
+				E57EAAA12627518B00FC56B7 /* TrackViewController.swift in Sources */,
+				E5ACCD7B2628567700E09FC1 /* AlbumForTableMapper.swift in Sources */,
 				7555FF7F242A565900829871 /* AppDelegate.swift in Sources */,
+				E57EAA9E26273BC700FC56B7 /* StringExtension.swift in Sources */,
 				E5E8858A2620A685000F2D6E /* EmptyFieldCollectionViewCell.swift in Sources */,
 				E5F9CF3D26236FE6001BFD2A /* MainTabBarViewController.swift in Sources */,
 				E5E885862620991F000F2D6E /* FavouriteAlbumViewCell.swift in Sources */,
+				E5ACCD6926284BB200E09FC1 /* ScrobblesAndListenersTableViewCell.swift in Sources */,
 				E56C7F80261F2CFC00E69720 /* FavouriteAlbumsViewController.swift in Sources */,
+				E5ACCD61262845D600E09FC1 /* CellPrototype.swift in Sources */,
 				E56C7F88261F379100E69720 /* ScrobbleTrackViewCell.swift in Sources */,
 				E56C7F7E261F2CE200E69720 /* FavouriteTracksViewController.swift in Sources */,
 				E57EAA992626FBEB00FC56B7 /* BaseViewController.swift in Sources */,
@@ -434,13 +544,19 @@
 				E519C5C3261B155400B06468 /* AuthViewController.swift in Sources */,
 				E56C7F82261F2D0F00E69720 /* FavouriteArtistsViewController.swift in Sources */,
 				E519C5CD261B9F7700B06468 /* UIProgressViewExtension.swift in Sources */,
+				E5ACCD73262854D500E09FC1 /* TrackTitleTableViewCell.swift in Sources */,
 				E56C7F8B261F591600E69720 /* UIImageViewExtension.swift in Sources */,
 				E519C5C5261B156200B06468 /* MainViewController.swift in Sources */,
+				E5ACCD6526284A7000E09FC1 /* ImageTableViewCell.swift in Sources */,
 				7555FF81242A565900829871 /* SceneDelegate.swift in Sources */,
+				E5ACCD6F26284EDA00E09FC1 /* BaseTitleAndDescriptionTableViewCell.swift in Sources */,
 				E5E8858126206CE5000F2D6E /* FavouriteTrackViewCell.swift in Sources */,
+				E5ACCD77262855C300E09FC1 /* TrackTableViewCell.swift in Sources */,
 				E546B0092625C4D40050CF94 /* IosHtmlParser.swift in Sources */,
 				E56C7F7C261F2CC300E69720 /* ProfileViewController.swift in Sources */,
 				E56C7F84261F2D1C00E69720 /* ScrobblesViewController.swift in Sources */,
+				E5ACCD8226286ED700E09FC1 /* TrackForTableMapper.swift in Sources */,
+				E5ACCD7E26285A8F00E09FC1 /* AlbumViewController.swift in Sources */,
 				E519C5C1261B119600B06468 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

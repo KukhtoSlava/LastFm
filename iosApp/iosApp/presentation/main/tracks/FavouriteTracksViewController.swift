@@ -23,6 +23,7 @@ class FavouriteTracksViewController: MainViewController {
         super.viewDidLoad()
         initTable()
         favouriteTracksViewModel.subscribe()
+        showActivityIndicatory()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,6 +95,7 @@ extension FavouriteTracksViewController {
         if(data is FavouriteTracksUIData.Loading){
             refreshControl.beginRefreshing()
         }else if(data is FavouriteTracksUIData.Success){
+            hideActivityIndicatory()
             refreshControl.endRefreshing()
             let favouriteTracksData = data as! FavouriteTracksUIData.Success
             let footer = FavouriteTrack(track: "", artist: "", scrobbles: 0, imagePath: "")
@@ -102,6 +104,7 @@ extension FavouriteTracksViewController {
             favouriteTrackList.append(footer)
             favouriteTracksTableView.reloadData()
         }else if(data is FavouriteTracksUIData.Error){
+            hideActivityIndicatory()
             refreshControl.endRefreshing()
             let errorData = data as! FavouriteTracksUIData.Error
             showErrorMessage(message: errorData.message)

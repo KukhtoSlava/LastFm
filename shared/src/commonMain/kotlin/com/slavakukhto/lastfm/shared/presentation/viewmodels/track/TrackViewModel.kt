@@ -57,12 +57,12 @@ class TrackViewModelImpl : TrackViewModel() {
 
     override fun onArtistClicked(artist: String) {
         val artistViewParams = ArtistViewParams(artist = artist)
-        screenNavigator.pushScreen(Screen.ARTIST, artistViewParams, clearBackStack = false)
+        screenNavigator.pushScreen(Screen.ARTIST, artistViewParams, clearBackStack = false, withAnimation = true)
     }
 
     override fun onAlbumClicked(artist: String, album: String) {
         val albumViewParams = AlbumViewParams(album = album, artist = artist)
-        screenNavigator.pushScreen(Screen.ALBUM, albumViewParams, clearBackStack = false)
+        screenNavigator.pushScreen(Screen.ALBUM, albumViewParams, clearBackStack = false, withAnimation = true)
     }
 
     override fun onYouTubeClicked(link: String) {

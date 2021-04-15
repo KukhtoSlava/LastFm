@@ -23,6 +23,7 @@ class FavouriteAlbumsViewController: MainViewController {
         super.viewDidLoad()
         initCollection()
         favouriteAlbumsViewModel.subscribe()
+        showActivityIndicatory()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,6 +95,7 @@ extension FavouriteAlbumsViewController {
         if(data is FavouriteAlbumsUIData.Loading){
             refreshControl.beginRefreshing()
         }else if(data is FavouriteAlbumsUIData.Success){
+            hideActivityIndicatory()
             refreshControl.endRefreshing()
             let favouriteAlbumData = data as! FavouriteAlbumsUIData.Success
             let footer = FavouriteAlbum(artist: "", album: "", scrobbles: 0, imagePath: "")
@@ -102,6 +104,7 @@ extension FavouriteAlbumsViewController {
             favouriteAlbumsList.append(footer)
             albumsCollectionView.reloadData()
         }else if(data is FavouriteAlbumsUIData.Error){
+            hideActivityIndicatory()
             refreshControl.endRefreshing()
             let errorData = data as! FavouriteAlbumsUIData.Error
             showErrorMessage(message: errorData.message)
