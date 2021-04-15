@@ -55,9 +55,16 @@ class AuthViewController: BaseViewController {
         loginViewModel.resetPasswordClicked()
     }
     
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        userNameEditText.resignFirstResponder()
+        userPasswordEditText.resignFirstResponder()
+    }
+    
     private func initViews(){
         progressBar.animateProgress()
         userPasswordEditText.isSecureTextEntry = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     deinit {
