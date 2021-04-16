@@ -11,6 +11,10 @@ import shared
 
 class FavouriteTracksViewController: MainViewController {
     
+    private static let favouriteTrackCell = "FavouriteTrackCell"
+    private static let emptyTrackCell = "EmptyTrackCell"
+    private static let cellHeight: CGFloat = 105
+    
     @IBOutlet weak var favouriteTracksTableView: UITableView!
     private var refreshControl = UIRefreshControl()
     private var favouriteTrackList: [FavouriteTrack] = []
@@ -27,7 +31,7 @@ class FavouriteTracksViewController: MainViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = "Tracks"
+        navigationController?.navigationBar.topItem?.title = String(format: NSLocalizedString("tracks", comment: ""))
         super.viewDidAppear(animated)
         favouriteTracksViewModel.liveData.observe(lifecycle: lifecycle) { data in
             self.onUIDataReceived(uiData: data!)
@@ -41,8 +45,8 @@ class FavouriteTracksViewController: MainViewController {
     private func initTable(){
         favouriteTracksTableView.delegate = self
         favouriteTracksTableView.dataSource = self
-        favouriteTracksTableView.register(UINib(nibName: "FavouriteTrackViewCell", bundle: nil), forCellReuseIdentifier: "FavouriteTrackCell")
-        favouriteTracksTableView.register(UINib(nibName: "EmptyFieldViewCell", bundle: nil), forCellReuseIdentifier: "EmptyTrackCell")
+        favouriteTracksTableView.register(UINib(nibName: FavouriteTrackViewCell.typeName, bundle: nil), forCellReuseIdentifier: FavouriteTracksViewController.favouriteTrackCell)
+        favouriteTracksTableView.register(UINib(nibName: EmptyFieldViewCell.typeName, bundle: nil), forCellReuseIdentifier: FavouriteTracksViewController.emptyTrackCell)
         refreshControl.tintColor = .white
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         favouriteTracksTableView.addSubview(refreshControl)
@@ -66,17 +70,17 @@ extension FavouriteTracksViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let track = favouriteTrackList[indexPath.row]
         if(track.artist.isEmpty && track.track.isEmpty && track.imagePath.isEmpty){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyTrackCell", for: indexPath) as! EmptyFieldViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: FavouriteTracksViewController.emptyTrackCell, for: indexPath) as! EmptyFieldViewCell
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FavouriteTrackCell", for: indexPath) as! FavouriteTrackViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: FavouriteTracksViewController.favouriteTrackCell, for: indexPath) as! FavouriteTrackViewCell
             cell.setFavouriteTrack(track: track)
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 105
+        return FavouriteTracksViewController.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -102,7 +106,7 @@ extension FavouriteTracksViewController {
             hideActivityIndicatory()
             refreshControl.endRefreshing()
             let favouriteTracksData = data as! FavouriteTracksUIData.Success
-            let footer = FavouriteTrack(track: "", artist: "", scrobbles: 0, imagePath: "")
+            let footer = FavouriteTrack(track: String.empty(), artist: String.empty(), scrobbles: 0, imagePath: String.empty())
             favouriteTrackList.removeAll()
             favouriteTrackList = favouriteTracksData.favouriteTracks
             favouriteTrackList.append(footer)

@@ -14,3 +14,5 @@ class EmptyFieldViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 }
+
+extension EmptyFieldViewCell : NameDescribable {}

@@ -24,3 +24,5 @@ class ImageTableViewCell: UITableViewCell {
         pictureImageView.load(url: URL.init(string: prototype.imagePath)!)
     }
 }
+
+extension ImageTableViewCell : NameDescribable {}

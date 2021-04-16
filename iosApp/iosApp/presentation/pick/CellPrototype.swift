@@ -17,7 +17,7 @@ class CellPrototype {
 
 class ImageCellPrototype: CellPrototype {
     
-    var imagePath = ""
+    var imagePath = String.empty()
     
     override func getCellType() -> CellType {
         return .image
@@ -36,8 +36,8 @@ class ScrobblesAndListenersPrototype: CellPrototype {
 
 class ArtistPrototype: CellPrototype {
     
-    var artistTitle = "Artist"
-    var artist = ""
+    var artistTitle = String(format: NSLocalizedString("artist", comment: ""))
+    var artist = String.empty()
     
     override func getCellType() -> CellType {
         return .artist
@@ -46,9 +46,9 @@ class ArtistPrototype: CellPrototype {
 
 class FromAlbumPrototype: CellPrototype {
     
-    var fromAlbumTitle = "FromAlbum"
-    var fromAlbum = ""
-    var artist = ""
+    var fromAlbumTitle = String(format: NSLocalizedString("from_album", comment: ""))
+    var fromAlbum = String.empty()
+    var artist = String.empty()
     
     override func getCellType() -> CellType {
         return .fromAlbum
@@ -57,8 +57,8 @@ class FromAlbumPrototype: CellPrototype {
 
 class TagsPrototype : CellPrototype {
     
-    var tagsTitle = "Tags"
-    var tags = ""
+    var tagsTitle = String(format: NSLocalizedString("tags", comment: ""))
+    var tags = String.empty()
     
     override func getCellType() -> CellType {
         return .tags
@@ -67,8 +67,8 @@ class TagsPrototype : CellPrototype {
 
 class LastFMPrototype : CellPrototype {
     
-    var lastFmTitle = "Last FM"
-    var lastFm = ""
+    var lastFmTitle = String(format: NSLocalizedString("last_fm", comment: ""))
+    var lastFm = String.empty()
     
     override func getCellType() -> CellType {
         return .lastfm
@@ -77,8 +77,8 @@ class LastFMPrototype : CellPrototype {
 
 class YouTubePrototype: CellPrototype {
     
-    var youTubeTitle = "YouTube"
-    var youTube = ""
+    var youTubeTitle = String(format: NSLocalizedString("youtube", comment: ""))
+    var youTube = String.empty()
     
     override func getCellType() -> CellType {
         return .youtube
@@ -87,8 +87,8 @@ class YouTubePrototype: CellPrototype {
 
 class WikiPrototype : CellPrototype{
     
-    var wikiTitle = "Wiki"
-    var wiki = ""
+    var wikiTitle = String(format: NSLocalizedString("wiki", comment: ""))
+    var wiki = String.empty()
     
     override func getCellType() -> CellType {
         return .wiki
@@ -97,7 +97,7 @@ class WikiPrototype : CellPrototype{
 
 class TracksTitlePrototype : CellPrototype{
     
-    var title = "Tracks"
+    var title = String(format: NSLocalizedString("tracks", comment: ""))
     
     override func getCellType() -> CellType {
         return .tracksTitle
@@ -107,8 +107,8 @@ class TracksTitlePrototype : CellPrototype{
 class TrackPrototype : CellPrototype {
     
     var number = 0
-    var track = ""
-    var artist = ""
+    var track = String.empty()
+    var artist = String.empty()
     
     override func getCellType() -> CellType {
         return .track

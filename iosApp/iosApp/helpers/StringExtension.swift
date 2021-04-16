@@ -18,6 +18,17 @@ extension String {
         }
     }
     var htmlToString: String {
-        return htmlToAttributedString?.string ?? ""
+        return htmlToAttributedString?.string ?? String.empty()
+    }
+}
+
+extension String {
+    
+    static func empty() -> String {
+        return ""
+    }
+    
+    static func commaSeparator() -> String {
+        return ", "
     }
 }

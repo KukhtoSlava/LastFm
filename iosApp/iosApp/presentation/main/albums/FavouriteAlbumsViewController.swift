@@ -11,6 +11,9 @@ import shared
 
 class FavouriteAlbumsViewController: MainViewController {
     
+    private static let favouriteAlbumCell = "FavouriteAlbumCell"
+    private static let emptyFieldCollectionCell = "EmptyFieldCollectionCell"
+    
     @IBOutlet weak var albumsCollectionView: UICollectionView!
     private var refreshControl = UIRefreshControl()
     private var favouriteAlbumsList: [FavouriteAlbum] = []
@@ -27,7 +30,7 @@ class FavouriteAlbumsViewController: MainViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = "Albums"
+        navigationController?.navigationBar.topItem?.title = String(format: NSLocalizedString("albums", comment: ""))
         super.viewDidAppear(animated)
         favouriteAlbumsViewModel.liveData.observe(lifecycle: lifecycle) { data in
             self.onUIDataReceived(uiData: data!)
@@ -41,8 +44,8 @@ class FavouriteAlbumsViewController: MainViewController {
     private func initCollection(){
         albumsCollectionView.delegate = self
         albumsCollectionView.dataSource = self
-        albumsCollectionView.register(UINib(nibName: "FavouriteAlbumViewCell", bundle: nil), forCellWithReuseIdentifier: "FavouriteAlbumCell")
-        albumsCollectionView.register(UINib(nibName: "EmptyFieldCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "EmptyFieldCollectionCell")
+        albumsCollectionView.register(UINib(nibName: FavouriteAlbumViewCell.typeName, bundle: nil), forCellWithReuseIdentifier: FavouriteAlbumsViewController.favouriteAlbumCell)
+        albumsCollectionView.register(UINib(nibName: EmptyFieldCollectionViewCell.typeName, bundle: nil), forCellWithReuseIdentifier: FavouriteAlbumsViewController.emptyFieldCollectionCell)
         refreshControl.tintColor = .white
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         albumsCollectionView.addSubview(refreshControl)
@@ -66,10 +69,10 @@ extension FavouriteAlbumsViewController: UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let album = favouriteAlbumsList[indexPath.row]
         if(album.album.isEmpty && album.imagePath.isEmpty){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyFieldCollectionCell", for: indexPath) as! EmptyFieldCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavouriteAlbumsViewController.emptyFieldCollectionCell, for: indexPath) as! EmptyFieldCollectionViewCell
             return cell
         }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouriteAlbumCell", for: indexPath) as! FavouriteAlbumViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavouriteAlbumsViewController.favouriteAlbumCell, for: indexPath) as! FavouriteAlbumViewCell
             cell.setFavouriteAlbum(favouriteAlbum: album)
             return cell
         }
@@ -98,7 +101,7 @@ extension FavouriteAlbumsViewController {
             hideActivityIndicatory()
             refreshControl.endRefreshing()
             let favouriteAlbumData = data as! FavouriteAlbumsUIData.Success
-            let footer = FavouriteAlbum(artist: "", album: "", scrobbles: 0, imagePath: "")
+            let footer = FavouriteAlbum(artist: String.empty(), album: String.empty(), scrobbles: 0, imagePath: String.empty())
             favouriteAlbumsList.removeAll()
             favouriteAlbumsList = favouriteAlbumData.favouriteAlbums
             favouriteAlbumsList.append(footer)

@@ -14,3 +14,5 @@ class EmptyFieldCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 }
+
+extension EmptyFieldCollectionViewCell : NameDescribable {}

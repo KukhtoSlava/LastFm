@@ -13,7 +13,7 @@ class IosHtmlParser: HtmlParser {
     
     func findYouTubeLink(responseBody: String) -> String {
         do {
-            var name: String = ""
+            var name: String = String.empty()
             let regex = try NSRegularExpression(pattern: "(http[s]?://(?:www\\.)?youtube.com\\S+)", options: NSRegularExpression.Options.caseInsensitive)
             let matches = regex.matches(in: responseBody, options: [], range: NSRange(location: 0, length: responseBody.utf16.count))
             if let match = matches.first {
@@ -25,13 +25,13 @@ class IosHtmlParser: HtmlParser {
             }
             return name
         } catch {
-            return ""
+            return String.empty()
         }
     }
     
     func findArtistImage(responseBody: String) -> String{
         do {
-            var name: String = ""
+            var name: String = String.empty()
             let regex = try NSRegularExpression(pattern: "class=\"header-new-background-image\".*\\s*.*\\s*.*\\s*content=\"(.*)\".*\\s*></div>", options: NSRegularExpression.Options.caseInsensitive)
             let matches = regex.matches(in: responseBody, options: [], range: NSRange(location: 0, length: responseBody.utf16.count))
             if let match = matches.first {
@@ -42,7 +42,7 @@ class IosHtmlParser: HtmlParser {
             }
             return name
         } catch {
-            return ""
+            return String.empty()
         }
     }
 }

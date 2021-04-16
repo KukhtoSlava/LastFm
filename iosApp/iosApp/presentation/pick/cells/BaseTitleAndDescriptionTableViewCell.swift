@@ -51,3 +51,5 @@ class BaseTitleAndDescriptionTableViewCell: UITableViewCell {
         descriptionLabel.text = prototype.wiki
     }
 }
+
+extension BaseTitleAndDescriptionTableViewCell : NameDescribable {}

@@ -31,7 +31,7 @@ class ProfileViewController: MainViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = "Profile"
+        navigationController?.navigationBar.topItem?.title = String(format: NSLocalizedString("profile", comment: ""))
         super.viewDidAppear(animated)
         profileViewModel.liveData.observe(lifecycle: lifecycle) { data in
             self.onUIDataReceived(uiData: data!)

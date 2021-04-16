@@ -24,10 +24,13 @@ class ScrobbleTrackViewCell: UITableViewCell {
         trackLabel.text = scrobblesTrack.track
         artistLabel.text = scrobblesTrack.artist
         if(scrobblesTrack.date.isEmpty){
-            scrobblesDateLabel.text = "Scrobbles now"
+            scrobblesDateLabel.text = NSLocalizedString("scrobbles_now", comment: "")
         }else{
             scrobblesDateLabel.text = scrobblesTrack.date
         }
         trackImage.load(url: URL.init(string: scrobblesTrack.imagePath)!)
     }
 }
+
+
+extension ScrobbleTrackViewCell : NameDescribable {}

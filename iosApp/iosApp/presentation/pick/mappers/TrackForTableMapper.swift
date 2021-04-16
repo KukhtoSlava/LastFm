@@ -22,7 +22,7 @@ class TrackForTableMapper{
         array.append(scrobblesAndListenersPrototype)
         if(!trackModel.tags.isEmpty){
             let tagsPrototype = TagsPrototype()
-            tagsPrototype.tags = trackModel.tags.joined(separator:", ")
+            tagsPrototype.tags = trackModel.tags.joined(separator: String.commaSeparator())
             array.append(tagsPrototype)
         }
         let artistPrototype = ArtistPrototype()

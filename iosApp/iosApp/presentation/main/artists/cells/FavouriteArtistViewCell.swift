@@ -23,6 +23,8 @@ class FavouriteArtistViewCell: UICollectionViewCell {
     func setFavouriteArtist(favouriteArtist: FavouriteArtist){
         imageArtist.load(url: URL.init(string: favouriteArtist.imagePath)!)
         artistLabel.text = favouriteArtist.artist
-        scrobblesLabel.text = "Scrobbles \(favouriteArtist.scrobbles)"
+        scrobblesLabel.text = String(format: NSLocalizedString("scrobbles_count", comment: ""), favouriteArtist.scrobbles)
     }
 }
+
+extension FavouriteArtistViewCell : NameDescribable {}

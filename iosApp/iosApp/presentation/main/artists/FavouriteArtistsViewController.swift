@@ -11,6 +11,9 @@ import shared
 
 class FavouriteArtistsViewController: MainViewController {
     
+    private static let favouriteArtistCell = "FavouriteArtistCell"
+    private static let emptyFieldCollectionCell = "EmptyFieldCollectionCell"
+    
     @IBOutlet weak var favouriteArtistCollectionView: UICollectionView!
     private var refreshControl = UIRefreshControl()
     private var favouriteArtistList: [FavouriteArtist] = []
@@ -27,7 +30,7 @@ class FavouriteArtistsViewController: MainViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = "Artists"
+        navigationController?.navigationBar.topItem?.title = NSLocalizedString("artists", comment: "")
         super.viewDidAppear(animated)
         favouriteArtistsViewModel.liveData.observe(lifecycle: lifecycle) { data in
             self.onUIDataReceived(uiData: data!)
@@ -41,8 +44,8 @@ class FavouriteArtistsViewController: MainViewController {
     private func initCollection(){
         favouriteArtistCollectionView.delegate = self
         favouriteArtistCollectionView.dataSource = self
-        favouriteArtistCollectionView.register(UINib(nibName: "FavouriteArtistViewCell", bundle: nil), forCellWithReuseIdentifier: "FavouriteArtistCell")
-        favouriteArtistCollectionView.register(UINib(nibName: "EmptyFieldCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "EmptyFieldCollectionCell")
+        favouriteArtistCollectionView.register(UINib(nibName: FavouriteArtistViewCell.typeName, bundle: nil), forCellWithReuseIdentifier: FavouriteArtistsViewController.favouriteArtistCell)
+        favouriteArtistCollectionView.register(UINib(nibName: EmptyFieldCollectionViewCell.typeName, bundle: nil), forCellWithReuseIdentifier: FavouriteArtistsViewController.emptyFieldCollectionCell)
         refreshControl.tintColor = .white
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         favouriteArtistCollectionView.addSubview(refreshControl)
@@ -66,10 +69,10 @@ extension FavouriteArtistsViewController: UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let artist = favouriteArtistList[indexPath.row]
         if(artist.artist.isEmpty && artist.imagePath.isEmpty){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyFieldCollectionCell", for: indexPath) as! EmptyFieldCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavouriteArtistsViewController.emptyFieldCollectionCell, for: indexPath) as! EmptyFieldCollectionViewCell
             return cell
         }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouriteArtistCell", for: indexPath) as! FavouriteArtistViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavouriteArtistsViewController.favouriteArtistCell, for: indexPath) as! FavouriteArtistViewCell
             cell.setFavouriteArtist(favouriteArtist: artist)
             return cell
         }
@@ -98,7 +101,7 @@ extension FavouriteArtistsViewController {
             hideActivityIndicatory()
             refreshControl.endRefreshing()
             let favouriteAlbumData = data as! FavouriteArtistsUIData.Success
-            let footer = FavouriteArtist(artist: "", scrobbles: 0, imagePath: "")
+            let footer = FavouriteArtist(artist: String.empty(), scrobbles: 0, imagePath: String.empty())
             favouriteArtistList.removeAll()
             favouriteArtistList = favouriteAlbumData.favouriteArtists
             favouriteArtistList.append(footer)

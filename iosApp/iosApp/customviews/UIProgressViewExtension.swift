@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension UIProgressView {
+    
     private struct Holder {
         static var _progressFull:Bool = false
         static var _completeLoading:Bool = false;

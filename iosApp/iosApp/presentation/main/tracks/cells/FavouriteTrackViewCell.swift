@@ -23,7 +23,9 @@ class FavouriteTrackViewCell: UITableViewCell {
     func setFavouriteTrack(track: FavouriteTrack){
         trackLabel.text = track.track
         artistLabel.text = track.artist
-        scrobblesLabel.text = "Scrobbles \(track.scrobbles)"
+        scrobblesLabel.text = String(format: NSLocalizedString("scrobbles_count", comment: ""), track.scrobbles)
         imageTrack.load(url: URL.init(string: track.imagePath)!)
     }
 }
+
+extension FavouriteTrackViewCell : NameDescribable {}

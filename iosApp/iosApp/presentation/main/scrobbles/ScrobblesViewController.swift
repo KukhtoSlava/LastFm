@@ -11,6 +11,10 @@ import shared
 
 class ScrobblesViewController: MainViewController {
     
+    private static let scrobbleTrackCell = "ScrobbleTrackCell"
+    private static let emptyTrackCell = "EmptyTrackCell"
+    private static let cellHeight: CGFloat = 105
+    
     @IBOutlet weak var scrobblesTableView: UITableView!
     private var refreshControl = UIRefreshControl()
     private var scrobblesTrackList: [ScrobblesTrack] = []
@@ -27,7 +31,7 @@ class ScrobblesViewController: MainViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = "Scrobbles"
+        navigationController?.navigationBar.topItem?.title = NSLocalizedString("scrobbles", comment: "")
         super.viewDidAppear(animated)
         scrobblesViewModel.liveData.observe(lifecycle: lifecycle) { data in
             self.onUIDataReceived(uiData: data!)
@@ -41,8 +45,8 @@ class ScrobblesViewController: MainViewController {
     private func initTable(){
         scrobblesTableView.delegate = self
         scrobblesTableView.dataSource = self
-        scrobblesTableView.register(UINib(nibName: "ScrobbleTrackViewCell", bundle: nil), forCellReuseIdentifier: "ScrobbleTrackCell")
-        scrobblesTableView.register(UINib(nibName: "EmptyFieldViewCell", bundle: nil), forCellReuseIdentifier: "EmptyTrackCell")
+        scrobblesTableView.register(UINib(nibName: ScrobbleTrackViewCell.typeName, bundle: nil), forCellReuseIdentifier: ScrobblesViewController.scrobbleTrackCell)
+        scrobblesTableView.register(UINib(nibName: EmptyFieldViewCell.typeName, bundle: nil), forCellReuseIdentifier: ScrobblesViewController.emptyTrackCell)
         refreshControl.tintColor = .white
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         scrobblesTableView.addSubview(refreshControl)
@@ -64,16 +68,16 @@ extension ScrobblesViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 105
+        return ScrobblesViewController.cellHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let track = scrobblesTrackList[indexPath.row]
         if(track.artist.isEmpty && track.track.isEmpty && track.imagePath.isEmpty){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyTrackCell", for: indexPath) as! EmptyFieldViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ScrobblesViewController.emptyTrackCell, for: indexPath) as! EmptyFieldViewCell
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ScrobbleTrackCell", for: indexPath) as! ScrobbleTrackViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ScrobblesViewController.scrobbleTrackCell, for: indexPath) as! ScrobbleTrackViewCell
             cell.setTrack(scrobblesTrack: track)
             return cell
         }
@@ -102,7 +106,7 @@ extension ScrobblesViewController {
             hideActivityIndicatory()
             refreshControl.endRefreshing()
             let scrobblesData = data as! ScrobblesUIData.Success
-            let footer = ScrobblesTrack(track: "", artist: "", imagePath: "", date: "")
+            let footer = ScrobblesTrack(track: String.empty(), artist: String.empty(), imagePath: String.empty(), date: String.empty())
             scrobblesTrackList.removeAll()
             scrobblesTrackList = scrobblesData.scrobblesTracks
             scrobblesTrackList.append(footer)

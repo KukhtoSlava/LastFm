@@ -12,6 +12,14 @@ import shared
 
 class IosGeneralScreenNavigator : ScreenNavigator {
     
+    private static let uiStoryboardName = "Main"
+    private static let splashStoryBoardId = "splash"
+    private static let authStoryBoardId = "auth"
+    private static let mainStoryBoardId = "main"
+    private static let artistStoryBoardId = "artist"
+    private static let trackStoryBoardId = "track"
+    private static let albumStoryBoardId = "album"
+    
     private var navigationController: UINavigationController
     
     init(navigationController: UINavigationController){
@@ -50,34 +58,34 @@ class IosGeneralScreenNavigator : ScreenNavigator {
         let viewController: UIViewController
         switch screen {
         case Screen.splash:
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            viewController = storyboard.instantiateViewController(identifier: "splash") as SplashViewController
+            let storyboard = UIStoryboard(name: IosGeneralScreenNavigator.uiStoryboardName, bundle: nil)
+            viewController = storyboard.instantiateViewController(identifier: IosGeneralScreenNavigator.splashStoryBoardId) as SplashViewController
             break
         case Screen.auth:
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            viewController = storyboard.instantiateViewController(identifier: "auth") as AuthViewController
+            let storyboard = UIStoryboard(name: IosGeneralScreenNavigator.uiStoryboardName, bundle: nil)
+            viewController = storyboard.instantiateViewController(identifier: IosGeneralScreenNavigator.authStoryBoardId) as AuthViewController
             break
         case Screen.main:
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            viewController = storyboard.instantiateViewController(identifier: "main") as MainTabBarViewController
+            let storyboard = UIStoryboard(name: IosGeneralScreenNavigator.uiStoryboardName, bundle: nil)
+            viewController = storyboard.instantiateViewController(identifier: IosGeneralScreenNavigator.mainStoryBoardId) as MainTabBarViewController
             break
         case Screen.artist:
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "artist") as ArtistViewController
+            let storyboard = UIStoryboard(name: IosGeneralScreenNavigator.uiStoryboardName, bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: IosGeneralScreenNavigator.artistStoryBoardId) as ArtistViewController
             let params = screenParams as! ArtistViewParams
             vc.setUpParams(artist: params.artist)
             viewController = vc
             break
         case Screen.track:
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "track") as TrackViewController
+            let storyboard = UIStoryboard(name: IosGeneralScreenNavigator.uiStoryboardName, bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: IosGeneralScreenNavigator.trackStoryBoardId) as TrackViewController
             let params = screenParams as! TrackViewParams
             vc.setUpParams(track: params.song, artist: params.artist)
             viewController = vc
             break
         case Screen.album:
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "album") as AlbumViewController
+            let storyboard = UIStoryboard(name: IosGeneralScreenNavigator.uiStoryboardName, bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: IosGeneralScreenNavigator.albumStoryBoardId) as AlbumViewController
             let params = screenParams as! AlbumViewParams
             vc.setUpParams(album: params.album, artist: params.artist)
             viewController = vc

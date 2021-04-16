@@ -9,7 +9,19 @@
 import Foundation
 import UIKit
 
-class BasePickViewController : BaseViewController{
+class BasePickViewController : BaseViewController {
+    
+    private static let imageTableCell = "ImageTableCell"
+    private static let scrobblesAndListenersTableCell = "ScrobblesAndListenersTableCell"
+    private static let baseTitleAndDescriptionTableCell = "BaseTitleAndDescriptionTableCell"
+    private static let trackTitleTableCell = "TrackTitleTableCell"
+    private static let trackTableCell = "TrackTableCell"
+    
+    private static let trackTitleCellHeight: CGFloat = 50
+    private static let imageCellHeight: CGFloat = 250
+    private static let scrobblesAndListenersCellHeight: CGFloat = 100
+    private static let trackCellHeight: CGFloat = 30
+    private static let defaultHeight: CGFloat = 0
     
     var tableView: UITableView!
     var refreshControl = UIRefreshControl()
@@ -36,11 +48,11 @@ class BasePickViewController : BaseViewController{
     private func initTable(){
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageTableCell")
-        tableView.register(UINib(nibName: "ScrobblesAndListenersTableViewCell", bundle: nil), forCellReuseIdentifier: "ScrobblesAndListenersTableCell")
-        tableView.register(UINib(nibName: "BaseTitleAndDescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "BaseTitleAndDescriptionTableCell")
-        tableView.register(UINib(nibName: "TrackTitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TrackTitleTableCell")
-        tableView.register(UINib(nibName: "TrackTableViewCell", bundle: nil), forCellReuseIdentifier: "TrackTableCell")
+        tableView.register(UINib(nibName: ImageTableViewCell.typeName, bundle: nil), forCellReuseIdentifier: BasePickViewController.imageTableCell)
+        tableView.register(UINib(nibName: ScrobblesAndListenersTableViewCell.typeName, bundle: nil), forCellReuseIdentifier: BasePickViewController.scrobblesAndListenersTableCell)
+        tableView.register(UINib(nibName: BaseTitleAndDescriptionTableViewCell.typeName, bundle: nil), forCellReuseIdentifier: BasePickViewController.baseTitleAndDescriptionTableCell)
+        tableView.register(UINib(nibName: TrackTitleTableViewCell.typeName, bundle: nil), forCellReuseIdentifier: BasePickViewController.trackTitleTableCell)
+        tableView.register(UINib(nibName: TrackTableViewCell.typeName, bundle: nil), forCellReuseIdentifier: BasePickViewController.trackTableCell)
         refreshControl.tintColor = .white
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
@@ -59,51 +71,51 @@ extension BasePickViewController : UITableViewDataSource, UITableViewDelegate{
         let uiTableViewCell: UITableViewCell
         switch prototype.getCellType() {
         case .artist:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTitleAndDescriptionTableCell", for: indexPath) as! BaseTitleAndDescriptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.baseTitleAndDescriptionTableCell, for: indexPath) as! BaseTitleAndDescriptionTableViewCell
             cell.setPrototype(prototype: prototype as! ArtistPrototype)
             uiTableViewCell = cell
             break
         case .tags:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTitleAndDescriptionTableCell", for: indexPath) as! BaseTitleAndDescriptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.baseTitleAndDescriptionTableCell, for: indexPath) as! BaseTitleAndDescriptionTableViewCell
             cell.setPrototype(prototype: prototype as! TagsPrototype)
             uiTableViewCell = cell
             break
         case .lastfm:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTitleAndDescriptionTableCell", for: indexPath) as! BaseTitleAndDescriptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.baseTitleAndDescriptionTableCell, for: indexPath) as! BaseTitleAndDescriptionTableViewCell
             cell.setPrototype(prototype: prototype as! LastFMPrototype)
             uiTableViewCell = cell
             break
         case .wiki:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTitleAndDescriptionTableCell", for: indexPath) as! BaseTitleAndDescriptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.baseTitleAndDescriptionTableCell, for: indexPath) as! BaseTitleAndDescriptionTableViewCell
             cell.setPrototype(prototype: prototype as! WikiPrototype)
             uiTableViewCell = cell
             break
         case .fromAlbum:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTitleAndDescriptionTableCell", for: indexPath) as! BaseTitleAndDescriptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.baseTitleAndDescriptionTableCell, for: indexPath) as! BaseTitleAndDescriptionTableViewCell
             cell.setPrototype(prototype: prototype as! FromAlbumPrototype)
             uiTableViewCell = cell
             break
         case .youtube:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTitleAndDescriptionTableCell", for: indexPath) as! BaseTitleAndDescriptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.baseTitleAndDescriptionTableCell, for: indexPath) as! BaseTitleAndDescriptionTableViewCell
             cell.setPrototype(prototype: prototype as! YouTubePrototype)
             uiTableViewCell = cell
             break
         case .tracksTitle:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TrackTitleTableCell", for: indexPath) as! TrackTitleTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.trackTitleTableCell, for: indexPath) as! TrackTitleTableViewCell
             uiTableViewCell = cell
             break
         case .image:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableCell", for: indexPath) as! ImageTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.imageTableCell, for: indexPath) as! ImageTableViewCell
             cell.setPrototype(prototype: prototype as! ImageCellPrototype)
             uiTableViewCell = cell
             break
         case .scrobblesAndListeners:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ScrobblesAndListenersTableCell", for: indexPath) as! ScrobblesAndListenersTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.scrobblesAndListenersTableCell, for: indexPath) as! ScrobblesAndListenersTableViewCell
             cell.setPrototype(prototype: prototype as! ScrobblesAndListenersPrototype)
             uiTableViewCell = cell
             break
         case .track:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TrackTableCell", for: indexPath) as! TrackTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BasePickViewController.trackTableCell, for: indexPath) as! TrackTableViewCell
             cell.setPrototype(prototype: prototype as! TrackPrototype)
             uiTableViewCell = cell
             break
@@ -122,19 +134,19 @@ extension BasePickViewController : UITableViewDataSource, UITableViewDelegate{
             size = UITableView.automaticDimension
             break
         case .tracksTitle:
-            size = 50
+            size = BasePickViewController.trackTitleCellHeight
             break
         case .image:
-            size = 250
+            size = BasePickViewController.imageCellHeight
             break
         case .scrobblesAndListeners:
-            size = 100
+            size = BasePickViewController.scrobblesAndListenersCellHeight
             break
         case .track:
-            size = 30
+            size = BasePickViewController.trackCellHeight
             break
         default:
-            size = 0
+            size = BasePickViewController.defaultHeight
             break
         }
         return size

@@ -24,3 +24,5 @@ class TrackTableViewCell: UITableViewCell {
         trackLabel.text = "\(prototype.number). \(prototype.track)"
     }
 }
+
+extension TrackTableViewCell : NameDescribable {}

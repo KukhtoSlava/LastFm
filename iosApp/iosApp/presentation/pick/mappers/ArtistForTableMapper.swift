@@ -22,7 +22,7 @@ class ArtistForTableMapper {
         array.append(scrobblesAndListenersPrototype)
         if(!artistModel.tags.isEmpty){
             let tagsPrototype = TagsPrototype()
-            tagsPrototype.tags = artistModel.tags.joined(separator:", ")
+            tagsPrototype.tags = artistModel.tags.joined(separator: String.commaSeparator())
             array.append(tagsPrototype)
         }
         if(!artistModel.url.isEmpty){

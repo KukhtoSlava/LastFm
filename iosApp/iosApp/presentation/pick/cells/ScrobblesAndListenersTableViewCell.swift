@@ -26,3 +26,5 @@ class ScrobblesAndListenersTableViewCell: UITableViewCell {
         listenersLabel.text = "\(prototype.listeners)"
     }
 }
+
+extension ScrobblesAndListenersTableViewCell : NameDescribable {}

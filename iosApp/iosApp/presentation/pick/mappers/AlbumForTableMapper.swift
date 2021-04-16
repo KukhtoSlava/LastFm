@@ -22,7 +22,7 @@ class AlbumForTableMapper {
         array.append(scrobblesAndListenersPrototype)
         if(!albumModel.tags.isEmpty){
             let tagsPrototype = TagsPrototype()
-            tagsPrototype.tags = albumModel.tags.joined(separator:", ")
+            tagsPrototype.tags = albumModel.tags.joined(separator: String.commaSeparator())
             array.append(tagsPrototype)
         }
         let artistPrototype = ArtistPrototype()

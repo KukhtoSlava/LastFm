@@ -26,6 +26,8 @@ class FavouriteAlbumViewCell: UICollectionViewCell {
     func setFavouriteAlbum(favouriteAlbum: FavouriteAlbum){
         albumImage.load(url: URL.init(string: favouriteAlbum.imagePath)!)
         albumLabel.text = favouriteAlbum.album
-        scrobblesLabel.text = "Scrobbles \(favouriteAlbum.scrobbles)"
+        scrobblesLabel.text = String(format: NSLocalizedString("scrobbles_count", comment: ""), favouriteAlbum.scrobbles)
     }
 }
+
+extension FavouriteAlbumViewCell : NameDescribable {}

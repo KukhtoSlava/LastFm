@@ -19,3 +19,5 @@ class TrackTitleTableViewCell: UITableViewCell {
     }
     
 }
+
+extension TrackTitleTableViewCell : NameDescribable {}
