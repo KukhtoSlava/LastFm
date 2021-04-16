@@ -19,3 +19,6 @@
 "last_fm" = "Last FM";
 "youtube" = "YouTube";
 "wiki" = "Wiki";
+"error" = "Error";
+"throwable" = "Oops, something went wrong";
+"ok" = "OK";

@@ -25,8 +25,11 @@ class BaseViewController: UIViewController {
     }
     
     func showErrorMessage(message: String?){
-        let alert = UIAlertController(title: "Error", message: message ?? "Oops, something went wrong", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        let title = String(format: NSLocalizedString("error", comment: ""))
+        let description = String(format: NSLocalizedString("throwable", comment: ""))
+        let confirm = String(format: NSLocalizedString("ok", comment: ""))
+        let alert = UIAlertController(title: title, message: message ?? description, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: confirm, style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
