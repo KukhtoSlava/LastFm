@@ -160,7 +160,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="artistTableView" destination="BRu-r8-8ak" id="ogn-cO-8uB"/>
+                        <outlet property="artistTableView" destination="BRu-r8-8ak" id="AnY-9C-qgM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Juw-7f-n68" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

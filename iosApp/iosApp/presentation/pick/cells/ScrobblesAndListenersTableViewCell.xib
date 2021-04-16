@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scrobbles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvS-7D-Qid">
-                        <rect key="frame" x="20" y="20" width="160" height="40"/>
+                        <rect key="frame" x="20" y="10" width="160" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="kvS-7D-Qid" secondAttribute="height" multiplier="4:1" id="Sfo-m9-RaO"/>
                         </constraints>
@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listeners" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veW-ka-Lce">
-                        <rect key="frame" x="140" y="20" width="160" height="40"/>
+                        <rect key="frame" x="140" y="10" width="160" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="veW-ka-Lce" secondAttribute="height" multiplier="4:1" id="5Ah-jc-o3y"/>
                         </constraints>
@@ -36,20 +36,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nc4-ld-mGc">
-                        <rect key="frame" x="16" y="60" width="160" height="40"/>
+                        <rect key="frame" x="16" y="50" width="160" height="26.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Nc4-ld-mGc" secondAttribute="height" multiplier="4:1" id="4gD-hl-tS5"/>
+                            <constraint firstAttribute="width" secondItem="Nc4-ld-mGc" secondAttribute="height" multiplier="6:1" id="4gD-hl-tS5"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd7-hf-U9h">
-                        <rect key="frame" x="144" y="60" width="160" height="40"/>
+                        <rect key="frame" x="144" y="50" width="160" height="26.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="dd7-hf-U9h" secondAttribute="height" multiplier="4:1" id="XT0-vk-G62"/>
+                            <constraint firstAttribute="width" secondItem="dd7-hf-U9h" secondAttribute="height" multiplier="6:1" id="XT0-vk-G62"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -59,12 +59,12 @@
                     <constraint firstItem="dd7-hf-U9h" firstAttribute="top" secondItem="veW-ka-Lce" secondAttribute="bottom" id="3OQ-sp-302"/>
                     <constraint firstAttribute="trailing" secondItem="veW-ka-Lce" secondAttribute="trailing" constant="20" id="ARl-qy-YXj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dd7-hf-U9h" secondAttribute="trailing" id="CHF-iZ-Tq2"/>
-                    <constraint firstItem="veW-ka-Lce" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="DPU-7I-vpq"/>
+                    <constraint firstItem="veW-ka-Lce" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="DPU-7I-vpq"/>
                     <constraint firstItem="Nc4-ld-mGc" firstAttribute="top" secondItem="kvS-7D-Qid" secondAttribute="bottom" id="Eaq-5w-AGu"/>
                     <constraint firstItem="Nc4-ld-mGc" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="LGe-vt-dvq"/>
                     <constraint firstItem="veW-ka-Lce" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="WuY-JO-MxU"/>
                     <constraint firstItem="kvS-7D-Qid" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="grc-TH-grS"/>
-                    <constraint firstItem="kvS-7D-Qid" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="gsH-Ik-pOA"/>
+                    <constraint firstItem="kvS-7D-Qid" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="gsH-Ik-pOA"/>
                     <constraint firstItem="Nc4-ld-mGc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="oEg-tX-hJ5"/>
                     <constraint firstItem="dd7-hf-U9h" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="pIl-OX-6Sq"/>
                     <constraint firstItem="kvS-7D-Qid" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="q79-Qz-7bi"/>

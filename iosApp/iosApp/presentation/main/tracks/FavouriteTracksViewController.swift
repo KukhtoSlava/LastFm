@@ -75,6 +75,10 @@ extension FavouriteTracksViewController: UITableViewDataSource, UITableViewDeleg
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 105
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let track = favouriteTrackList[indexPath.row]
         if(track.artist.isEmpty && track.track.isEmpty && track.imagePath.isEmpty){

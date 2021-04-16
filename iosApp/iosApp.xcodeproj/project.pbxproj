@@ -19,6 +19,7 @@
 		E519C5C3261B155400B06468 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5C2261B155400B06468 /* AuthViewController.swift */; };
 		E519C5C5261B156200B06468 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5C4261B156200B06468 /* MainViewController.swift */; };
 		E519C5CD261B9F7700B06468 /* UIProgressViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5CC261B9F7700B06468 /* UIProgressViewExtension.swift */; };
+		E543C3CD2629716C009D4304 /* BasePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543C3CC2629716C009D4304 /* BasePickViewController.swift */; };
 		E546B0092625C4D40050CF94 /* IosHtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546B0082625C4D40050CF94 /* IosHtmlParser.swift */; };
 		E56C7F7C261F2CC300E69720 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7B261F2CC300E69720 /* ProfileViewController.swift */; };
 		E56C7F7E261F2CE200E69720 /* FavouriteTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7D261F2CE200E69720 /* FavouriteTracksViewController.swift */; };
@@ -93,6 +94,7 @@
 		E519C5C2261B155400B06468 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		E519C5C4261B156200B06468 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E519C5CC261B9F7700B06468 /* UIProgressViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProgressViewExtension.swift; sourceTree = "<group>"; };
+		E543C3CC2629716C009D4304 /* BasePickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePickViewController.swift; sourceTree = "<group>"; };
 		E546B0082625C4D40050CF94 /* IosHtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IosHtmlParser.swift; sourceTree = "<group>"; };
 		E56C7F7B261F2CC300E69720 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E56C7F7D261F2CE200E69720 /* FavouriteTracksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTracksViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				E5ACCD6226284A4800E09FC1 /* cells */,
 				E5ACCD5E2628434C00E09FC1 /* CellType.swift */,
 				E5ACCD60262845D600E09FC1 /* CellPrototype.swift */,
+				E543C3CC2629716C009D4304 /* BasePickViewController.swift */,
 			);
 			path = pick;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E543C3CD2629716C009D4304 /* BasePickViewController.swift in Sources */,
 				E5E8857C26205AEF000F2D6E /* EmptyFieldViewCell.swift in Sources */,
 				E5ACCD5F2628434C00E09FC1 /* CellType.swift in Sources */,
 				E519C5BC261B109100B06468 /* IosGeneralScreenNavigator.swift in Sources */,

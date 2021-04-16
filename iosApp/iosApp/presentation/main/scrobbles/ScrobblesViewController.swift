@@ -63,6 +63,10 @@ extension ScrobblesViewController: UITableViewDataSource, UITableViewDelegate{
         return scrobblesTrackList.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 105
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let track = scrobblesTrackList[indexPath.row]
         if(track.artist.isEmpty && track.track.isEmpty && track.imagePath.isEmpty){

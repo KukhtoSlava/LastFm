@@ -15,6 +15,10 @@ class FavouriteAlbumViewCell: UICollectionViewCell {
     @IBOutlet weak var albumLabel: UILabel!
     @IBOutlet weak var scrobblesLabel: UILabel!
     
+    override func prepareForReuse() {
+        albumImage.image = nil
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
