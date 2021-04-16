@@ -13,7 +13,6 @@ class ParseYouTubeSourceImpl(private val httpClient: HttpClient) : ParseYouTubeS
 
     override suspend fun getBody(url: String): String {
         val response = httpClient.get<HttpResponse>(url)
-        val body = response.readText()
-        return body
+        return response.readText()
     }
 }
