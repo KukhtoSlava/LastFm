@@ -11,8 +11,6 @@
 		7555FF81242A565900829871 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF80242A565900829871 /* SceneDelegate.swift */; };
 		7555FF85242A565B00829871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7555FF84242A565B00829871 /* Assets.xcassets */; };
 		7555FF8B242A565B00829871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7555FF89242A565B00829871 /* LaunchScreen.storyboard */; };
-		7555FFB2242A642300829871 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; };
-		7555FFB3242A642300829871 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E519C5B8261B0B4E00B06468 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E519C5B7261B0B4E00B06468 /* Main.storyboard */; };
 		E519C5BC261B109100B06468 /* IosGeneralScreenNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5BB261B109100B06468 /* IosGeneralScreenNavigator.swift */; };
 		E519C5C1261B119600B06468 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E519C5C0261B119600B06468 /* SplashViewController.swift */; };
@@ -22,6 +20,8 @@
 		E543C3CD2629716C009D4304 /* BasePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543C3CC2629716C009D4304 /* BasePickViewController.swift */; };
 		E543C3D226299188009D4304 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E543C3D426299188009D4304 /* Localizable.strings */; };
 		E543C3D9262998FB009D4304 /* TypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543C3D8262998FB009D4304 /* TypeName.swift */; };
+		E543C3DF2629B10F009D4304 /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; };
+		E543C3E02629B10F009D4304 /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7555FFB1242A642300829871 /* shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E546B0092625C4D40050CF94 /* IosHtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E546B0082625C4D40050CF94 /* IosHtmlParser.swift */; };
 		E56C7F7C261F2CC300E69720 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7B261F2CC300E69720 /* ProfileViewController.swift */; };
 		E56C7F7E261F2CE200E69720 /* FavouriteTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56C7F7D261F2CE200E69720 /* FavouriteTracksViewController.swift */; };
@@ -69,13 +69,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7555FFB4242A642300829871 /* Embed Frameworks */ = {
+		E543C3E12629B10F009D4304 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7555FFB3242A642300829871 /* shared.framework in Embed Frameworks */,
+				E543C3E02629B10F009D4304 /* shared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7555FFB2242A642300829871 /* shared.framework in Frameworks */,
+				E543C3DF2629B10F009D4304 /* shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +435,7 @@
 				7555FF77242A565900829871 /* Sources */,
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
-				7555FFB4242A642300829871 /* Embed Frameworks */,
+				E543C3E12629B10F009D4304 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
